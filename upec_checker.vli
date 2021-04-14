@@ -1,0 +1,218 @@
+include "micro_soc_macro.vli";
+include "blackboxing.vli";
+include "no_pending_access.vli";
+
+macro integer K := 1; end macro;
+
+macro integer USER_MODE := 0; end macro;
+
+macro unsigned secret_cache_tag := 20'h8abcd; end macro;
+
+constraint no_reset :=
+  !reset;
+end constraint;
+
+assertion dcache_channel_onehot := //select signals must be one-hot encoded
+  !(soc1/dcache/_T_893_0 && soc1/dcache/_T_893_1) &&
+//-
+  !(soc2/dcache/_T_893_0 && soc2/dcache/_T_893_1) ;
+end assertion;
+
+assertion mshrs_one_hot := //select signals must be one-hot encoded
+  ((!soc1/dcache/mshrs/_T_259_2 && !soc1/dcache/mshrs/_T_259_1 && !soc1/dcache/mshrs/_T_259_0) ||
+   (!soc1/dcache/mshrs/_T_259_2 && !soc1/dcache/mshrs/_T_259_1 && soc1/dcache/mshrs/_T_259_0) ||
+   (!soc1/dcache/mshrs/_T_259_2 && soc1/dcache/mshrs/_T_259_1 && !soc1/dcache/mshrs/_T_259_0) ||
+   (soc1/dcache/mshrs/_T_259_2 && !soc1/dcache/mshrs/_T_259_1 && !soc1/dcache/mshrs/_T_259_0)) &&
+//-
+  ((!soc2/dcache/mshrs/_T_259_2 && !soc2/dcache/mshrs/_T_259_1 && !soc2/dcache/mshrs/_T_259_0) ||
+   (!soc2/dcache/mshrs/_T_259_2 && !soc2/dcache/mshrs/_T_259_1 && soc2/dcache/mshrs/_T_259_0) ||
+   (!soc2/dcache/mshrs/_T_259_2 && soc2/dcache/mshrs/_T_259_1 && !soc2/dcache/mshrs/_T_259_0) ||
+   (soc2/dcache/mshrs/_T_259_2 && !soc2/dcache/mshrs/_T_259_1 && !soc2/dcache/mshrs/_T_259_0)) ;
+end assertion;
+
+macro boolean ldq_failure_bit :=
+  (!soc1/lsu/ldq_0_bits_failure || (soc1/lsu/will_fire_load_incoming_0 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0)) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0)) &&
+//-
+  (!soc2/lsu/ldq_0_bits_failure || (soc2/lsu/will_fire_load_incoming_0 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0)) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0)) ;
+end macro;
+
+macro boolean uses_ldq :=
+  (!soc1/core/iregister_read/exe_reg_uops_0_ctrl_is_load || soc1/core/iregister_read/exe_reg_uops_0_uses_ldq) &&
+  (!soc1/lsu/exe_tlb_uop_0_ctrl_is_load || soc1/lsu/exe_tlb_uop_0_uses_ldq) &&
+  (!soc1/core/iregister_read/rrd_uops_0_ctrl_is_load || soc1/core/iregister_read/rrd_uops_0_uses_ldq) &&
+  (!soc1/core/iregister_read/RegisterReadDecode_io_rrd_uop_ctrl_is_load || soc1/core/iregister_read/RegisterReadDecode_io_rrd_uop_uses_ldq) &&
+
+  (!(soc1/lsu/will_fire_load_retry_0 && soc1/lsu/ldq_retry_idx == 4'h0) || soc1/lsu/ldq_0_bits_uop_uses_ldq) &&
+  (!(soc1/lsu/will_fire_load_retry_0 && soc1/lsu/ldq_retry_idx == 4'h1) || soc1/lsu/ldq_1_bits_uop_uses_ldq) &&
+  (!(soc1/lsu/will_fire_load_retry_0 && soc1/lsu/ldq_retry_idx == 4'h2) || soc1/lsu/ldq_2_bits_uop_uses_ldq) &&
+  (!(soc1/lsu/will_fire_load_retry_0 && soc1/lsu/ldq_retry_idx == 4'h3) || soc1/lsu/ldq_3_bits_uop_uses_ldq) &&
+  (!(soc1/lsu/will_fire_load_retry_0 && soc1/lsu/ldq_retry_idx == 4'h4) || soc1/lsu/ldq_4_bits_uop_uses_ldq) &&
+  (!(soc1/lsu/will_fire_load_retry_0 && soc1/lsu/ldq_retry_idx == 4'h5) || soc1/lsu/ldq_5_bits_uop_uses_ldq) &&
+  (!(soc1/lsu/will_fire_load_retry_0 && soc1/lsu/ldq_retry_idx == 4'h6) || soc1/lsu/ldq_6_bits_uop_uses_ldq) &&
+  (!(soc1/lsu/will_fire_load_retry_0 && soc1/lsu/ldq_retry_idx == 4'h7) || soc1/lsu/ldq_7_bits_uop_uses_ldq) &&
+  (!(soc1/lsu/will_fire_load_retry_0 && soc1/lsu/ldq_retry_idx == 4'h8) || soc1/lsu/ldq_8_bits_uop_uses_ldq) &&
+  (!(soc1/lsu/will_fire_load_retry_0 && soc1/lsu/ldq_retry_idx == 4'h9) || soc1/lsu/ldq_9_bits_uop_uses_ldq) &&
+  (!(soc1/lsu/will_fire_load_retry_0 && soc1/lsu/ldq_retry_idx == 4'ha) || soc1/lsu/ldq_10_bits_uop_uses_ldq) &&
+  (!(soc1/lsu/will_fire_load_retry_0 && soc1/lsu/ldq_retry_idx == 4'hb) || soc1/lsu/ldq_11_bits_uop_uses_ldq) &&
+  (!(soc1/lsu/will_fire_load_retry_0 && soc1/lsu/ldq_retry_idx == 4'hc) || soc1/lsu/ldq_12_bits_uop_uses_ldq) &&
+  (!(soc1/lsu/will_fire_load_retry_0 && soc1/lsu/ldq_retry_idx == 4'hd) || soc1/lsu/ldq_13_bits_uop_uses_ldq) &&
+  (!(soc1/lsu/will_fire_load_retry_0 && soc1/lsu/ldq_retry_idx == 4'he) || soc1/lsu/ldq_14_bits_uop_uses_ldq) &&
+  (!(soc1/lsu/will_fire_load_retry_0 && soc1/lsu/ldq_retry_idx == 4'hf) || soc1/lsu/ldq_15_bits_uop_uses_ldq) &&
+//-
+  (!soc2/core/iregister_read/exe_reg_uops_0_ctrl_is_load || soc2/core/iregister_read/exe_reg_uops_0_uses_ldq) &&
+  (!soc2/lsu/exe_tlb_uop_0_ctrl_is_load || soc2/lsu/exe_tlb_uop_0_uses_ldq) &&
+  (!soc2/core/iregister_read/rrd_uops_0_ctrl_is_load || soc2/core/iregister_read/rrd_uops_0_uses_ldq) &&
+  (!soc2/core/iregister_read/RegisterReadDecode_io_rrd_uop_ctrl_is_load || soc2/core/iregister_read/RegisterReadDecode_io_rrd_uop_uses_ldq) &&
+
+  (!(soc2/lsu/will_fire_load_retry_0 && soc2/lsu/ldq_retry_idx == 4'h0) || soc2/lsu/ldq_0_bits_uop_uses_ldq) &&
+  (!(soc2/lsu/will_fire_load_retry_0 && soc2/lsu/ldq_retry_idx == 4'h1) || soc2/lsu/ldq_1_bits_uop_uses_ldq) &&
+  (!(soc2/lsu/will_fire_load_retry_0 && soc2/lsu/ldq_retry_idx == 4'h2) || soc2/lsu/ldq_2_bits_uop_uses_ldq) &&
+  (!(soc2/lsu/will_fire_load_retry_0 && soc2/lsu/ldq_retry_idx == 4'h3) || soc2/lsu/ldq_3_bits_uop_uses_ldq) &&
+  (!(soc2/lsu/will_fire_load_retry_0 && soc2/lsu/ldq_retry_idx == 4'h4) || soc2/lsu/ldq_4_bits_uop_uses_ldq) &&
+  (!(soc2/lsu/will_fire_load_retry_0 && soc2/lsu/ldq_retry_idx == 4'h5) || soc2/lsu/ldq_5_bits_uop_uses_ldq) &&
+  (!(soc2/lsu/will_fire_load_retry_0 && soc2/lsu/ldq_retry_idx == 4'h6) || soc2/lsu/ldq_6_bits_uop_uses_ldq) &&
+  (!(soc2/lsu/will_fire_load_retry_0 && soc2/lsu/ldq_retry_idx == 4'h7) || soc2/lsu/ldq_7_bits_uop_uses_ldq) &&
+  (!(soc2/lsu/will_fire_load_retry_0 && soc2/lsu/ldq_retry_idx == 4'h8) || soc2/lsu/ldq_8_bits_uop_uses_ldq) &&
+  (!(soc2/lsu/will_fire_load_retry_0 && soc2/lsu/ldq_retry_idx == 4'h9) || soc2/lsu/ldq_9_bits_uop_uses_ldq) &&
+  (!(soc2/lsu/will_fire_load_retry_0 && soc2/lsu/ldq_retry_idx == 4'ha) || soc2/lsu/ldq_10_bits_uop_uses_ldq) &&
+  (!(soc2/lsu/will_fire_load_retry_0 && soc2/lsu/ldq_retry_idx == 4'hb) || soc2/lsu/ldq_11_bits_uop_uses_ldq) &&
+  (!(soc2/lsu/will_fire_load_retry_0 && soc2/lsu/ldq_retry_idx == 4'hc) || soc2/lsu/ldq_12_bits_uop_uses_ldq) &&
+  (!(soc2/lsu/will_fire_load_retry_0 && soc2/lsu/ldq_retry_idx == 4'hd) || soc2/lsu/ldq_13_bits_uop_uses_ldq) &&
+  (!(soc2/lsu/will_fire_load_retry_0 && soc2/lsu/ldq_retry_idx == 4'he) || soc2/lsu/ldq_14_bits_uop_uses_ldq) &&
+  (!(soc2/lsu/will_fire_load_retry_0 && soc2/lsu/ldq_retry_idx == 4'hf) || soc2/lsu/ldq_15_bits_uop_uses_ldq) ;
+end macro;
+
+macro boolean uses_stq :=
+  (!soc1/core/iregister_read/exe_reg_uops_0_ctrl_is_sta || soc1/core/iregister_read/exe_reg_uops_0_uses_stq) &&
+  (!soc1/lsu/exe_tlb_uop_0_ctrl_is_sta || soc1/lsu/exe_tlb_uop_0_uses_stq) &&
+  (!soc1/core/iregister_read/rrd_uops_0_ctrl_is_sta || soc1/core/iregister_read/rrd_uops_0_uses_stq) &&
+  (!soc1/core/iregister_read/RegisterReadDecode_io_rrd_uop_ctrl_is_sta || soc1/core/iregister_read/RegisterReadDecode_io_rrd_uop_uses_stq) &&
+  (!soc1/core/iregister_read/exe_reg_uops_0_ctrl_is_std || soc1/core/iregister_read/exe_reg_uops_0_uses_stq) &&
+  (!soc1/core/iregister_read/rrd_uops_0_ctrl_is_std || soc1/core/iregister_read/rrd_uops_0_uses_stq) &&
+  (!soc1/core/iregister_read/RegisterReadDecode_io_rrd_uop_ctrl_is_std || soc1/core/iregister_read/RegisterReadDecode_io_rrd_uop_uses_stq) &&
+
+  (!(soc1/lsu/will_fire_sta_retry_0 && soc1/lsu/stq_retry_idx == 4'h0) || soc1/lsu/stq_0_bits_uop_uses_stq) &&
+  (!(soc1/lsu/will_fire_sta_retry_0 && soc1/lsu/stq_retry_idx == 4'h1) || soc1/lsu/stq_1_bits_uop_uses_stq) &&
+  (!(soc1/lsu/will_fire_sta_retry_0 && soc1/lsu/stq_retry_idx == 4'h2) || soc1/lsu/stq_2_bits_uop_uses_stq) &&
+  (!(soc1/lsu/will_fire_sta_retry_0 && soc1/lsu/stq_retry_idx == 4'h3) || soc1/lsu/stq_3_bits_uop_uses_stq) &&
+  (!(soc1/lsu/will_fire_sta_retry_0 && soc1/lsu/stq_retry_idx == 4'h4) || soc1/lsu/stq_4_bits_uop_uses_stq) &&
+  (!(soc1/lsu/will_fire_sta_retry_0 && soc1/lsu/stq_retry_idx == 4'h5) || soc1/lsu/stq_5_bits_uop_uses_stq) &&
+  (!(soc1/lsu/will_fire_sta_retry_0 && soc1/lsu/stq_retry_idx == 4'h6) || soc1/lsu/stq_6_bits_uop_uses_stq) &&
+  (!(soc1/lsu/will_fire_sta_retry_0 && soc1/lsu/stq_retry_idx == 4'h7) || soc1/lsu/stq_7_bits_uop_uses_stq) &&
+  (!(soc1/lsu/will_fire_sta_retry_0 && soc1/lsu/stq_retry_idx == 4'h8) || soc1/lsu/stq_8_bits_uop_uses_stq) &&
+  (!(soc1/lsu/will_fire_sta_retry_0 && soc1/lsu/stq_retry_idx == 4'h9) || soc1/lsu/stq_9_bits_uop_uses_stq) &&
+  (!(soc1/lsu/will_fire_sta_retry_0 && soc1/lsu/stq_retry_idx == 4'ha) || soc1/lsu/stq_10_bits_uop_uses_stq) &&
+  (!(soc1/lsu/will_fire_sta_retry_0 && soc1/lsu/stq_retry_idx == 4'hb) || soc1/lsu/stq_11_bits_uop_uses_stq) &&
+  (!(soc1/lsu/will_fire_sta_retry_0 && soc1/lsu/stq_retry_idx == 4'hc) || soc1/lsu/stq_12_bits_uop_uses_stq) &&
+  (!(soc1/lsu/will_fire_sta_retry_0 && soc1/lsu/stq_retry_idx == 4'hd) || soc1/lsu/stq_13_bits_uop_uses_stq) &&
+  (!(soc1/lsu/will_fire_sta_retry_0 && soc1/lsu/stq_retry_idx == 4'he) || soc1/lsu/stq_14_bits_uop_uses_stq) &&
+  (!(soc1/lsu/will_fire_sta_retry_0 && soc1/lsu/stq_retry_idx == 4'hf) || soc1/lsu/stq_15_bits_uop_uses_stq) &&
+//-
+  (!soc2/core/iregister_read/exe_reg_uops_0_ctrl_is_sta || soc2/core/iregister_read/exe_reg_uops_0_uses_stq) &&
+  (!soc2/lsu/exe_tlb_uop_0_ctrl_is_sta || soc2/lsu/exe_tlb_uop_0_uses_stq) &&
+  (!soc2/core/iregister_read/rrd_uops_0_ctrl_is_sta || soc2/core/iregister_read/rrd_uops_0_uses_stq) &&
+  (!soc2/core/iregister_read/RegisterReadDecode_io_rrd_uop_ctrl_is_sta || soc2/core/iregister_read/RegisterReadDecode_io_rrd_uop_uses_stq) &&
+  (!soc2/core/iregister_read/exe_reg_uops_0_ctrl_is_std || soc2/core/iregister_read/exe_reg_uops_0_uses_stq) &&
+  (!soc2/core/iregister_read/rrd_uops_0_ctrl_is_std || soc2/core/iregister_read/rrd_uops_0_uses_stq) &&
+  (!soc2/core/iregister_read/RegisterReadDecode_io_rrd_uop_ctrl_is_std || soc2/core/iregister_read/RegisterReadDecode_io_rrd_uop_uses_stq) &&
+
+  (!(soc2/lsu/will_fire_sta_retry_0 && soc2/lsu/stq_retry_idx == 4'h0) || soc2/lsu/stq_0_bits_uop_uses_stq) &&
+  (!(soc2/lsu/will_fire_sta_retry_0 && soc2/lsu/stq_retry_idx == 4'h1) || soc2/lsu/stq_1_bits_uop_uses_stq) &&
+  (!(soc2/lsu/will_fire_sta_retry_0 && soc2/lsu/stq_retry_idx == 4'h2) || soc2/lsu/stq_2_bits_uop_uses_stq) &&
+  (!(soc2/lsu/will_fire_sta_retry_0 && soc2/lsu/stq_retry_idx == 4'h3) || soc2/lsu/stq_3_bits_uop_uses_stq) &&
+  (!(soc2/lsu/will_fire_sta_retry_0 && soc2/lsu/stq_retry_idx == 4'h4) || soc2/lsu/stq_4_bits_uop_uses_stq) &&
+  (!(soc2/lsu/will_fire_sta_retry_0 && soc2/lsu/stq_retry_idx == 4'h5) || soc2/lsu/stq_5_bits_uop_uses_stq) &&
+  (!(soc2/lsu/will_fire_sta_retry_0 && soc2/lsu/stq_retry_idx == 4'h6) || soc2/lsu/stq_6_bits_uop_uses_stq) &&
+  (!(soc2/lsu/will_fire_sta_retry_0 && soc2/lsu/stq_retry_idx == 4'h7) || soc2/lsu/stq_7_bits_uop_uses_stq) &&
+  (!(soc2/lsu/will_fire_sta_retry_0 && soc2/lsu/stq_retry_idx == 4'h8) || soc2/lsu/stq_8_bits_uop_uses_stq) &&
+  (!(soc2/lsu/will_fire_sta_retry_0 && soc2/lsu/stq_retry_idx == 4'h9) || soc2/lsu/stq_9_bits_uop_uses_stq) &&
+  (!(soc2/lsu/will_fire_sta_retry_0 && soc2/lsu/stq_retry_idx == 4'ha) || soc2/lsu/stq_10_bits_uop_uses_stq) &&
+  (!(soc2/lsu/will_fire_sta_retry_0 && soc2/lsu/stq_retry_idx == 4'hb) || soc2/lsu/stq_11_bits_uop_uses_stq) &&
+  (!(soc2/lsu/will_fire_sta_retry_0 && soc2/lsu/stq_retry_idx == 4'hc) || soc2/lsu/stq_12_bits_uop_uses_stq) &&
+  (!(soc2/lsu/will_fire_sta_retry_0 && soc2/lsu/stq_retry_idx == 4'hd) || soc2/lsu/stq_13_bits_uop_uses_stq) &&
+  (!(soc2/lsu/will_fire_sta_retry_0 && soc2/lsu/stq_retry_idx == 4'he) || soc2/lsu/stq_14_bits_uop_uses_stq) &&
+  (!(soc2/lsu/will_fire_sta_retry_0 && soc2/lsu/stq_retry_idx == 4'hf) || soc2/lsu/stq_15_bits_uop_uses_stq) ;
+end macro;
+
+//load (or retry) from secret address without tlb miss -> page fault
+macro boolean page_table_protection :=
+  ( ( ( soc1/lsu/will_fire_load_incoming_0 || soc1/lsu/will_fire_hella_incoming_0 || soc1/lsu/will_fire_load_retry_0 )  && 
+	  soc1/lsu/dtlb/io_resp_0_paddr[31:12] == secret_cache_tag && !soc1/lsu/dtlb/io_resp_0_miss) 
+    ? ( soc1/lsu/dtlb/io_resp_0_pf_ld ) : true ) &&
+  ( ( ( soc1/lsu/will_fire_sta_incoming_0 || soc1/lsu/will_fire_sta_retry_0 || soc1/lsu/will_fire_stad_incoming_0 || soc1/lsu/will_fire_sfence_0 )  && 
+	  soc1/lsu/dtlb/io_resp_0_paddr[31:12] == secret_cache_tag && !soc1/lsu/dtlb/io_resp_0_miss) 
+    ? ( soc1/lsu/dtlb/io_resp_0_pf_st ) : true ) &&
+//-
+  ( ( ( soc2/lsu/will_fire_load_incoming_0 || soc2/lsu/will_fire_hella_incoming_0 || soc2/lsu/will_fire_load_retry_0  )  && 
+	  soc2/lsu/dtlb/io_resp_0_paddr[31:12] == secret_cache_tag && !soc2/lsu/dtlb/io_resp_0_miss) 
+    ? ( soc2/lsu/dtlb/io_resp_0_pf_ld ) : true ) &&
+  ( ( ( soc2/lsu/will_fire_sta_incoming_0 || soc2/lsu/will_fire_sta_retry_0  || soc2/lsu/will_fire_stad_incoming_0 || soc2/lsu/will_fire_sfence_0 )  && 
+	  soc2/lsu/dtlb/io_resp_0_paddr[31:12] == secret_cache_tag && !soc2/lsu/dtlb/io_resp_0_miss) 
+    ? ( soc2/lsu/dtlb/io_resp_0_pf_st ) : true ) ;
+end macro;
+
+macro boolean page_table_protection_icache :=
+  ( (soc1/frontend/tlb/io_resp_paddr[31:12] == secret_cache_tag && !soc1/frontend/tlb/io_resp_miss) ? soc1/frontend/tlb/io_resp_pf_inst : true) &&
+//-
+  ( (soc2/frontend/tlb/io_resp_paddr[31:12] == secret_cache_tag && !soc2/frontend/tlb/io_resp_miss) ? soc2/frontend/tlb/io_resp_pf_inst : true) ;
+end macro;
+
+macro boolean secret_load_speculative := 
+  ( soc1/dcache/io_lsu_resp_0_valid && soc2/dcache/io_lsu_resp_0_valid && 
+      soc1/dcache/io_lsu_resp_0_bits_data != soc2/dcache/io_lsu_resp_0_bits_data ) ? 
+	soc1/dcache/s2_req_0_uop_br_mask != 12'h0 && soc2/dcache/s2_req_0_uop_br_mask != 12'h0 : true; 
+end macro;
+
+macro boolean secret_data_protected := 
+  (soc1/core/csr/io_status_dprv == USER_MODE) ? 
+	page_table_protection : secret_load_speculative;
+end macro;
+
+macro boolean ptw :=
+  soc1/ptw_io_mem_req_bits_addr[31:12] != secret_cache_tag &&
+//-
+  soc2/ptw_io_mem_req_bits_addr[31:12] != secret_cache_tag ;
+end macro;
+
+
+
+property UPEC_boom;
+	dependencies: no_reset, dcache_channel_onehot, mshrs_one_hot;
+
+	assume:
+
+		at t: state_equivalence;
+
+		during[t, t+K]: blackboxing;
+
+		during[t, t+K]: secret_data_protected;
+		during[t, t+K]: page_table_protection_icache;
+
+		during[t, t+K]: soc1/core/csr/io_status_dprv == USER_MODE;
+		during[t, t+K]: soc2/core/csr/io_status_dprv == USER_MODE;
+
+		at t: no_pending_secret_access;
+
+		//at t: no_pending_spec_instr;
+		at t: uses_stq;
+		at t: uses_ldq;
+		at t: ldq_failure_bit;
+		at t: ptw;
+
+		during[t, t+K]: microequivalence == 1'b1;
+
+	prove: 
+		//at t+K: soc1/dcache/wb/wb_buffer_0 == soc2/dcache/wb/wb_buffer_0; //will be changed to state equivalence
+		//at t+1: soc1/core/iregfile/regfile__T_11_data == soc2/core/iregfile/regfile__T_11_data;
+		//at t+1: soc1/core/iregfile/regfile[0] == soc2/core/iregfile/regfile[0];
+		at t+1: no_pending_secret_access;
+		//at t+1: uses_stq;
+
+		//at t+K: (soc1/dcache/meta_0/io_write_valid == soc2/dcache/meta_0/io_write_valid);
+		//at t+K: (soc1/dcache/meta_0/io_write_valid == 1'b0 || ((soc1/dcache/meta_0/io_write_bits_data_tag == soc2/dcache/meta_0/io_write_bits_data_tag) && (soc1/dcache/meta_0/io_write_bits_data_coh_state == soc2/dcache/meta_0/io_write_bits_data_coh_state)));
+
+		// lAlert == 1'b0 && lAlert_earlyAlarm == 1'b0; 
+
+end property;
+
+
