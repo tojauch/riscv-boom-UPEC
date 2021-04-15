@@ -16,29 +16,13 @@ end macro;
 macro boolean no_pending_access_mem :=
   ( (soc1/buffer/Queue/ram_address[0][31:12] != secret_cache_tag) && 
     (soc1/buffer/Queue/ram_address[1][31:12] != secret_cache_tag) ) && 
-  /*( soc1/buffer/Queue/ram_address__T_5_data[31:12] != secret_cache_tag ||
-    soc1/buffer/Queue/ram_corrupt__T_5_data || soc1/buffer/Queue/ram_address__T_5_en) &&
-  ( soc1/buffer/Queue/ram_address__T_15_data[31:12] != secret_cache_tag ||
-    soc1/buffer/Queue/ram_corrupt__T_15_data ) &&*/
   ( (soc1/buffer/Queue_2/ram_address[0][31:12] != secret_cache_tag) && 
     (soc1/buffer/Queue_2/ram_address[1][31:12] != secret_cache_tag) ) && 
-  /*( soc1/buffer/Queue_2/ram_address__T_5_data[31:12] != secret_cache_tag ||
-    soc1/buffer/Queue_2/ram_corrupt__T_5_data || soc1/buffer/Queue_2/ram_address__T_5_en) &&
-  ( soc1/buffer/Queue_2/ram_address__T_15_data[31:12] != secret_cache_tag ||
-    soc1/buffer/Queue_2/ram_corrupt__T_15_data ) &&*/
-
+//-
   ( (soc2/buffer/Queue/ram_address[0][31:12] != secret_cache_tag) && 
     (soc2/buffer/Queue/ram_address[1][31:12] != secret_cache_tag) ) &&
-  /*( soc2/buffer/Queue/ram_address__T_5_data[31:12] != secret_cache_tag ||
-    soc2/buffer/Queue/ram_corrupt__T_5_data || soc2/buffer/Queue/ram_address__T_5_en)&& 
-  ( soc2/buffer/Queue/ram_address__T_15_data[31:12] != secret_cache_tag ||
-    soc2/buffer/Queue/ram_corrupt__T_15_data ) &&*/
   ( (soc2/buffer/Queue_2/ram_address[0][31:12] != secret_cache_tag) && 
     (soc2/buffer/Queue_2/ram_address[1][31:12] != secret_cache_tag) ) ;
-  /*( soc2/buffer/Queue_2/ram_address__T_5_data[31:12] != secret_cache_tag ||
-    soc2/buffer/Queue_2/ram_corrupt__T_5_data || soc2/buffer/Queue_2/ram_address__T_5_en) &&
-  ( soc2/buffer/Queue_2/ram_address__T_15_data[31:12] != secret_cache_tag ||
-    soc2/buffer/Queue_2/ram_corrupt__T_15_data ) ;*/
 end macro;
 //allow channel c and buffer in front of it to contain secret 
 
