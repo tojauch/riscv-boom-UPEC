@@ -1,0 +1,26 @@
+naming_style onespin
+# Name Radix Color Is_Clock
+clock DEFAULT DEFAULT { true} { false}
+reset DEFAULT DEFAULT { false} { false}
+soc1/dcache/s1_req_0_addr DEFAULT DEFAULT { false} { false}
+soc1/dcache/s1_type DEFAULT DEFAULT { false} { false}
+soc1/dcache/s1_valid_0 DEFAULT DEFAULT { false} { false}
+soc2/dcache/s1_req_0_addr DEFAULT DEFAULT { false} { false}
+soc2/dcache/s1_type DEFAULT DEFAULT { false} { false}
+soc2/dcache/s1_valid_0 DEFAULT DEFAULT { false} { false}
+SEPARATOR_Separator NONE DEFAULT { false} { false}
+soc1/lsu/will_fire_load_retry_0 DEFAULT DEFAULT { false} { false}
+soc1/lsu/ldq_retry_idx DEFAULT DEFAULT { false} { false}
+SEPARATOR_Separator NONE DEFAULT { false} { false}
+soc1/lsu/failed_loads_3 DEFAULT DEFAULT { false} { false}
+SEPARATOR_Separator NONE DEFAULT { false} { false}
+soc1/lsu/ldq_3_bits_addr_bits DEFAULT DEFAULT { false} { false}
+soc1/lsu/ldq_3_bits_failure DEFAULT DEFAULT { false} { false}
+soc1/lsu/ldq_3_bits_addr_is_virtual DEFAULT DEFAULT { false} { false}
+soc1/lsu/ldq_3_bits_addr_valid DEFAULT DEFAULT { false} { false}
+SEPARATOR_Separator NONE DEFAULT { false} { false}
+soc1/lsu/exe_tlb_vaddr_0 DEFAULT DEFAULT { false} { false}
+SEPARATOR_Separator NONE DEFAULT { false} { false}
+soc1/lsu/dtlb/io_resp_0_paddr DEFAULT DEFAULT { false} { false}
+soc1/lsu/dtlb/io_resp_0_miss DEFAULT DEFAULT { false} { false}
+soc1/lsu/dtlb/io_resp_0_pf_ld DEFAULT DEFAULT { false} { false}
