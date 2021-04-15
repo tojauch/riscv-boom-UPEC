@@ -1,0 +1,11 @@
+naming_style onespin
+# Name Radix Color Is_Clock
+clock DEFAULT DEFAULT { true} { false}
+reset DEFAULT DEFAULT { false} { false}
+soc1/buffer/Queue/ram_address DEFAULT DEFAULT { false} { false}
+soc2/buffer/Queue/ram_address DEFAULT DEFAULT { false} { false}
+SEPARATOR_Separator NONE DEFAULT { false} { false}
+soc1/frontend/icache/refill_paddr DEFAULT DEFAULT { false} { false}
+soc1/frontend/icache/refill_valid DEFAULT DEFAULT { false} { false}
+soc1/frontend/icache/s1_valid DEFAULT DEFAULT { false} { false}
+soc1/frontend/icache/s2_valid DEFAULT DEFAULT { false} { false}
