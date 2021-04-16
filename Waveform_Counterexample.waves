@@ -2,10 +2,20 @@ naming_style onespin
 # Name Radix Color Is_Clock
 clock DEFAULT DEFAULT { true} { false}
 reset DEFAULT DEFAULT { false} { false}
-soc1/buffer/Queue/ram_address DEFAULT DEFAULT { false} { false}
-soc2/buffer/Queue/ram_address DEFAULT DEFAULT { false} { false}
+soc1/dcache/s1_req_0_addr DEFAULT DEFAULT { false} { false}
+soc1/dcache/s1_valid_0 DEFAULT DEFAULT { false} { false}
+soc1/dcache/s1_type DEFAULT DEFAULT { false} { false}
 SEPARATOR_Separator NONE DEFAULT { false} { false}
-soc1/frontend/icache/refill_paddr DEFAULT DEFAULT { false} { false}
-soc1/frontend/icache/refill_valid DEFAULT DEFAULT { false} { false}
-soc1/frontend/icache/s1_valid DEFAULT DEFAULT { false} { false}
-soc1/frontend/icache/s2_valid DEFAULT DEFAULT { false} { false}
+SEPARATOR_Separator NONE DEFAULT { false} { false}
+soc1/dcache/io_lsu_req_bits_0_bits_addr DEFAULT DEFAULT { false} { false}
+soc1/lsu/stq_14_bits_addr_bits DEFAULT DEFAULT { false} { false}
+soc1/lsu/stq_14_bits_uop_exception DEFAULT DEFAULT { false} { false}
+soc1/lsu/stq_14_bits_addr_is_virtual DEFAULT DEFAULT { false} { false}
+soc1/lsu/stq_14_bits_addr_valid DEFAULT DEFAULT { false} { false}
+SEPARATOR_Separator NONE DEFAULT { false} { false}
+soc1/lsu/stq_execute_head DEFAULT DEFAULT { false} { false}
+soc1/lsu/will_fire_sta_retry_0 DEFAULT DEFAULT { false} { false}
+soc1/lsu/will_fire_store_commit_0 DEFAULT DEFAULT { false} { false}
+SEPARATOR_Separator NONE DEFAULT { false} { false}
+soc1/lsu/dtlb/io_resp_0_pf_st DEFAULT DEFAULT { false} { false}
+soc1/lsu/pf_st_0 DEFAULT DEFAULT { false} { false}
