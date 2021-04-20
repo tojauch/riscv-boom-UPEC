@@ -7,9 +7,13 @@
 
 
 macro boolean no_pending_access_icache :=
-  ( soc1/frontend/icache/refill_paddr[31:12] != secret_cache_tag || soc1/frontend/icache/s1_valid == 1'b0 ) &&
+  ( soc1/frontend/icache/refill_paddr[31:12] != secret_cache_tag) &&
+  ( soc1/frontend/_T_16[31:12] != secret_cache_tag || soc1/frontend/s1_is_replay == 1'b0 ) &&
+  ( soc1/frontend/s2_ppc[31:12] != secret_cache_tag || soc1/frontend/s2_tlb_miss || soc1/frontend/s2_tlb_resp_pf_inst ) &&
 //-
-  ( soc2/frontend/icache/refill_paddr[31:12] != secret_cache_tag || soc2/frontend/icache/s1_valid == 1'b0 ) ;
+  ( soc2/frontend/icache/refill_paddr[31:12] != secret_cache_tag) && 
+  ( soc2/frontend/_T_16[31:12] != secret_cache_tag || soc2/frontend/s1_is_replay == 1'b0 ) &&
+  ( soc2/frontend/s2_ppc[31:12] != secret_cache_tag || soc2/frontend/s2_tlb_miss || soc2/frontend/s2_tlb_resp_pf_inst ) ;
 end macro;
 
 // sync_xing/Queue is the buffer for channel A, there should not be a pending illegal access there
@@ -108,39 +112,39 @@ end macro;
 
 // store address queue
 macro boolean no_pending_access_stq :=
-  ( soc1/lsu/stq_0_bits_addr_bits[31:12] != secret_cache_tag || (soc1/lsu/stq_0_bits_addr_is_virtual == 1'b1 || soc1/lsu/stq_0_bits_uop_exception == 1'b1) || soc1/lsu/stq_0_bits_addr_valid == 1'b0 ) && 
-  ( soc1/lsu/stq_1_bits_addr_bits[31:12] != secret_cache_tag || (soc1/lsu/stq_1_bits_addr_is_virtual == 1'b1 || soc1/lsu/stq_1_bits_uop_exception == 1'b1) || soc1/lsu/stq_1_bits_addr_valid == 1'b0 ) && 
-  ( soc1/lsu/stq_2_bits_addr_bits[31:12] != secret_cache_tag || (soc1/lsu/stq_2_bits_addr_is_virtual == 1'b1 || soc1/lsu/stq_2_bits_uop_exception == 1'b1) || soc1/lsu/stq_2_bits_addr_valid == 1'b0 ) && 
-  ( soc1/lsu/stq_3_bits_addr_bits[31:12] != secret_cache_tag || (soc1/lsu/stq_3_bits_addr_is_virtual == 1'b1 || soc1/lsu/stq_3_bits_uop_exception == 1'b1) || soc1/lsu/stq_3_bits_addr_valid == 1'b0 ) && 
-  ( soc1/lsu/stq_4_bits_addr_bits[31:12] != secret_cache_tag || (soc1/lsu/stq_4_bits_addr_is_virtual == 1'b1 || soc1/lsu/stq_4_bits_uop_exception == 1'b1) || soc1/lsu/stq_4_bits_addr_valid == 1'b0 ) && 
-  ( soc1/lsu/stq_5_bits_addr_bits[31:12] != secret_cache_tag || (soc1/lsu/stq_5_bits_addr_is_virtual == 1'b1 || soc1/lsu/stq_5_bits_uop_exception == 1'b1) || soc1/lsu/stq_5_bits_addr_valid == 1'b0 ) && 
-  ( soc1/lsu/stq_6_bits_addr_bits[31:12] != secret_cache_tag || (soc1/lsu/stq_6_bits_addr_is_virtual == 1'b1 || soc1/lsu/stq_6_bits_uop_exception == 1'b1) || soc1/lsu/stq_6_bits_addr_valid == 1'b0 ) && 
-  ( soc1/lsu/stq_7_bits_addr_bits[31:12] != secret_cache_tag || (soc1/lsu/stq_7_bits_addr_is_virtual == 1'b1 || soc1/lsu/stq_7_bits_uop_exception == 1'b1) || soc1/lsu/stq_7_bits_addr_valid == 1'b0 ) && 
-  ( soc1/lsu/stq_8_bits_addr_bits[31:12] != secret_cache_tag || (soc1/lsu/stq_8_bits_addr_is_virtual == 1'b1 || soc1/lsu/stq_8_bits_uop_exception == 1'b1) || soc1/lsu/stq_8_bits_addr_valid == 1'b0 ) && 
-  ( soc1/lsu/stq_9_bits_addr_bits[31:12] != secret_cache_tag || (soc1/lsu/stq_9_bits_addr_is_virtual == 1'b1 || soc1/lsu/stq_9_bits_uop_exception == 1'b1) || soc1/lsu/stq_9_bits_addr_valid == 1'b0 ) && 
-  ( soc1/lsu/stq_10_bits_addr_bits[31:12] != secret_cache_tag || (soc1/lsu/stq_10_bits_addr_is_virtual == 1'b1 || soc1/lsu/stq_10_bits_uop_exception == 1'b1) || soc1/lsu/stq_10_bits_addr_valid == 1'b0 ) && 
-  ( soc1/lsu/stq_11_bits_addr_bits[31:12] != secret_cache_tag || (soc1/lsu/stq_11_bits_addr_is_virtual == 1'b1 || soc1/lsu/stq_11_bits_uop_exception == 1'b1) || soc1/lsu/stq_11_bits_addr_valid == 1'b0 ) && 
-  ( soc1/lsu/stq_12_bits_addr_bits[31:12] != secret_cache_tag || (soc1/lsu/stq_12_bits_addr_is_virtual == 1'b1 || soc1/lsu/stq_12_bits_uop_exception == 1'b1) || soc1/lsu/stq_12_bits_addr_valid == 1'b0 ) && 
-  ( soc1/lsu/stq_13_bits_addr_bits[31:12] != secret_cache_tag || (soc1/lsu/stq_13_bits_addr_is_virtual == 1'b1 || soc1/lsu/stq_13_bits_uop_exception == 1'b1) || soc1/lsu/stq_13_bits_addr_valid == 1'b0 ) && 
-  ( soc1/lsu/stq_14_bits_addr_bits[31:12] != secret_cache_tag || (soc1/lsu/stq_14_bits_addr_is_virtual == 1'b1 || soc1/lsu/stq_14_bits_uop_exception == 1'b1) || soc1/lsu/stq_14_bits_addr_valid == 1'b0 ) && 
-  ( soc1/lsu/stq_15_bits_addr_bits[31:12] != secret_cache_tag || (soc1/lsu/stq_15_bits_addr_is_virtual == 1'b1 || soc1/lsu/stq_15_bits_uop_exception == 1'b1) || soc1/lsu/stq_15_bits_addr_valid == 1'b0 ) && 
+  ( soc1/lsu/stq_0_bits_addr_bits[31:12] != secret_cache_tag || (soc1/lsu/stq_0_bits_addr_is_virtual == 1'b1 || soc1/lsu/stq_0_bits_uop_exception == 1'b1 || soc1/lsu/stq_0_bits_addr_valid == 1'b0 )) && 
+  ( soc1/lsu/stq_1_bits_addr_bits[31:12] != secret_cache_tag || (soc1/lsu/stq_1_bits_addr_is_virtual == 1'b1 || soc1/lsu/stq_1_bits_uop_exception == 1'b1 || soc1/lsu/stq_1_bits_addr_valid == 1'b0 )) && 
+  ( soc1/lsu/stq_2_bits_addr_bits[31:12] != secret_cache_tag || (soc1/lsu/stq_2_bits_addr_is_virtual == 1'b1 || soc1/lsu/stq_2_bits_uop_exception == 1'b1 || soc1/lsu/stq_2_bits_addr_valid == 1'b0 )) && 
+  ( soc1/lsu/stq_3_bits_addr_bits[31:12] != secret_cache_tag || (soc1/lsu/stq_3_bits_addr_is_virtual == 1'b1 || soc1/lsu/stq_3_bits_uop_exception == 1'b1 || soc1/lsu/stq_3_bits_addr_valid == 1'b0 )) && 
+  ( soc1/lsu/stq_4_bits_addr_bits[31:12] != secret_cache_tag || (soc1/lsu/stq_4_bits_addr_is_virtual == 1'b1 || soc1/lsu/stq_4_bits_uop_exception == 1'b1 || soc1/lsu/stq_4_bits_addr_valid == 1'b0 )) && 
+  ( soc1/lsu/stq_5_bits_addr_bits[31:12] != secret_cache_tag || (soc1/lsu/stq_5_bits_addr_is_virtual == 1'b1 || soc1/lsu/stq_5_bits_uop_exception == 1'b1 || soc1/lsu/stq_5_bits_addr_valid == 1'b0 )) && 
+  ( soc1/lsu/stq_6_bits_addr_bits[31:12] != secret_cache_tag || (soc1/lsu/stq_6_bits_addr_is_virtual == 1'b1 || soc1/lsu/stq_6_bits_uop_exception == 1'b1 || soc1/lsu/stq_6_bits_addr_valid == 1'b0 )) && 
+  ( soc1/lsu/stq_7_bits_addr_bits[31:12] != secret_cache_tag || (soc1/lsu/stq_7_bits_addr_is_virtual == 1'b1 || soc1/lsu/stq_7_bits_uop_exception == 1'b1 || soc1/lsu/stq_7_bits_addr_valid == 1'b0 )) && 
+  ( soc1/lsu/stq_8_bits_addr_bits[31:12] != secret_cache_tag || (soc1/lsu/stq_8_bits_addr_is_virtual == 1'b1 || soc1/lsu/stq_8_bits_uop_exception == 1'b1 || soc1/lsu/stq_8_bits_addr_valid == 1'b0 )) && 
+  ( soc1/lsu/stq_9_bits_addr_bits[31:12] != secret_cache_tag || (soc1/lsu/stq_9_bits_addr_is_virtual == 1'b1 || soc1/lsu/stq_9_bits_uop_exception == 1'b1 || soc1/lsu/stq_9_bits_addr_valid == 1'b0 )) && 
+  ( soc1/lsu/stq_10_bits_addr_bits[31:12] != secret_cache_tag || (soc1/lsu/stq_10_bits_addr_is_virtual == 1'b1 || soc1/lsu/stq_10_bits_uop_exception == 1'b1 || soc1/lsu/stq_10_bits_addr_valid == 1'b0 )) && 
+  ( soc1/lsu/stq_11_bits_addr_bits[31:12] != secret_cache_tag || (soc1/lsu/stq_11_bits_addr_is_virtual == 1'b1 || soc1/lsu/stq_11_bits_uop_exception == 1'b1 || soc1/lsu/stq_11_bits_addr_valid == 1'b0 )) && 
+  ( soc1/lsu/stq_12_bits_addr_bits[31:12] != secret_cache_tag || (soc1/lsu/stq_12_bits_addr_is_virtual == 1'b1 || soc1/lsu/stq_12_bits_uop_exception == 1'b1 || soc1/lsu/stq_12_bits_addr_valid == 1'b0 )) && 
+  ( soc1/lsu/stq_13_bits_addr_bits[31:12] != secret_cache_tag || (soc1/lsu/stq_13_bits_addr_is_virtual == 1'b1 || soc1/lsu/stq_13_bits_uop_exception == 1'b1 || soc1/lsu/stq_13_bits_addr_valid == 1'b0 )) && 
+  ( soc1/lsu/stq_14_bits_addr_bits[31:12] != secret_cache_tag || (soc1/lsu/stq_14_bits_addr_is_virtual == 1'b1 || soc1/lsu/stq_14_bits_uop_exception == 1'b1 || soc1/lsu/stq_14_bits_addr_valid == 1'b0 )) && 
+  ( soc1/lsu/stq_15_bits_addr_bits[31:12] != secret_cache_tag || (soc1/lsu/stq_15_bits_addr_is_virtual == 1'b1 || soc1/lsu/stq_15_bits_uop_exception == 1'b1 || soc1/lsu/stq_15_bits_addr_valid == 1'b0 )) && 
 //--
-  ( soc2/lsu/stq_0_bits_addr_bits[31:12] != secret_cache_tag || (soc2/lsu/stq_0_bits_addr_is_virtual == 1'b1 || soc2/lsu/stq_0_bits_uop_exception == 1'b1) || soc2/lsu/stq_0_bits_addr_valid == 1'b0 ) && 
-  ( soc2/lsu/stq_1_bits_addr_bits[31:12] != secret_cache_tag || (soc2/lsu/stq_1_bits_addr_is_virtual == 1'b1 || soc2/lsu/stq_1_bits_uop_exception == 1'b1) || soc2/lsu/stq_1_bits_addr_valid == 1'b0 ) && 
-  ( soc2/lsu/stq_2_bits_addr_bits[31:12] != secret_cache_tag || (soc2/lsu/stq_2_bits_addr_is_virtual == 1'b1 || soc2/lsu/stq_2_bits_uop_exception == 1'b1) || soc2/lsu/stq_2_bits_addr_valid == 1'b0 ) && 
-  ( soc2/lsu/stq_3_bits_addr_bits[31:12] != secret_cache_tag || (soc2/lsu/stq_3_bits_addr_is_virtual == 1'b1 || soc2/lsu/stq_3_bits_uop_exception == 1'b1) || soc2/lsu/stq_3_bits_addr_valid == 1'b0 ) && 
-  ( soc2/lsu/stq_4_bits_addr_bits[31:12] != secret_cache_tag || (soc2/lsu/stq_4_bits_addr_is_virtual == 1'b1 || soc2/lsu/stq_4_bits_uop_exception == 1'b1) || soc2/lsu/stq_4_bits_addr_valid == 1'b0 ) && 
-  ( soc2/lsu/stq_5_bits_addr_bits[31:12] != secret_cache_tag || (soc2/lsu/stq_5_bits_addr_is_virtual == 1'b1 || soc2/lsu/stq_5_bits_uop_exception == 1'b1) || soc2/lsu/stq_5_bits_addr_valid == 1'b0 ) && 
-  ( soc2/lsu/stq_6_bits_addr_bits[31:12] != secret_cache_tag || (soc2/lsu/stq_6_bits_addr_is_virtual == 1'b1 || soc2/lsu/stq_6_bits_uop_exception == 1'b1) || soc2/lsu/stq_6_bits_addr_valid == 1'b0 ) && 
-  ( soc2/lsu/stq_7_bits_addr_bits[31:12] != secret_cache_tag || (soc2/lsu/stq_7_bits_addr_is_virtual == 1'b1 || soc2/lsu/stq_7_bits_uop_exception == 1'b1) || soc2/lsu/stq_7_bits_addr_valid == 1'b0 ) && 
-  ( soc2/lsu/stq_8_bits_addr_bits[31:12] != secret_cache_tag || (soc2/lsu/stq_8_bits_addr_is_virtual == 1'b1 || soc2/lsu/stq_8_bits_uop_exception == 1'b1) || soc2/lsu/stq_8_bits_addr_valid == 1'b0 ) && 
-  ( soc2/lsu/stq_9_bits_addr_bits[31:12] != secret_cache_tag || (soc2/lsu/stq_9_bits_addr_is_virtual == 1'b1 || soc2/lsu/stq_9_bits_uop_exception == 1'b1) || soc2/lsu/stq_9_bits_addr_valid == 1'b0 ) && 
-  ( soc2/lsu/stq_10_bits_addr_bits[31:12] != secret_cache_tag || (soc2/lsu/stq_10_bits_addr_is_virtual == 1'b1 || soc2/lsu/stq_10_bits_uop_exception == 1'b1) || soc2/lsu/stq_10_bits_addr_valid == 1'b0 ) && 
-  ( soc2/lsu/stq_11_bits_addr_bits[31:12] != secret_cache_tag || (soc2/lsu/stq_11_bits_addr_is_virtual == 1'b1 || soc2/lsu/stq_11_bits_uop_exception == 1'b1) || soc2/lsu/stq_11_bits_addr_valid == 1'b0 ) && 
-  ( soc2/lsu/stq_12_bits_addr_bits[31:12] != secret_cache_tag || (soc2/lsu/stq_12_bits_addr_is_virtual == 1'b1 || soc2/lsu/stq_12_bits_uop_exception == 1'b1) || soc2/lsu/stq_12_bits_addr_valid == 1'b0 ) && 
-  ( soc2/lsu/stq_13_bits_addr_bits[31:12] != secret_cache_tag || (soc2/lsu/stq_13_bits_addr_is_virtual == 1'b1 || soc2/lsu/stq_13_bits_uop_exception == 1'b1) || soc2/lsu/stq_13_bits_addr_valid == 1'b0 ) && 
-  ( soc2/lsu/stq_14_bits_addr_bits[31:12] != secret_cache_tag || (soc2/lsu/stq_14_bits_addr_is_virtual == 1'b1 || soc2/lsu/stq_14_bits_uop_exception == 1'b1) || soc2/lsu/stq_14_bits_addr_valid == 1'b0 ) && 
-  ( soc2/lsu/stq_15_bits_addr_bits[31:12] != secret_cache_tag || (soc2/lsu/stq_15_bits_addr_is_virtual == 1'b1 || soc2/lsu/stq_15_bits_uop_exception == 1'b1) || soc2/lsu/stq_15_bits_addr_valid == 1'b0 ) ;
+  ( soc2/lsu/stq_0_bits_addr_bits[31:12] != secret_cache_tag || (soc2/lsu/stq_0_bits_addr_is_virtual == 1'b1 || soc2/lsu/stq_0_bits_uop_exception == 1'b1 || soc2/lsu/stq_0_bits_addr_valid == 1'b0 )) && 
+  ( soc2/lsu/stq_1_bits_addr_bits[31:12] != secret_cache_tag || (soc2/lsu/stq_1_bits_addr_is_virtual == 1'b1 || soc2/lsu/stq_1_bits_uop_exception == 1'b1 || soc2/lsu/stq_1_bits_addr_valid == 1'b0 )) && 
+  ( soc2/lsu/stq_2_bits_addr_bits[31:12] != secret_cache_tag || (soc2/lsu/stq_2_bits_addr_is_virtual == 1'b1 || soc2/lsu/stq_2_bits_uop_exception == 1'b1 || soc2/lsu/stq_2_bits_addr_valid == 1'b0 )) && 
+  ( soc2/lsu/stq_3_bits_addr_bits[31:12] != secret_cache_tag || (soc2/lsu/stq_3_bits_addr_is_virtual == 1'b1 || soc2/lsu/stq_3_bits_uop_exception == 1'b1 || soc2/lsu/stq_3_bits_addr_valid == 1'b0 )) && 
+  ( soc2/lsu/stq_4_bits_addr_bits[31:12] != secret_cache_tag || (soc2/lsu/stq_4_bits_addr_is_virtual == 1'b1 || soc2/lsu/stq_4_bits_uop_exception == 1'b1 || soc2/lsu/stq_4_bits_addr_valid == 1'b0 )) && 
+  ( soc2/lsu/stq_5_bits_addr_bits[31:12] != secret_cache_tag || (soc2/lsu/stq_5_bits_addr_is_virtual == 1'b1 || soc2/lsu/stq_5_bits_uop_exception == 1'b1 || soc2/lsu/stq_5_bits_addr_valid == 1'b0 )) && 
+  ( soc2/lsu/stq_6_bits_addr_bits[31:12] != secret_cache_tag || (soc2/lsu/stq_6_bits_addr_is_virtual == 1'b1 || soc2/lsu/stq_6_bits_uop_exception == 1'b1 || soc2/lsu/stq_6_bits_addr_valid == 1'b0 )) && 
+  ( soc2/lsu/stq_7_bits_addr_bits[31:12] != secret_cache_tag || (soc2/lsu/stq_7_bits_addr_is_virtual == 1'b1 || soc2/lsu/stq_7_bits_uop_exception == 1'b1 || soc2/lsu/stq_7_bits_addr_valid == 1'b0 )) && 
+  ( soc2/lsu/stq_8_bits_addr_bits[31:12] != secret_cache_tag || (soc2/lsu/stq_8_bits_addr_is_virtual == 1'b1 || soc2/lsu/stq_8_bits_uop_exception == 1'b1 || soc2/lsu/stq_8_bits_addr_valid == 1'b0 )) && 
+  ( soc2/lsu/stq_9_bits_addr_bits[31:12] != secret_cache_tag || (soc2/lsu/stq_9_bits_addr_is_virtual == 1'b1 || soc2/lsu/stq_9_bits_uop_exception == 1'b1 || soc2/lsu/stq_9_bits_addr_valid == 1'b0 )) && 
+  ( soc2/lsu/stq_10_bits_addr_bits[31:12] != secret_cache_tag || (soc2/lsu/stq_10_bits_addr_is_virtual == 1'b1 || soc2/lsu/stq_10_bits_uop_exception == 1'b1 || soc2/lsu/stq_10_bits_addr_valid == 1'b0 )) && 
+  ( soc2/lsu/stq_11_bits_addr_bits[31:12] != secret_cache_tag || (soc2/lsu/stq_11_bits_addr_is_virtual == 1'b1 || soc2/lsu/stq_11_bits_uop_exception == 1'b1 || soc2/lsu/stq_11_bits_addr_valid == 1'b0 )) && 
+  ( soc2/lsu/stq_12_bits_addr_bits[31:12] != secret_cache_tag || (soc2/lsu/stq_12_bits_addr_is_virtual == 1'b1 || soc2/lsu/stq_12_bits_uop_exception == 1'b1 || soc2/lsu/stq_12_bits_addr_valid == 1'b0 )) && 
+  ( soc2/lsu/stq_13_bits_addr_bits[31:12] != secret_cache_tag || (soc2/lsu/stq_13_bits_addr_is_virtual == 1'b1 || soc2/lsu/stq_13_bits_uop_exception == 1'b1 || soc2/lsu/stq_13_bits_addr_valid == 1'b0 )) && 
+  ( soc2/lsu/stq_14_bits_addr_bits[31:12] != secret_cache_tag || (soc2/lsu/stq_14_bits_addr_is_virtual == 1'b1 || soc2/lsu/stq_14_bits_uop_exception == 1'b1 || soc2/lsu/stq_14_bits_addr_valid == 1'b0 )) && 
+  ( soc2/lsu/stq_15_bits_addr_bits[31:12] != secret_cache_tag || (soc2/lsu/stq_15_bits_addr_is_virtual == 1'b1 || soc2/lsu/stq_15_bits_uop_exception == 1'b1 || soc2/lsu/stq_15_bits_addr_valid == 1'b0 )) ;
 end macro;
 
 macro boolean no_pending_access_lsu :=
