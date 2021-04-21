@@ -72,6 +72,14 @@ assertion stq_bits_committed := //stq entries must only be marked as committed i
   (!soc2/lsu/stq_15_bits_committed || soc2/lsu/stq_15_bits_addr_valid) ;
 end assertion;
 
+assertion valid_frontend_icache :=
+  (!soc1/frontend/icache/s1_valid || soc1/frontend/s1_valid) &&
+  (!soc1/frontend/icache/s2_valid || soc1/frontend/s2_valid) &&
+//-
+  (!soc2/frontend/icache/s1_valid || soc2/frontend/s1_valid) &&
+  (!soc2/frontend/icache/s2_valid || soc2/frontend/s2_valid) ;
+end assertion;
+
 macro boolean ldq_failure_bit :=
   (!soc1/lsu/ldq_0_bits_failure || (soc1/lsu/will_fire_load_incoming_0 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'h0) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'h0)) &&
   (!soc1/lsu/ldq_1_bits_failure || (soc1/lsu/will_fire_load_incoming_0 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'h1) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'h1)) &&
@@ -249,7 +257,7 @@ end macro;
 
 
 property UPEC_boom;
-	dependencies: no_reset, dcache_channel_onehot, tlMaster_one_hot, mshrs_one_hot, stq_bits_committed;
+	dependencies: no_reset, dcache_channel_onehot, tlMaster_one_hot, mshrs_one_hot, stq_bits_committed, valid_frontend_icache;
 
 	assume:
 
@@ -277,8 +285,10 @@ property UPEC_boom;
 		//at t+K: soc1/dcache/wb/wb_buffer_0 == soc2/dcache/wb/wb_buffer_0; //will be changed to state equivalence
 		//at t+1: soc1/core/iregfile/regfile__T_11_data == soc2/core/iregfile/regfile__T_11_data;
 		//at t+1: soc1/core/iregfile/regfile[0] == soc2/core/iregfile/regfile[0];
-		at t+1: no_pending_secret_access;
-		//at t+1: uses_stq;
+
+		//at t+1: no_pending_secret_access;
+
+		at t+1: no_pending_access_icache;
 
 		//at t+K: (soc1/dcache/meta_0/io_write_valid == soc2/dcache/meta_0/io_write_valid);
 		//at t+K: (soc1/dcache/meta_0/io_write_valid == 1'b0 || ((soc1/dcache/meta_0/io_write_bits_data_tag == soc2/dcache/meta_0/io_write_bits_data_tag) && (soc1/dcache/meta_0/io_write_bits_data_coh_state == soc2/dcache/meta_0/io_write_bits_data_coh_state)));

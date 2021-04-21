@@ -7,13 +7,13 @@
 
 
 macro boolean no_pending_access_icache :=
-  ( soc1/frontend/icache/refill_paddr[31:12] != secret_cache_tag) &&
-  ( soc1/frontend/_T_16[31:12] != secret_cache_tag || soc1/frontend/s1_is_replay == 1'b0 ) &&
-  ( soc1/frontend/s2_ppc[31:12] != secret_cache_tag || soc1/frontend/s2_tlb_miss || soc1/frontend/s2_tlb_resp_pf_inst ) &&
+  ( soc1/frontend/icache/refill_paddr[31:12] != secret_cache_tag || ((soc1/frontend/s2_xcpt || soc1/frontend/icache/s2_valid == 1'b0) && soc1/frontend/icache/refill_valid == 1'b0) ) &&
+  //( soc1/frontend/_T_16[31:12] != secret_cache_tag || soc1/frontend/s1_is_replay == 1'b0 ) &&
+  //( soc1/frontend/s2_ppc[31:12] != secret_cache_tag || soc1/frontend/s2_tlb_miss || soc1/frontend/s2_tlb_resp_pf_inst ) &&
 //-
-  ( soc2/frontend/icache/refill_paddr[31:12] != secret_cache_tag) && 
-  ( soc2/frontend/_T_16[31:12] != secret_cache_tag || soc2/frontend/s1_is_replay == 1'b0 ) &&
-  ( soc2/frontend/s2_ppc[31:12] != secret_cache_tag || soc2/frontend/s2_tlb_miss || soc2/frontend/s2_tlb_resp_pf_inst ) ;
+  ( soc2/frontend/icache/refill_paddr[31:12] != secret_cache_tag || ((soc2/frontend/s2_xcpt || soc2/frontend/icache/s2_valid == 1'b0) && soc2/frontend/icache/refill_valid == 1'b0) );
+  //( soc2/frontend/_T_16[31:12] != secret_cache_tag || soc2/frontend/s1_is_replay == 1'b0 ) &&
+  //( soc2/frontend/s2_ppc[31:12] != secret_cache_tag || soc2/frontend/s2_tlb_miss || soc2/frontend/s2_tlb_resp_pf_inst ) ;
 end macro;
 
 // sync_xing/Queue is the buffer for channel A, there should not be a pending illegal access there
