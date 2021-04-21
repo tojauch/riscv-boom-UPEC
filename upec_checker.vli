@@ -199,6 +199,9 @@ property UPEC_boom;
 		at t: ldq_failure_bit;
 		at t: ptw;
 
+		at t: soc1/lsu/will_fire_load_retry_0 == 1'b1;
+		at t: soc2/lsu/will_fire_load_retry_0 == 1'b1;
+
 		during[t, t+K]: microequivalence == 1'b1;
 
 	prove: 
