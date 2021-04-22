@@ -196,8 +196,10 @@ property UPEC_boom;
 		//at t: no_pending_spec_instr;
 		at t: uses_stq;
 		at t: uses_ldq;
-		at t: ldq_failure_bit;
+		//at t: ldq_failure_bit;
 		at t: ptw;
+		at t: soc1/lsu/will_fire_load_retry_0;
+		at t: soc2/lsu/will_fire_load_retry_0;
 
 		during[t, t+K]: microequivalence == 1'b1;
 
