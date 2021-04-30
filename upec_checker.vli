@@ -232,9 +232,11 @@ macro boolean page_table_protection :=
 end macro;
 
 macro boolean page_table_protection_icache :=
-  ( (soc1/frontend/tlb/io_resp_paddr[31:12] == secret_cache_tag && !soc1/frontend/tlb/io_resp_miss) ? soc1/frontend/tlb/io_resp_pf_inst : true) &&
+  soc1/frontend/tlb/io_resp_paddr[31:12] != secret_cache_tag &&
+  //( (soc1/frontend/tlb/io_resp_paddr[31:12] == secret_cache_tag && !soc1/frontend/tlb/io_resp_miss) ? soc1/frontend/tlb/io_resp_pf_inst : true) &&
 //-
-  ( (soc2/frontend/tlb/io_resp_paddr[31:12] == secret_cache_tag && !soc2/frontend/tlb/io_resp_miss) ? soc2/frontend/tlb/io_resp_pf_inst : true) ;
+  soc2/frontend/tlb/io_resp_paddr[31:12] != secret_cache_tag ;
+  //( (soc2/frontend/tlb/io_resp_paddr[31:12] == secret_cache_tag && !soc2/frontend/tlb/io_resp_miss) ? soc2/frontend/tlb/io_resp_pf_inst : true) ;
 end macro;
 
 macro boolean secret_load_speculative := 
