@@ -37,23 +37,41 @@ assertion mshrs_one_hot := //select signals must be one-hot encoded
 end assertion;
 
 assertion stq_bits_committed := //stq entries must only be marked as committed if their address is valid 
-  (!soc1/lsu/stq_0_bits_committed || soc1/lsu/stq_0_bits_addr_valid) &&
-  (!soc1/lsu/stq_1_bits_committed || soc1/lsu/stq_1_bits_addr_valid) &&
-  (!soc1/lsu/stq_2_bits_committed || soc1/lsu/stq_2_bits_addr_valid) &&
-  (!soc1/lsu/stq_3_bits_committed || soc1/lsu/stq_3_bits_addr_valid) &&
-  (!soc1/lsu/stq_4_bits_committed || soc1/lsu/stq_4_bits_addr_valid) &&
-  (!soc1/lsu/stq_5_bits_committed || soc1/lsu/stq_5_bits_addr_valid) &&
-  (!soc1/lsu/stq_6_bits_committed || soc1/lsu/stq_6_bits_addr_valid) &&
-  (!soc1/lsu/stq_7_bits_committed || soc1/lsu/stq_7_bits_addr_valid) &&
-  (!soc1/lsu/stq_8_bits_committed || soc1/lsu/stq_8_bits_addr_valid) &&
-  (!soc1/lsu/stq_9_bits_committed || soc1/lsu/stq_9_bits_addr_valid) &&
-  (!soc1/lsu/stq_10_bits_committed || soc1/lsu/stq_10_bits_addr_valid) &&
-  (!soc1/lsu/stq_11_bits_committed || soc1/lsu/stq_11_bits_addr_valid) &&
-  (!soc1/lsu/stq_12_bits_committed || soc1/lsu/stq_12_bits_addr_valid) &&
-  (!soc1/lsu/stq_13_bits_committed || soc1/lsu/stq_13_bits_addr_valid) &&
-  (!soc1/lsu/stq_14_bits_committed || soc1/lsu/stq_14_bits_addr_valid) &&
-  (!soc1/lsu/stq_15_bits_committed || soc1/lsu/stq_15_bits_addr_valid) &&
+  (!soc1/lsu/stq_0_bits_committed || (soc1/lsu/stq_0_bits_addr_valid && !soc1/lsu/stq_0_bits_addr_is_virtual)) &&
+  (!soc1/lsu/stq_1_bits_committed || (soc1/lsu/stq_1_bits_addr_valid && !soc1/lsu/stq_1_bits_addr_is_virtual)) &&
+  (!soc1/lsu/stq_2_bits_committed || (soc1/lsu/stq_2_bits_addr_valid && !soc1/lsu/stq_2_bits_addr_is_virtual)) &&
+  (!soc1/lsu/stq_3_bits_committed || (soc1/lsu/stq_3_bits_addr_valid && !soc1/lsu/stq_3_bits_addr_is_virtual)) &&
+  (!soc1/lsu/stq_4_bits_committed || (soc1/lsu/stq_4_bits_addr_valid && !soc1/lsu/stq_4_bits_addr_is_virtual)) &&
+  (!soc1/lsu/stq_5_bits_committed || (soc1/lsu/stq_5_bits_addr_valid && !soc1/lsu/stq_5_bits_addr_is_virtual)) &&
+  (!soc1/lsu/stq_6_bits_committed || (soc1/lsu/stq_6_bits_addr_valid && !soc1/lsu/stq_6_bits_addr_is_virtual)) &&
+  (!soc1/lsu/stq_7_bits_committed || (soc1/lsu/stq_7_bits_addr_valid && !soc1/lsu/stq_7_bits_addr_is_virtual)) &&
+  (!soc1/lsu/stq_8_bits_committed || (soc1/lsu/stq_8_bits_addr_valid && !soc1/lsu/stq_8_bits_addr_is_virtual)) &&
+  (!soc1/lsu/stq_9_bits_committed || (soc1/lsu/stq_9_bits_addr_valid && !soc1/lsu/stq_9_bits_addr_is_virtual)) &&
+  (!soc1/lsu/stq_10_bits_committed || (soc1/lsu/stq_10_bits_addr_valid && !soc1/lsu/stq_10_bits_addr_is_virtual)) &&
+  (!soc1/lsu/stq_11_bits_committed || (soc1/lsu/stq_11_bits_addr_valid && !soc1/lsu/stq_11_bits_addr_is_virtual)) &&
+  (!soc1/lsu/stq_12_bits_committed || (soc1/lsu/stq_12_bits_addr_valid && !soc1/lsu/stq_12_bits_addr_is_virtual)) &&
+  (!soc1/lsu/stq_13_bits_committed || (soc1/lsu/stq_13_bits_addr_valid && !soc1/lsu/stq_13_bits_addr_is_virtual)) &&
+  (!soc1/lsu/stq_14_bits_committed || (soc1/lsu/stq_14_bits_addr_valid && !soc1/lsu/stq_14_bits_addr_is_virtual)) &&
+  (!soc1/lsu/stq_15_bits_committed || (soc1/lsu/stq_15_bits_addr_valid && !soc1/lsu/stq_15_bits_addr_is_virtual)) &&
 //-
+  (!soc2/lsu/stq_0_bits_committed || (soc2/lsu/stq_0_bits_addr_valid && !soc2/lsu/stq_0_bits_addr_is_virtual)) &&
+  (!soc2/lsu/stq_1_bits_committed || (soc2/lsu/stq_1_bits_addr_valid && !soc2/lsu/stq_1_bits_addr_is_virtual)) &&
+  (!soc2/lsu/stq_2_bits_committed || (soc2/lsu/stq_2_bits_addr_valid && !soc2/lsu/stq_2_bits_addr_is_virtual)) &&
+  (!soc2/lsu/stq_3_bits_committed || (soc2/lsu/stq_3_bits_addr_valid && !soc2/lsu/stq_3_bits_addr_is_virtual)) &&
+  (!soc2/lsu/stq_4_bits_committed || (soc2/lsu/stq_4_bits_addr_valid && !soc2/lsu/stq_4_bits_addr_is_virtual)) &&
+  (!soc2/lsu/stq_5_bits_committed || (soc2/lsu/stq_5_bits_addr_valid && !soc2/lsu/stq_5_bits_addr_is_virtual)) &&
+  (!soc2/lsu/stq_6_bits_committed || (soc2/lsu/stq_6_bits_addr_valid && !soc2/lsu/stq_6_bits_addr_is_virtual)) &&
+  (!soc2/lsu/stq_7_bits_committed || (soc2/lsu/stq_7_bits_addr_valid && !soc2/lsu/stq_7_bits_addr_is_virtual)) &&
+  (!soc2/lsu/stq_8_bits_committed || (soc2/lsu/stq_8_bits_addr_valid && !soc2/lsu/stq_8_bits_addr_is_virtual)) &&
+  (!soc2/lsu/stq_9_bits_committed || (soc2/lsu/stq_9_bits_addr_valid && !soc2/lsu/stq_9_bits_addr_is_virtual)) &&
+  (!soc2/lsu/stq_10_bits_committed || (soc2/lsu/stq_10_bits_addr_valid && !soc2/lsu/stq_10_bits_addr_is_virtual)) &&
+  (!soc2/lsu/stq_11_bits_committed || (soc2/lsu/stq_11_bits_addr_valid && !soc2/lsu/stq_11_bits_addr_is_virtual)) &&
+  (!soc2/lsu/stq_12_bits_committed || (soc2/lsu/stq_12_bits_addr_valid && !soc2/lsu/stq_12_bits_addr_is_virtual)) &&
+  (!soc2/lsu/stq_13_bits_committed || (soc2/lsu/stq_13_bits_addr_valid && !soc2/lsu/stq_13_bits_addr_is_virtual)) &&
+  (!soc2/lsu/stq_14_bits_committed || (soc2/lsu/stq_14_bits_addr_valid && !soc2/lsu/stq_14_bits_addr_is_virtual)) &&
+  (!soc2/lsu/stq_15_bits_committed || (soc2/lsu/stq_15_bits_addr_valid && !soc2/lsu/stq_15_bits_addr_is_virtual)) ;
+end assertion;
+/*
   (!soc2/lsu/stq_0_bits_committed || soc2/lsu/stq_0_bits_addr_valid) &&
   (!soc2/lsu/stq_1_bits_committed || soc2/lsu/stq_1_bits_addr_valid) &&
   (!soc2/lsu/stq_2_bits_committed || soc2/lsu/stq_2_bits_addr_valid) &&
@@ -70,7 +88,7 @@ assertion stq_bits_committed := //stq entries must only be marked as committed i
   (!soc2/lsu/stq_13_bits_committed || soc2/lsu/stq_13_bits_addr_valid) &&
   (!soc2/lsu/stq_14_bits_committed || soc2/lsu/stq_14_bits_addr_valid) &&
   (!soc2/lsu/stq_15_bits_committed || soc2/lsu/stq_15_bits_addr_valid) ;
-end assertion;
+*/
 
 assertion valid_frontend_icache :=
   (!soc1/frontend/icache/s1_valid || soc1/frontend/s1_valid) &&
@@ -256,6 +274,18 @@ macro boolean ptw :=
   soc2/ptw_io_mem_req_bits_addr[31:12] != secret_cache_tag ;
 end macro;
 
+macro boolean dcache_replay :=
+  (soc1/dcache/io_lsu_resp_0_bits_data == soc2/dcache/io_lsu_resp_0_bits_data || (soc1/dcache/s2_req_0_addr[31:12] == secret_cache_tag && soc2/dcache/s2_req_0_addr[31:12] == secret_cache_tag));
+end macro;
+
+macro boolean dcache_send_resp :=
+  (soc1/dcache/s1_send_resp_or_nack_0 == 1'b0 || soc1/dcache/s1_type == 3'b000 || soc1/dcache/s1_type == 3'b100) &&
+  (soc1/dcache/s2_send_resp_0 == 1'b0 || soc1/dcache/s2_type == 3'b000 || soc1/dcache/s2_type == 3'b100) &&
+//-
+  (soc1/dcache/s1_send_resp_or_nack_0 == 1'b0 || soc1/dcache/s1_type == 3'b000 || soc1/dcache/s1_type == 3'b100) &&
+  (soc2/dcache/s2_send_resp_0 == 1'b0 || soc2/dcache/s2_type == 3'b000 || soc2/dcache/s2_type == 3'b100) ;
+end macro;
+
 
 
 property UPEC_boom;
@@ -273,9 +303,14 @@ property UPEC_boom;
 		during[t, t+K]: soc1/core/csr/io_status_dprv == USER_MODE;
 		during[t, t+K]: soc2/core/csr/io_status_dprv == USER_MODE;
 
+		during[t, t+K]: dcache_replay;
+		during[t, t+K]: dcache_send_resp;
+
 		at t: no_pending_secret_access;
 
 		//at t: no_pending_spec_instr;
+		//during[t, t+K]: uses_stq;
+		//during[t, t+K]: uses_ldq;
 		at t: uses_stq;
 		at t: uses_ldq;
 		at t: ldq_failure_bit;
@@ -290,10 +325,10 @@ property UPEC_boom;
 
 		//at t+1: no_pending_secret_access;
 
-		at t+1: no_pending_access_icache;
+		//at t+1: no_pending_access_icache;
 
-		//at t+K: (soc1/dcache/meta_0/io_write_valid == soc2/dcache/meta_0/io_write_valid);
-		//at t+K: (soc1/dcache/meta_0/io_write_valid == 1'b0 || ((soc1/dcache/meta_0/io_write_bits_data_tag == soc2/dcache/meta_0/io_write_bits_data_tag) && (soc1/dcache/meta_0/io_write_bits_data_coh_state == soc2/dcache/meta_0/io_write_bits_data_coh_state)));
+		at t+K: (soc1/dcache/meta_0/io_write_valid == soc2/dcache/meta_0/io_write_valid);
+		at t+K: (soc1/dcache/meta_0/io_write_valid == 1'b0 || ((soc1/dcache/meta_0/io_write_bits_data_tag == soc2/dcache/meta_0/io_write_bits_data_tag) && (soc1/dcache/meta_0/io_write_bits_data_coh_state == soc2/dcache/meta_0/io_write_bits_data_coh_state)));
 
 		// lAlert == 1'b0 && lAlert_earlyAlarm == 1'b0; 
 

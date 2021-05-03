@@ -166,7 +166,7 @@ end macro;
 macro boolean no_pending_access_lsu :=
   (soc1/dcache/io_lsu_req_bits_0_bits_addr[31:12] != secret_cache_tag || soc1/dcache/io_lsu_req_bits_0_valid == 1'b0 || soc1/dcache/io_lsu_exception) &&
 //-
-  (soc2/dcache/io_lsu_req_bits_0_bits_addr[31:12] != secret_cache_tag || soc2/dcache/io_lsu_req_bits_0_valid == 1'b0 || soc1/dcache/io_lsu_exception) ;
+  (soc2/dcache/io_lsu_req_bits_0_bits_addr[31:12] != secret_cache_tag || soc2/dcache/io_lsu_req_bits_0_valid == 1'b0 || soc2/dcache/io_lsu_exception) ;
 end macro;
 
 
@@ -180,6 +180,6 @@ macro boolean no_pending_secret_access :=
   no_pending_access_mem &&
   no_pending_access_hella &&
   no_pending_access_stq &&
-  //no_pending_access_lsu &&
+  no_pending_access_lsu &&
   mem1/a_addr[31:12] != secret_cache_tag && mem2/a_addr[31:12] != secret_cache_tag;
 end macro;
