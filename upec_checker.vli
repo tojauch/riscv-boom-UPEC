@@ -2,7 +2,7 @@ include "micro_soc_macro.vli";
 include "blackboxing.vli";
 include "no_pending_access.vli";
 
-macro integer K := 1; end macro;
+macro integer K := 5; end macro;
 
 macro integer USER_MODE := 0; end macro;
 
