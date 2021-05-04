@@ -2,7 +2,7 @@ include "micro_soc_macro.vli";
 include "blackboxing.vli";
 include "no_pending_access.vli";
 
-macro integer K := 5; end macro;
+macro integer K := 1; end macro;
 
 macro integer USER_MODE := 0; end macro;
 
@@ -327,8 +327,10 @@ property UPEC_boom;
 
 		//at t+1: no_pending_access_icache;
 
-		at t+K: (soc1/dcache/meta_0/io_write_valid == soc2/dcache/meta_0/io_write_valid);
-		at t+K: (soc1/dcache/meta_0/io_write_valid == 1'b0 || ((soc1/dcache/meta_0/io_write_bits_data_tag == soc2/dcache/meta_0/io_write_bits_data_tag) && (soc1/dcache/meta_0/io_write_bits_data_coh_state == soc2/dcache/meta_0/io_write_bits_data_coh_state)));
+		during[t, t+K]: soc1/dcache/io_lsu_resp_0_bits_data == soc2/dcache/io_lsu_resp_0_bits_data;
+
+		during[t, t+K]: (soc1/dcache/meta_0/io_write_valid == soc2/dcache/meta_0/io_write_valid);
+		during[t, t+K]: (soc1/dcache/meta_0/io_write_valid == 1'b0 || ((soc1/dcache/meta_0/io_write_bits_data_tag == soc2/dcache/meta_0/io_write_bits_data_tag) && (soc1/dcache/meta_0/io_write_bits_data_coh_state == soc2/dcache/meta_0/io_write_bits_data_coh_state)));
 
 		// lAlert == 1'b0 && lAlert_earlyAlarm == 1'b0; 
 
