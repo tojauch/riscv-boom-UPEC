@@ -19907,14 +19907,14 @@ macro boolean state_uniqueness :=
 	soc1/dcache/s2_valid_0==soc2/dcache/s2_valid_0 &&
 	soc1/dcache/s2_wb_idx_matches_0==soc2/dcache/s2_wb_idx_matches_0 &&
 	soc1/dcache/s3_req_addr==soc2/dcache/s3_req_addr &&
-	soc1/dcache/s3_req_data==soc2/dcache/s3_req_data &&
+	//soc1/dcache/s3_req_data==soc2/dcache/s3_req_data &&
 	soc1/dcache/s3_valid==soc2/dcache/s3_valid &&
 	soc1/dcache/s3_way==soc2/dcache/s3_way &&
 	soc1/dcache/s4_req_addr==soc2/dcache/s4_req_addr &&
-	soc1/dcache/s4_req_data==soc2/dcache/s4_req_data &&
+	//soc1/dcache/s4_req_data==soc2/dcache/s4_req_data &&
 	soc1/dcache/s4_valid==soc2/dcache/s4_valid &&
 	soc1/dcache/s5_req_addr==soc2/dcache/s5_req_addr &&
-	soc1/dcache/s5_req_data==soc2/dcache/s5_req_data &&
+	//soc1/dcache/s5_req_data==soc2/dcache/s5_req_data &&
 	soc1/dcache/s5_valid==soc2/dcache/s5_valid &&
 	soc1/dcache/MaxPeriodFibonacciLFSR/state_0==soc2/dcache/MaxPeriodFibonacciLFSR/state_0 &&
 	soc1/dcache/MaxPeriodFibonacciLFSR/state_1==soc2/dcache/MaxPeriodFibonacciLFSR/state_1 &&
@@ -19932,10 +19932,10 @@ macro boolean state_uniqueness :=
 	soc1/dcache/MaxPeriodFibonacciLFSR/state_7==soc2/dcache/MaxPeriodFibonacciLFSR/state_7 &&
 	soc1/dcache/MaxPeriodFibonacciLFSR/state_8==soc2/dcache/MaxPeriodFibonacciLFSR/state_8 &&
 	soc1/dcache/MaxPeriodFibonacciLFSR/state_9==soc2/dcache/MaxPeriodFibonacciLFSR/state_9 &&
-	soc1/dcache/data/_T_13==soc2/dcache/data/_T_13 &&
+	/*soc1/dcache/data/_T_13==soc2/dcache/data/_T_13 &&
 	soc1/dcache/data/_T_26==soc2/dcache/data/_T_26 &&
 	soc1/dcache/data/_T_39==soc2/dcache/data/_T_39 &&
-	soc1/dcache/data/_T_52==soc2/dcache/data/_T_52 &&
+	soc1/dcache/data/_T_52==soc2/dcache/data/_T_52 &&*/
 	soc1/dcache/meta_0/rst_cnt==soc2/dcache/meta_0/rst_cnt &&
 	soc1/dcache/mshrs/_T_199==soc2/dcache/mshrs/_T_199 &&
 	soc1/dcache/mshrs/_T_258_0==soc2/dcache/mshrs/_T_258_0 &&
@@ -20376,14 +20376,14 @@ macro boolean state_uniqueness :=
 	soc1/dcache/wb/req_voluntary==soc2/dcache/wb/req_voluntary &&
 	soc1/dcache/wb/req_way_en==soc2/dcache/wb/req_way_en &&
 	soc1/dcache/wb/state==soc2/dcache/wb/state &&
-	soc1/dcache/wb/wb_buffer_0==soc2/dcache/wb/wb_buffer_0 &&
+	/*soc1/dcache/wb/wb_buffer_0==soc2/dcache/wb/wb_buffer_0 &&
 	soc1/dcache/wb/wb_buffer_1==soc2/dcache/wb/wb_buffer_1 &&
 	soc1/dcache/wb/wb_buffer_2==soc2/dcache/wb/wb_buffer_2 &&
 	soc1/dcache/wb/wb_buffer_3==soc2/dcache/wb/wb_buffer_3 &&
 	soc1/dcache/wb/wb_buffer_4==soc2/dcache/wb/wb_buffer_4 &&
 	soc1/dcache/wb/wb_buffer_5==soc2/dcache/wb/wb_buffer_5 &&
 	soc1/dcache/wb/wb_buffer_6==soc2/dcache/wb/wb_buffer_6 &&
-	soc1/dcache/wb/wb_buffer_7==soc2/dcache/wb/wb_buffer_7 &&
+	soc1/dcache/wb/wb_buffer_7==soc2/dcache/wb/wb_buffer_7 &&*/
 	soc1/frontend/_T_105==soc2/frontend/_T_105 &&
 	soc1/frontend/_T_13_bits_addr==soc2/frontend/_T_13_bits_addr &&
 	soc1/frontend/_T_13_bits_rs1==soc2/frontend/_T_13_bits_rs1 &&

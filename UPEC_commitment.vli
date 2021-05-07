@@ -1,0 +1,102 @@
+macro boolean state_uniqueness_cycle_1 := //fails --> directly connected to R0_data_0...3
+	/*soc1/dcache/data/_T_13==soc2/dcache/data/_T_13 &&
+	soc1/dcache/data/_T_26==soc2/dcache/data/_T_26 &&
+	soc1/dcache/data/_T_39==soc2/dcache/data/_T_39 &&
+	soc1/dcache/data/_T_52==soc2/dcache/data/_T_52 ;*/
+	true;
+end macro;
+
+macro boolean state_uniqueness_cycle_2 :=
+	//soc1/dcache/s3_req_data==soc2/dcache/s3_req_data &&
+
+	//Allowed --> Writeback
+	/*soc1/dcache/wb/wb_buffer_0==soc2/dcache/wb/wb_buffer_0 &&
+	soc1/dcache/wb/wb_buffer_1==soc2/dcache/wb/wb_buffer_1 &&
+	soc1/dcache/wb/wb_buffer_2==soc2/dcache/wb/wb_buffer_2 &&
+	soc1/dcache/wb/wb_buffer_3==soc2/dcache/wb/wb_buffer_3 &&
+	soc1/dcache/wb/wb_buffer_4==soc2/dcache/wb/wb_buffer_4 &&
+	soc1/dcache/wb/wb_buffer_5==soc2/dcache/wb/wb_buffer_5 &&
+	soc1/dcache/wb/wb_buffer_6==soc2/dcache/wb/wb_buffer_6 &&
+	soc1/dcache/wb/wb_buffer_7==soc2/dcache/wb/wb_buffer_7 &&*/
+
+	soc1/core/iregister_read/exe_reg_rs1_data_0==soc2/core/iregister_read/exe_reg_rs1_data_0 &&
+	soc1/core/iregister_read/exe_reg_rs1_data_1==soc2/core/iregister_read/exe_reg_rs1_data_1 &&
+	soc1/core/iregister_read/exe_reg_rs1_data_2==soc2/core/iregister_read/exe_reg_rs1_data_2 &&
+	soc1/core/iregister_read/exe_reg_rs2_data_0==soc2/core/iregister_read/exe_reg_rs2_data_0 &&
+	soc1/core/iregister_read/exe_reg_rs2_data_1==soc2/core/iregister_read/exe_reg_rs2_data_1 &&
+	soc1/core/iregister_read/exe_reg_rs2_data_2==soc2/core/iregister_read/exe_reg_rs2_data_2 &&
+
+	soc1/core/fp_pipeline/_T_251_bits_data==soc2/core/fp_pipeline/_T_251_bits_data &&
+
+	soc1/ptw/mem_resp_data==soc2/ptw/mem_resp_data &&
+
+	soc1/core/iregfile/regfile==soc2/core/iregfile/regfile ;
+end macro;
+
+macro boolean state_uniqueness_cycle_3 :=
+	//soc1/dcache/s3_req_data==soc2/dcache/s3_req_data &&
+	//soc1/dcache/s4_req_data==soc2/dcache/s4_req_data &&
+
+	/*soc1/dcache/data/array_0_0/W0_data_0==soc2/dcache/data/array_0_0/W0_data_0 &&
+	soc1/dcache/data/array_1_0/W0_data_0==soc2/dcache/data/array_1_0/W0_data_0 &&
+	soc1/dcache/data/array_2_0/W0_data_0==soc2/dcache/data/array_2_0/W0_data_0 &&
+	soc1/dcache/data/array_3_0/W0_data_0==soc2/dcache/data/array_3_0/W0_data_0 &&*/
+
+	soc1/core/fp_pipeline/_T_251_bits_data==soc2/core/fp_pipeline/_T_251_bits_data &&
+
+	soc1/core/iregister_read/exe_reg_rs1_data_0==soc2/core/iregister_read/exe_reg_rs1_data_0 &&
+	soc1/core/iregister_read/exe_reg_rs1_data_1==soc2/core/iregister_read/exe_reg_rs1_data_1 &&
+	soc1/core/iregister_read/exe_reg_rs1_data_2==soc2/core/iregister_read/exe_reg_rs1_data_2 &&
+	soc1/core/iregister_read/exe_reg_rs2_data_0==soc2/core/iregister_read/exe_reg_rs2_data_0 &&
+	soc1/core/iregister_read/exe_reg_rs2_data_1==soc2/core/iregister_read/exe_reg_rs2_data_1 &&
+	soc1/core/iregister_read/exe_reg_rs2_data_2==soc2/core/iregister_read/exe_reg_rs2_data_2 &&
+
+	soc1/core/iregfile/regfile==soc2/core/iregfile/regfile &&
+
+	soc1/ptw/mem_resp_data==soc2/ptw/mem_resp_data &&
+
+	soc1/lsu/_T_1620==soc2/lsu/_T_1620 &&
+
+	soc1/buffer/Queue_3/_T==soc2/buffer/Queue_3/_T &&
+	soc1/buffer/Queue_3/_T_1==soc2/buffer/Queue_3/_T_1 &&
+	soc1/buffer/Queue_3/maybe_full==soc2/buffer/Queue_3/maybe_full &&
+	soc1/buffer/Queue_3/ram_address==soc2/buffer/Queue_3/ram_address &&
+	soc1/buffer/Queue_3/ram_corrupt==soc2/buffer/Queue_3/ram_corrupt &&
+	soc1/buffer/Queue_3/ram_data==soc2/buffer/Queue_3/ram_data &&
+	soc1/buffer/Queue_3/ram_opcode==soc2/buffer/Queue_3/ram_opcode &&
+	soc1/buffer/Queue_3/ram_param==soc2/buffer/Queue_3/ram_param &&
+	soc1/buffer/Queue_3/ram_size==soc2/buffer/Queue_3/ram_size &&
+	soc1/buffer/Queue_3/ram_source==soc2/buffer/Queue_3/ram_source ;
+end macro;
+
+macro boolean state_uniqueness_cycle_4 :=
+	//soc1/dcache/s3_req_data==soc2/dcache/s3_req_data &&
+	//soc1/dcache/s4_req_data==soc2/dcache/s4_req_data &&
+	//soc1/dcache/s5_req_data==soc2/dcache/s5_req_data &&
+
+	soc1/core/fp_pipeline/_T_251_bits_data==soc2/core/fp_pipeline/_T_251_bits_data &&
+
+	/*soc1/core/iregister_read/exe_reg_rs1_data_0==soc2/core/iregister_read/exe_reg_rs1_data_0 &&
+	soc1/core/iregister_read/exe_reg_rs1_data_1==soc2/core/iregister_read/exe_reg_rs1_data_1 &&
+	soc1/core/iregister_read/exe_reg_rs1_data_2==soc2/core/iregister_read/exe_reg_rs1_data_2 &&
+	soc1/core/iregister_read/exe_reg_rs2_data_0==soc2/core/iregister_read/exe_reg_rs2_data_0 &&
+	soc1/core/iregister_read/exe_reg_rs2_data_1==soc2/core/iregister_read/exe_reg_rs2_data_1 &&
+	soc1/core/iregister_read/exe_reg_rs2_data_2==soc2/core/iregister_read/exe_reg_rs2_data_2 &&*/
+
+	//soc1/core/iregfile/regfile==soc2/core/iregfile/regfile &&
+
+	//soc1/ptw/mem_resp_data==soc2/ptw/mem_resp_data &&
+
+	soc1/lsu/_T_1620==soc2/lsu/_T_1620 &&
+
+	soc1/buffer/Queue_3/_T==soc2/buffer/Queue_3/_T &&
+	soc1/buffer/Queue_3/_T_1==soc2/buffer/Queue_3/_T_1 &&
+	soc1/buffer/Queue_3/maybe_full==soc2/buffer/Queue_3/maybe_full &&
+	soc1/buffer/Queue_3/ram_address==soc2/buffer/Queue_3/ram_address &&
+	soc1/buffer/Queue_3/ram_corrupt==soc2/buffer/Queue_3/ram_corrupt &&
+	soc1/buffer/Queue_3/ram_data==soc2/buffer/Queue_3/ram_data &&
+	soc1/buffer/Queue_3/ram_opcode==soc2/buffer/Queue_3/ram_opcode &&
+	soc1/buffer/Queue_3/ram_param==soc2/buffer/Queue_3/ram_param &&
+	soc1/buffer/Queue_3/ram_size==soc2/buffer/Queue_3/ram_size &&
+	soc1/buffer/Queue_3/ram_source==soc2/buffer/Queue_3/ram_source ;
+end macro;

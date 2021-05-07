@@ -1,8 +1,9 @@
 include "micro_soc_macro.vli";
 include "blackboxing.vli";
 include "no_pending_access.vli";
+include "UPEC_commitment.vli";
 
-macro integer K := 5; end macro;
+macro integer K := 4; end macro;
 
 macro integer USER_MODE := 0; end macro;
 
@@ -257,7 +258,7 @@ macro boolean page_table_protection_icache :=
   //( (soc2/frontend/tlb/io_resp_paddr[31:12] == secret_cache_tag && !soc2/frontend/tlb/io_resp_miss) ? soc2/frontend/tlb/io_resp_pf_inst : true) ;
 end macro;
 
-macro boolean secret_load_speculative := 
+macro boolean secret_load_speculative := // --> rewrite for LDQ / STQ
   ( soc1/dcache/io_lsu_resp_0_valid && soc2/dcache/io_lsu_resp_0_valid && 
       soc1/dcache/io_lsu_resp_0_bits_data != soc2/dcache/io_lsu_resp_0_bits_data ) ? 
 	soc1/dcache/s2_req_0_uop_br_mask != 12'h0 && soc2/dcache/s2_req_0_uop_br_mask != 12'h0 : true; 
@@ -286,6 +287,24 @@ macro boolean dcache_send_resp :=
   (soc2/dcache/s2_send_resp_0 == 1'b0 || soc2/dcache/s2_type == 3'b000 || soc2/dcache/s2_type == 3'b100) ;
 end macro;
 
+macro boolean data_array_dcache_t_plus_1 :=
+  (soc1/dcache/data/array_0_0/R0_data_0 == soc2/dcache/data/array_0_0/R0_data_0) &&
+  (soc1/dcache/data/array_1_0/R0_data_0 == soc2/dcache/data/array_1_0/R0_data_0) &&
+  (soc1/dcache/data/array_2_0/R0_data_0 == soc2/dcache/data/array_2_0/R0_data_0) &&
+  (soc1/dcache/data/array_3_0/R0_data_0 == soc2/dcache/data/array_3_0/R0_data_0) ;
+end macro;
+
+macro boolean wb_buffer :=
+	soc1/dcache/wb/wb_buffer_0==soc2/dcache/wb/wb_buffer_0 &&
+	soc1/dcache/wb/wb_buffer_1==soc2/dcache/wb/wb_buffer_1 &&
+	soc1/dcache/wb/wb_buffer_2==soc2/dcache/wb/wb_buffer_2 &&
+	soc1/dcache/wb/wb_buffer_3==soc2/dcache/wb/wb_buffer_3 &&
+	soc1/dcache/wb/wb_buffer_4==soc2/dcache/wb/wb_buffer_4 &&
+	soc1/dcache/wb/wb_buffer_5==soc2/dcache/wb/wb_buffer_5 &&
+	soc1/dcache/wb/wb_buffer_6==soc2/dcache/wb/wb_buffer_6 &&
+	soc1/dcache/wb/wb_buffer_7==soc2/dcache/wb/wb_buffer_7 ;
+end macro;
+
 
 
 property UPEC_boom;
@@ -296,6 +315,7 @@ property UPEC_boom;
 		at t: state_equivalence;
 
 		during[t, t+K]: blackboxing;
+		//during[t+1, t+K]: data_array_dcache_t_plus_1;
 
 		during[t, t+K]: secret_data_protected;
 		during[t, t+K]: page_table_protection_icache;
@@ -305,6 +325,8 @@ property UPEC_boom;
 
 		during[t, t+K]: dcache_replay;
 		during[t, t+K]: dcache_send_resp;
+
+		//during[t, t+K]: wb_buffer;
 
 		at t: no_pending_secret_access;
 
@@ -327,10 +349,13 @@ property UPEC_boom;
 
 		//at t+1: no_pending_access_icache;
 
-		at t+K: (soc1/dcache/meta_0/io_write_valid == soc2/dcache/meta_0/io_write_valid);
-		at t+K: (soc1/dcache/meta_0/io_write_valid == 1'b0 || ((soc1/dcache/meta_0/io_write_bits_data_tag == soc2/dcache/meta_0/io_write_bits_data_tag) && (soc1/dcache/meta_0/io_write_bits_data_coh_state == soc2/dcache/meta_0/io_write_bits_data_coh_state)));
+		//at t+K: (soc1/dcache/meta_0/io_write_valid == soc2/dcache/meta_0/io_write_valid);
+		//at t+K: (soc1/dcache/meta_0/io_write_valid == 1'b0 || ((soc1/dcache/meta_0/io_write_bits_data_tag == soc2/dcache/meta_0/io_write_bits_data_tag) && (soc1/dcache/meta_0/io_write_bits_data_coh_state == soc2/dcache/meta_0/io_write_bits_data_coh_state)));
 
-		// lAlert == 1'b0 && lAlert_earlyAlarm == 1'b0; 
+		//at t+K: state_uniqueness_cycle_1;
+		//at t+K: state_uniqueness_cycle_2;
+		//at t+K: state_uniqueness_cycle_3;
+		at t+K: state_uniqueness_cycle_4;
 
 end property;
 
