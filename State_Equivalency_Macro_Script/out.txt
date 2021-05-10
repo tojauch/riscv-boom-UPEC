@@ -9703,106 +9703,106 @@ macro boolean state_equivalence :=
 	soc1/intsink/SynchronizerShiftReg_w1_d3/NonSyncResetSynchronizerPrimitiveShiftReg_d3/sync_0==soc2/intsink/SynchronizerShiftReg_w1_d3/NonSyncResetSynchronizerPrimitiveShiftReg_d3/sync_0 &&
 	soc1/intsink/SynchronizerShiftReg_w1_d3/NonSyncResetSynchronizerPrimitiveShiftReg_d3/sync_1==soc2/intsink/SynchronizerShiftReg_w1_d3/NonSyncResetSynchronizerPrimitiveShiftReg_d3/sync_1 &&
 	soc1/intsink/SynchronizerShiftReg_w1_d3/NonSyncResetSynchronizerPrimitiveShiftReg_d3/sync_2==soc2/intsink/SynchronizerShiftReg_w1_d3/NonSyncResetSynchronizerPrimitiveShiftReg_d3/sync_2 &&
-	soc1/lsu/_T_1258==soc2/lsu/_T_1258 &&
-	soc1/lsu/_T_1578==soc2/lsu/_T_1578 &&
-	soc1/lsu/_T_1581==soc2/lsu/_T_1581 &&
-	soc1/lsu/_T_1582==soc2/lsu/_T_1582 &&
-	soc1/lsu/_T_1602==soc2/lsu/_T_1602 &&
-	soc1/lsu/_T_1605==soc2/lsu/_T_1605 &&
-	soc1/lsu/_T_1606==soc2/lsu/_T_1606 &&
+	soc1/lsu/_T_1164==soc2/lsu/_T_1164 &&
+	soc1/lsu/_T_1456==soc2/lsu/_T_1456 &&
+	soc1/lsu/_T_1459==soc2/lsu/_T_1459 &&
+	soc1/lsu/_T_1460==soc2/lsu/_T_1460 &&
+	soc1/lsu/_T_1480==soc2/lsu/_T_1480 &&
+	soc1/lsu/_T_1483==soc2/lsu/_T_1483 &&
+	soc1/lsu/_T_1484==soc2/lsu/_T_1484 &&
+	soc1/lsu/_T_1497==soc2/lsu/_T_1497 &&
+	soc1/lsu/_T_1498==soc2/lsu/_T_1498 &&
+	soc1/lsu/_T_1521==soc2/lsu/_T_1521 &&
+	soc1/lsu/_T_1522==soc2/lsu/_T_1522 &&
+	soc1/lsu/_T_1527==soc2/lsu/_T_1527 &&
 	soc1/lsu/_T_1619==soc2/lsu/_T_1619 &&
-	soc1/lsu/_T_1620==soc2/lsu/_T_1620 &&
-	soc1/lsu/_T_1643==soc2/lsu/_T_1643 &&
-	soc1/lsu/_T_1644==soc2/lsu/_T_1644 &&
-	soc1/lsu/_T_1649==soc2/lsu/_T_1649 &&
-	soc1/lsu/_T_1740==soc2/lsu/_T_1740 &&
-	soc1/lsu/_T_1747==soc2/lsu/_T_1747 &&
-	soc1/lsu/_T_1824==soc2/lsu/_T_1824 &&
-	soc1/lsu/_T_1831==soc2/lsu/_T_1831 &&
-	soc1/lsu/_T_1908==soc2/lsu/_T_1908 &&
-	soc1/lsu/_T_1915==soc2/lsu/_T_1915 &&
-	soc1/lsu/_T_1992==soc2/lsu/_T_1992 &&
-	soc1/lsu/_T_1999==soc2/lsu/_T_1999 &&
-	soc1/lsu/_T_2076==soc2/lsu/_T_2076 &&
-	soc1/lsu/_T_2083==soc2/lsu/_T_2083 &&
-	soc1/lsu/_T_2160==soc2/lsu/_T_2160 &&
-	soc1/lsu/_T_2167==soc2/lsu/_T_2167 &&
-	soc1/lsu/_T_2244==soc2/lsu/_T_2244 &&
-	soc1/lsu/_T_2251==soc2/lsu/_T_2251 &&
-	soc1/lsu/_T_2328==soc2/lsu/_T_2328 &&
-	soc1/lsu/_T_2335==soc2/lsu/_T_2335 &&
-	soc1/lsu/_T_2412==soc2/lsu/_T_2412 &&
-	soc1/lsu/_T_2419==soc2/lsu/_T_2419 &&
-	soc1/lsu/_T_2496==soc2/lsu/_T_2496 &&
-	soc1/lsu/_T_2503==soc2/lsu/_T_2503 &&
-	soc1/lsu/_T_2580==soc2/lsu/_T_2580 &&
-	soc1/lsu/_T_2587==soc2/lsu/_T_2587 &&
-	soc1/lsu/_T_2664==soc2/lsu/_T_2664 &&
-	soc1/lsu/_T_2671==soc2/lsu/_T_2671 &&
-	soc1/lsu/_T_2748==soc2/lsu/_T_2748 &&
-	soc1/lsu/_T_2755==soc2/lsu/_T_2755 &&
-	soc1/lsu/_T_2832==soc2/lsu/_T_2832 &&
-	soc1/lsu/_T_2839==soc2/lsu/_T_2839 &&
-	soc1/lsu/_T_2916==soc2/lsu/_T_2916 &&
-	soc1/lsu/_T_2923==soc2/lsu/_T_2923 &&
-	soc1/lsu/_T_3000==soc2/lsu/_T_3000 &&
-	soc1/lsu/_T_3007==soc2/lsu/_T_3007 &&
-	soc1/lsu/_T_3040==soc2/lsu/_T_3040 &&
-	soc1/lsu/_T_3046==soc2/lsu/_T_3046 &&
-	soc1/lsu/_T_3050==soc2/lsu/_T_3050 &&
-	soc1/lsu/_T_3085==soc2/lsu/_T_3085 &&
-	soc1/lsu/_T_3091==soc2/lsu/_T_3091 &&
-	soc1/lsu/_T_3095==soc2/lsu/_T_3095 &&
-	soc1/lsu/_T_3130==soc2/lsu/_T_3130 &&
-	soc1/lsu/_T_3136==soc2/lsu/_T_3136 &&
-	soc1/lsu/_T_3140==soc2/lsu/_T_3140 &&
-	soc1/lsu/_T_3175==soc2/lsu/_T_3175 &&
-	soc1/lsu/_T_3181==soc2/lsu/_T_3181 &&
-	soc1/lsu/_T_3185==soc2/lsu/_T_3185 &&
-	soc1/lsu/_T_3220==soc2/lsu/_T_3220 &&
-	soc1/lsu/_T_3226==soc2/lsu/_T_3226 &&
-	soc1/lsu/_T_3230==soc2/lsu/_T_3230 &&
-	soc1/lsu/_T_3265==soc2/lsu/_T_3265 &&
-	soc1/lsu/_T_3271==soc2/lsu/_T_3271 &&
-	soc1/lsu/_T_3275==soc2/lsu/_T_3275 &&
-	soc1/lsu/_T_3310==soc2/lsu/_T_3310 &&
-	soc1/lsu/_T_3316==soc2/lsu/_T_3316 &&
-	soc1/lsu/_T_3320==soc2/lsu/_T_3320 &&
-	soc1/lsu/_T_3355==soc2/lsu/_T_3355 &&
-	soc1/lsu/_T_3361==soc2/lsu/_T_3361 &&
-	soc1/lsu/_T_3365==soc2/lsu/_T_3365 &&
-	soc1/lsu/_T_3400==soc2/lsu/_T_3400 &&
-	soc1/lsu/_T_3406==soc2/lsu/_T_3406 &&
-	soc1/lsu/_T_3410==soc2/lsu/_T_3410 &&
-	soc1/lsu/_T_3445==soc2/lsu/_T_3445 &&
-	soc1/lsu/_T_3451==soc2/lsu/_T_3451 &&
-	soc1/lsu/_T_3455==soc2/lsu/_T_3455 &&
-	soc1/lsu/_T_3490==soc2/lsu/_T_3490 &&
-	soc1/lsu/_T_3496==soc2/lsu/_T_3496 &&
-	soc1/lsu/_T_3500==soc2/lsu/_T_3500 &&
-	soc1/lsu/_T_3535==soc2/lsu/_T_3535 &&
-	soc1/lsu/_T_3541==soc2/lsu/_T_3541 &&
-	soc1/lsu/_T_3545==soc2/lsu/_T_3545 &&
-	soc1/lsu/_T_3580==soc2/lsu/_T_3580 &&
-	soc1/lsu/_T_3586==soc2/lsu/_T_3586 &&
-	soc1/lsu/_T_3590==soc2/lsu/_T_3590 &&
-	soc1/lsu/_T_3625==soc2/lsu/_T_3625 &&
-	soc1/lsu/_T_3631==soc2/lsu/_T_3631 &&
-	soc1/lsu/_T_3635==soc2/lsu/_T_3635 &&
-	soc1/lsu/_T_3670==soc2/lsu/_T_3670 &&
-	soc1/lsu/_T_3676==soc2/lsu/_T_3676 &&
-	soc1/lsu/_T_3680==soc2/lsu/_T_3680 &&
-	soc1/lsu/_T_3715==soc2/lsu/_T_3715 &&
-	soc1/lsu/_T_3721==soc2/lsu/_T_3721 &&
-	soc1/lsu/_T_3725==soc2/lsu/_T_3725 &&
-	soc1/lsu/_T_3749==soc2/lsu/_T_3749 &&
-	soc1/lsu/_T_3770==soc2/lsu/_T_3770 &&
-	soc1/lsu/_T_3771==soc2/lsu/_T_3771 &&
-	soc1/lsu/_T_4168==soc2/lsu/_T_4168 &&
-	soc1/lsu/_T_4169==soc2/lsu/_T_4169 &&
-	soc1/lsu/_T_4171==soc2/lsu/_T_4171 &&
-	soc1/lsu/_T_625==soc2/lsu/_T_625 &&
-	soc1/lsu/_T_637==soc2/lsu/_T_637 &&
+	soc1/lsu/_T_1626==soc2/lsu/_T_1626 &&
+	soc1/lsu/_T_1703==soc2/lsu/_T_1703 &&
+	soc1/lsu/_T_1710==soc2/lsu/_T_1710 &&
+	soc1/lsu/_T_1787==soc2/lsu/_T_1787 &&
+	soc1/lsu/_T_1794==soc2/lsu/_T_1794 &&
+	soc1/lsu/_T_1871==soc2/lsu/_T_1871 &&
+	soc1/lsu/_T_1878==soc2/lsu/_T_1878 &&
+	soc1/lsu/_T_1955==soc2/lsu/_T_1955 &&
+	soc1/lsu/_T_1962==soc2/lsu/_T_1962 &&
+	soc1/lsu/_T_2039==soc2/lsu/_T_2039 &&
+	soc1/lsu/_T_2046==soc2/lsu/_T_2046 &&
+	soc1/lsu/_T_2123==soc2/lsu/_T_2123 &&
+	soc1/lsu/_T_2130==soc2/lsu/_T_2130 &&
+	soc1/lsu/_T_2207==soc2/lsu/_T_2207 &&
+	soc1/lsu/_T_2214==soc2/lsu/_T_2214 &&
+	soc1/lsu/_T_2291==soc2/lsu/_T_2291 &&
+	soc1/lsu/_T_2298==soc2/lsu/_T_2298 &&
+	soc1/lsu/_T_2375==soc2/lsu/_T_2375 &&
+	soc1/lsu/_T_2382==soc2/lsu/_T_2382 &&
+	soc1/lsu/_T_2459==soc2/lsu/_T_2459 &&
+	soc1/lsu/_T_2466==soc2/lsu/_T_2466 &&
+	soc1/lsu/_T_2543==soc2/lsu/_T_2543 &&
+	soc1/lsu/_T_2550==soc2/lsu/_T_2550 &&
+	soc1/lsu/_T_2627==soc2/lsu/_T_2627 &&
+	soc1/lsu/_T_2634==soc2/lsu/_T_2634 &&
+	soc1/lsu/_T_2711==soc2/lsu/_T_2711 &&
+	soc1/lsu/_T_2718==soc2/lsu/_T_2718 &&
+	soc1/lsu/_T_2795==soc2/lsu/_T_2795 &&
+	soc1/lsu/_T_2802==soc2/lsu/_T_2802 &&
+	soc1/lsu/_T_2879==soc2/lsu/_T_2879 &&
+	soc1/lsu/_T_2886==soc2/lsu/_T_2886 &&
+	soc1/lsu/_T_2919==soc2/lsu/_T_2919 &&
+	soc1/lsu/_T_2925==soc2/lsu/_T_2925 &&
+	soc1/lsu/_T_2929==soc2/lsu/_T_2929 &&
+	soc1/lsu/_T_2964==soc2/lsu/_T_2964 &&
+	soc1/lsu/_T_2970==soc2/lsu/_T_2970 &&
+	soc1/lsu/_T_2974==soc2/lsu/_T_2974 &&
+	soc1/lsu/_T_3009==soc2/lsu/_T_3009 &&
+	soc1/lsu/_T_3015==soc2/lsu/_T_3015 &&
+	soc1/lsu/_T_3019==soc2/lsu/_T_3019 &&
+	soc1/lsu/_T_3054==soc2/lsu/_T_3054 &&
+	soc1/lsu/_T_3060==soc2/lsu/_T_3060 &&
+	soc1/lsu/_T_3064==soc2/lsu/_T_3064 &&
+	soc1/lsu/_T_3099==soc2/lsu/_T_3099 &&
+	soc1/lsu/_T_3105==soc2/lsu/_T_3105 &&
+	soc1/lsu/_T_3109==soc2/lsu/_T_3109 &&
+	soc1/lsu/_T_3144==soc2/lsu/_T_3144 &&
+	soc1/lsu/_T_3150==soc2/lsu/_T_3150 &&
+	soc1/lsu/_T_3154==soc2/lsu/_T_3154 &&
+	soc1/lsu/_T_3189==soc2/lsu/_T_3189 &&
+	soc1/lsu/_T_3195==soc2/lsu/_T_3195 &&
+	soc1/lsu/_T_3199==soc2/lsu/_T_3199 &&
+	soc1/lsu/_T_3234==soc2/lsu/_T_3234 &&
+	soc1/lsu/_T_3240==soc2/lsu/_T_3240 &&
+	soc1/lsu/_T_3244==soc2/lsu/_T_3244 &&
+	soc1/lsu/_T_3279==soc2/lsu/_T_3279 &&
+	soc1/lsu/_T_3285==soc2/lsu/_T_3285 &&
+	soc1/lsu/_T_3289==soc2/lsu/_T_3289 &&
+	soc1/lsu/_T_3324==soc2/lsu/_T_3324 &&
+	soc1/lsu/_T_3330==soc2/lsu/_T_3330 &&
+	soc1/lsu/_T_3334==soc2/lsu/_T_3334 &&
+	soc1/lsu/_T_3369==soc2/lsu/_T_3369 &&
+	soc1/lsu/_T_3375==soc2/lsu/_T_3375 &&
+	soc1/lsu/_T_3379==soc2/lsu/_T_3379 &&
+	soc1/lsu/_T_3414==soc2/lsu/_T_3414 &&
+	soc1/lsu/_T_3420==soc2/lsu/_T_3420 &&
+	soc1/lsu/_T_3424==soc2/lsu/_T_3424 &&
+	soc1/lsu/_T_3459==soc2/lsu/_T_3459 &&
+	soc1/lsu/_T_3465==soc2/lsu/_T_3465 &&
+	soc1/lsu/_T_3469==soc2/lsu/_T_3469 &&
+	soc1/lsu/_T_3504==soc2/lsu/_T_3504 &&
+	soc1/lsu/_T_3510==soc2/lsu/_T_3510 &&
+	soc1/lsu/_T_3514==soc2/lsu/_T_3514 &&
+	soc1/lsu/_T_3549==soc2/lsu/_T_3549 &&
+	soc1/lsu/_T_3555==soc2/lsu/_T_3555 &&
+	soc1/lsu/_T_3559==soc2/lsu/_T_3559 &&
+	soc1/lsu/_T_3594==soc2/lsu/_T_3594 &&
+	soc1/lsu/_T_3600==soc2/lsu/_T_3600 &&
+	soc1/lsu/_T_3604==soc2/lsu/_T_3604 &&
+	soc1/lsu/_T_3628==soc2/lsu/_T_3628 &&
+	soc1/lsu/_T_3649==soc2/lsu/_T_3649 &&
+	soc1/lsu/_T_3650==soc2/lsu/_T_3650 &&
+	soc1/lsu/_T_4047==soc2/lsu/_T_4047 &&
+	soc1/lsu/_T_4048==soc2/lsu/_T_4048 &&
+	soc1/lsu/_T_4050==soc2/lsu/_T_4050 &&
+	soc1/lsu/_T_623==soc2/lsu/_T_623 &&
+	soc1/lsu/_T_633==soc2/lsu/_T_633 &&
 	soc1/lsu/clr_bsy_brmask_0==soc2/lsu/clr_bsy_brmask_0 &&
 	soc1/lsu/clr_bsy_rob_idx_0==soc2/lsu/clr_bsy_rob_idx_0 &&
 	soc1/lsu/clr_bsy_valid_0==soc2/lsu/clr_bsy_valid_0 &&
@@ -9830,7 +9830,6 @@ macro boolean state_equivalence :=
 	soc1/lsu/ldq_0_bits_addr_is_virtual==soc2/lsu/ldq_0_bits_addr_is_virtual &&
 	soc1/lsu/ldq_0_bits_addr_valid==soc2/lsu/ldq_0_bits_addr_valid &&
 	soc1/lsu/ldq_0_bits_executed==soc2/lsu/ldq_0_bits_executed &&
-	soc1/lsu/ldq_0_bits_failure==soc2/lsu/ldq_0_bits_failure &&
 	soc1/lsu/ldq_0_bits_forward_std_val==soc2/lsu/ldq_0_bits_forward_std_val &&
 	soc1/lsu/ldq_0_bits_forward_stq_idx==soc2/lsu/ldq_0_bits_forward_stq_idx &&
 	soc1/lsu/ldq_0_bits_observed==soc2/lsu/ldq_0_bits_observed &&
@@ -9841,6 +9840,7 @@ macro boolean state_equivalence :=
 	soc1/lsu/ldq_0_bits_uop_ctrl_is_load==soc2/lsu/ldq_0_bits_uop_ctrl_is_load &&
 	soc1/lsu/ldq_0_bits_uop_ctrl_is_sta==soc2/lsu/ldq_0_bits_uop_ctrl_is_sta &&
 	soc1/lsu/ldq_0_bits_uop_dst_rtype==soc2/lsu/ldq_0_bits_uop_dst_rtype &&
+	soc1/lsu/ldq_0_bits_uop_exception==soc2/lsu/ldq_0_bits_uop_exception &&
 	soc1/lsu/ldq_0_bits_uop_fp_val==soc2/lsu/ldq_0_bits_uop_fp_val &&
 	soc1/lsu/ldq_0_bits_uop_is_amo==soc2/lsu/ldq_0_bits_uop_is_amo &&
 	soc1/lsu/ldq_0_bits_uop_is_fence==soc2/lsu/ldq_0_bits_uop_is_fence &&
@@ -9861,7 +9861,6 @@ macro boolean state_equivalence :=
 	soc1/lsu/ldq_10_bits_addr_is_virtual==soc2/lsu/ldq_10_bits_addr_is_virtual &&
 	soc1/lsu/ldq_10_bits_addr_valid==soc2/lsu/ldq_10_bits_addr_valid &&
 	soc1/lsu/ldq_10_bits_executed==soc2/lsu/ldq_10_bits_executed &&
-	soc1/lsu/ldq_10_bits_failure==soc2/lsu/ldq_10_bits_failure &&
 	soc1/lsu/ldq_10_bits_forward_std_val==soc2/lsu/ldq_10_bits_forward_std_val &&
 	soc1/lsu/ldq_10_bits_forward_stq_idx==soc2/lsu/ldq_10_bits_forward_stq_idx &&
 	soc1/lsu/ldq_10_bits_observed==soc2/lsu/ldq_10_bits_observed &&
@@ -9872,6 +9871,7 @@ macro boolean state_equivalence :=
 	soc1/lsu/ldq_10_bits_uop_ctrl_is_load==soc2/lsu/ldq_10_bits_uop_ctrl_is_load &&
 	soc1/lsu/ldq_10_bits_uop_ctrl_is_sta==soc2/lsu/ldq_10_bits_uop_ctrl_is_sta &&
 	soc1/lsu/ldq_10_bits_uop_dst_rtype==soc2/lsu/ldq_10_bits_uop_dst_rtype &&
+	soc1/lsu/ldq_10_bits_uop_exception==soc2/lsu/ldq_10_bits_uop_exception &&
 	soc1/lsu/ldq_10_bits_uop_fp_val==soc2/lsu/ldq_10_bits_uop_fp_val &&
 	soc1/lsu/ldq_10_bits_uop_is_amo==soc2/lsu/ldq_10_bits_uop_is_amo &&
 	soc1/lsu/ldq_10_bits_uop_is_fence==soc2/lsu/ldq_10_bits_uop_is_fence &&
@@ -9892,7 +9892,6 @@ macro boolean state_equivalence :=
 	soc1/lsu/ldq_11_bits_addr_is_virtual==soc2/lsu/ldq_11_bits_addr_is_virtual &&
 	soc1/lsu/ldq_11_bits_addr_valid==soc2/lsu/ldq_11_bits_addr_valid &&
 	soc1/lsu/ldq_11_bits_executed==soc2/lsu/ldq_11_bits_executed &&
-	soc1/lsu/ldq_11_bits_failure==soc2/lsu/ldq_11_bits_failure &&
 	soc1/lsu/ldq_11_bits_forward_std_val==soc2/lsu/ldq_11_bits_forward_std_val &&
 	soc1/lsu/ldq_11_bits_forward_stq_idx==soc2/lsu/ldq_11_bits_forward_stq_idx &&
 	soc1/lsu/ldq_11_bits_observed==soc2/lsu/ldq_11_bits_observed &&
@@ -9903,6 +9902,7 @@ macro boolean state_equivalence :=
 	soc1/lsu/ldq_11_bits_uop_ctrl_is_load==soc2/lsu/ldq_11_bits_uop_ctrl_is_load &&
 	soc1/lsu/ldq_11_bits_uop_ctrl_is_sta==soc2/lsu/ldq_11_bits_uop_ctrl_is_sta &&
 	soc1/lsu/ldq_11_bits_uop_dst_rtype==soc2/lsu/ldq_11_bits_uop_dst_rtype &&
+	soc1/lsu/ldq_11_bits_uop_exception==soc2/lsu/ldq_11_bits_uop_exception &&
 	soc1/lsu/ldq_11_bits_uop_fp_val==soc2/lsu/ldq_11_bits_uop_fp_val &&
 	soc1/lsu/ldq_11_bits_uop_is_amo==soc2/lsu/ldq_11_bits_uop_is_amo &&
 	soc1/lsu/ldq_11_bits_uop_is_fence==soc2/lsu/ldq_11_bits_uop_is_fence &&
@@ -9923,7 +9923,6 @@ macro boolean state_equivalence :=
 	soc1/lsu/ldq_12_bits_addr_is_virtual==soc2/lsu/ldq_12_bits_addr_is_virtual &&
 	soc1/lsu/ldq_12_bits_addr_valid==soc2/lsu/ldq_12_bits_addr_valid &&
 	soc1/lsu/ldq_12_bits_executed==soc2/lsu/ldq_12_bits_executed &&
-	soc1/lsu/ldq_12_bits_failure==soc2/lsu/ldq_12_bits_failure &&
 	soc1/lsu/ldq_12_bits_forward_std_val==soc2/lsu/ldq_12_bits_forward_std_val &&
 	soc1/lsu/ldq_12_bits_forward_stq_idx==soc2/lsu/ldq_12_bits_forward_stq_idx &&
 	soc1/lsu/ldq_12_bits_observed==soc2/lsu/ldq_12_bits_observed &&
@@ -9934,6 +9933,7 @@ macro boolean state_equivalence :=
 	soc1/lsu/ldq_12_bits_uop_ctrl_is_load==soc2/lsu/ldq_12_bits_uop_ctrl_is_load &&
 	soc1/lsu/ldq_12_bits_uop_ctrl_is_sta==soc2/lsu/ldq_12_bits_uop_ctrl_is_sta &&
 	soc1/lsu/ldq_12_bits_uop_dst_rtype==soc2/lsu/ldq_12_bits_uop_dst_rtype &&
+	soc1/lsu/ldq_12_bits_uop_exception==soc2/lsu/ldq_12_bits_uop_exception &&
 	soc1/lsu/ldq_12_bits_uop_fp_val==soc2/lsu/ldq_12_bits_uop_fp_val &&
 	soc1/lsu/ldq_12_bits_uop_is_amo==soc2/lsu/ldq_12_bits_uop_is_amo &&
 	soc1/lsu/ldq_12_bits_uop_is_fence==soc2/lsu/ldq_12_bits_uop_is_fence &&
@@ -9954,7 +9954,6 @@ macro boolean state_equivalence :=
 	soc1/lsu/ldq_13_bits_addr_is_virtual==soc2/lsu/ldq_13_bits_addr_is_virtual &&
 	soc1/lsu/ldq_13_bits_addr_valid==soc2/lsu/ldq_13_bits_addr_valid &&
 	soc1/lsu/ldq_13_bits_executed==soc2/lsu/ldq_13_bits_executed &&
-	soc1/lsu/ldq_13_bits_failure==soc2/lsu/ldq_13_bits_failure &&
 	soc1/lsu/ldq_13_bits_forward_std_val==soc2/lsu/ldq_13_bits_forward_std_val &&
 	soc1/lsu/ldq_13_bits_forward_stq_idx==soc2/lsu/ldq_13_bits_forward_stq_idx &&
 	soc1/lsu/ldq_13_bits_observed==soc2/lsu/ldq_13_bits_observed &&
@@ -9965,6 +9964,7 @@ macro boolean state_equivalence :=
 	soc1/lsu/ldq_13_bits_uop_ctrl_is_load==soc2/lsu/ldq_13_bits_uop_ctrl_is_load &&
 	soc1/lsu/ldq_13_bits_uop_ctrl_is_sta==soc2/lsu/ldq_13_bits_uop_ctrl_is_sta &&
 	soc1/lsu/ldq_13_bits_uop_dst_rtype==soc2/lsu/ldq_13_bits_uop_dst_rtype &&
+	soc1/lsu/ldq_13_bits_uop_exception==soc2/lsu/ldq_13_bits_uop_exception &&
 	soc1/lsu/ldq_13_bits_uop_fp_val==soc2/lsu/ldq_13_bits_uop_fp_val &&
 	soc1/lsu/ldq_13_bits_uop_is_amo==soc2/lsu/ldq_13_bits_uop_is_amo &&
 	soc1/lsu/ldq_13_bits_uop_is_fence==soc2/lsu/ldq_13_bits_uop_is_fence &&
@@ -9985,7 +9985,6 @@ macro boolean state_equivalence :=
 	soc1/lsu/ldq_14_bits_addr_is_virtual==soc2/lsu/ldq_14_bits_addr_is_virtual &&
 	soc1/lsu/ldq_14_bits_addr_valid==soc2/lsu/ldq_14_bits_addr_valid &&
 	soc1/lsu/ldq_14_bits_executed==soc2/lsu/ldq_14_bits_executed &&
-	soc1/lsu/ldq_14_bits_failure==soc2/lsu/ldq_14_bits_failure &&
 	soc1/lsu/ldq_14_bits_forward_std_val==soc2/lsu/ldq_14_bits_forward_std_val &&
 	soc1/lsu/ldq_14_bits_forward_stq_idx==soc2/lsu/ldq_14_bits_forward_stq_idx &&
 	soc1/lsu/ldq_14_bits_observed==soc2/lsu/ldq_14_bits_observed &&
@@ -9996,6 +9995,7 @@ macro boolean state_equivalence :=
 	soc1/lsu/ldq_14_bits_uop_ctrl_is_load==soc2/lsu/ldq_14_bits_uop_ctrl_is_load &&
 	soc1/lsu/ldq_14_bits_uop_ctrl_is_sta==soc2/lsu/ldq_14_bits_uop_ctrl_is_sta &&
 	soc1/lsu/ldq_14_bits_uop_dst_rtype==soc2/lsu/ldq_14_bits_uop_dst_rtype &&
+	soc1/lsu/ldq_14_bits_uop_exception==soc2/lsu/ldq_14_bits_uop_exception &&
 	soc1/lsu/ldq_14_bits_uop_fp_val==soc2/lsu/ldq_14_bits_uop_fp_val &&
 	soc1/lsu/ldq_14_bits_uop_is_amo==soc2/lsu/ldq_14_bits_uop_is_amo &&
 	soc1/lsu/ldq_14_bits_uop_is_fence==soc2/lsu/ldq_14_bits_uop_is_fence &&
@@ -10016,7 +10016,6 @@ macro boolean state_equivalence :=
 	soc1/lsu/ldq_15_bits_addr_is_virtual==soc2/lsu/ldq_15_bits_addr_is_virtual &&
 	soc1/lsu/ldq_15_bits_addr_valid==soc2/lsu/ldq_15_bits_addr_valid &&
 	soc1/lsu/ldq_15_bits_executed==soc2/lsu/ldq_15_bits_executed &&
-	soc1/lsu/ldq_15_bits_failure==soc2/lsu/ldq_15_bits_failure &&
 	soc1/lsu/ldq_15_bits_forward_std_val==soc2/lsu/ldq_15_bits_forward_std_val &&
 	soc1/lsu/ldq_15_bits_forward_stq_idx==soc2/lsu/ldq_15_bits_forward_stq_idx &&
 	soc1/lsu/ldq_15_bits_observed==soc2/lsu/ldq_15_bits_observed &&
@@ -10027,6 +10026,7 @@ macro boolean state_equivalence :=
 	soc1/lsu/ldq_15_bits_uop_ctrl_is_load==soc2/lsu/ldq_15_bits_uop_ctrl_is_load &&
 	soc1/lsu/ldq_15_bits_uop_ctrl_is_sta==soc2/lsu/ldq_15_bits_uop_ctrl_is_sta &&
 	soc1/lsu/ldq_15_bits_uop_dst_rtype==soc2/lsu/ldq_15_bits_uop_dst_rtype &&
+	soc1/lsu/ldq_15_bits_uop_exception==soc2/lsu/ldq_15_bits_uop_exception &&
 	soc1/lsu/ldq_15_bits_uop_fp_val==soc2/lsu/ldq_15_bits_uop_fp_val &&
 	soc1/lsu/ldq_15_bits_uop_is_amo==soc2/lsu/ldq_15_bits_uop_is_amo &&
 	soc1/lsu/ldq_15_bits_uop_is_fence==soc2/lsu/ldq_15_bits_uop_is_fence &&
@@ -10047,7 +10047,6 @@ macro boolean state_equivalence :=
 	soc1/lsu/ldq_1_bits_addr_is_virtual==soc2/lsu/ldq_1_bits_addr_is_virtual &&
 	soc1/lsu/ldq_1_bits_addr_valid==soc2/lsu/ldq_1_bits_addr_valid &&
 	soc1/lsu/ldq_1_bits_executed==soc2/lsu/ldq_1_bits_executed &&
-	soc1/lsu/ldq_1_bits_failure==soc2/lsu/ldq_1_bits_failure &&
 	soc1/lsu/ldq_1_bits_forward_std_val==soc2/lsu/ldq_1_bits_forward_std_val &&
 	soc1/lsu/ldq_1_bits_forward_stq_idx==soc2/lsu/ldq_1_bits_forward_stq_idx &&
 	soc1/lsu/ldq_1_bits_observed==soc2/lsu/ldq_1_bits_observed &&
@@ -10058,6 +10057,7 @@ macro boolean state_equivalence :=
 	soc1/lsu/ldq_1_bits_uop_ctrl_is_load==soc2/lsu/ldq_1_bits_uop_ctrl_is_load &&
 	soc1/lsu/ldq_1_bits_uop_ctrl_is_sta==soc2/lsu/ldq_1_bits_uop_ctrl_is_sta &&
 	soc1/lsu/ldq_1_bits_uop_dst_rtype==soc2/lsu/ldq_1_bits_uop_dst_rtype &&
+	soc1/lsu/ldq_1_bits_uop_exception==soc2/lsu/ldq_1_bits_uop_exception &&
 	soc1/lsu/ldq_1_bits_uop_fp_val==soc2/lsu/ldq_1_bits_uop_fp_val &&
 	soc1/lsu/ldq_1_bits_uop_is_amo==soc2/lsu/ldq_1_bits_uop_is_amo &&
 	soc1/lsu/ldq_1_bits_uop_is_fence==soc2/lsu/ldq_1_bits_uop_is_fence &&
@@ -10078,7 +10078,6 @@ macro boolean state_equivalence :=
 	soc1/lsu/ldq_2_bits_addr_is_virtual==soc2/lsu/ldq_2_bits_addr_is_virtual &&
 	soc1/lsu/ldq_2_bits_addr_valid==soc2/lsu/ldq_2_bits_addr_valid &&
 	soc1/lsu/ldq_2_bits_executed==soc2/lsu/ldq_2_bits_executed &&
-	soc1/lsu/ldq_2_bits_failure==soc2/lsu/ldq_2_bits_failure &&
 	soc1/lsu/ldq_2_bits_forward_std_val==soc2/lsu/ldq_2_bits_forward_std_val &&
 	soc1/lsu/ldq_2_bits_forward_stq_idx==soc2/lsu/ldq_2_bits_forward_stq_idx &&
 	soc1/lsu/ldq_2_bits_observed==soc2/lsu/ldq_2_bits_observed &&
@@ -10089,6 +10088,7 @@ macro boolean state_equivalence :=
 	soc1/lsu/ldq_2_bits_uop_ctrl_is_load==soc2/lsu/ldq_2_bits_uop_ctrl_is_load &&
 	soc1/lsu/ldq_2_bits_uop_ctrl_is_sta==soc2/lsu/ldq_2_bits_uop_ctrl_is_sta &&
 	soc1/lsu/ldq_2_bits_uop_dst_rtype==soc2/lsu/ldq_2_bits_uop_dst_rtype &&
+	soc1/lsu/ldq_2_bits_uop_exception==soc2/lsu/ldq_2_bits_uop_exception &&
 	soc1/lsu/ldq_2_bits_uop_fp_val==soc2/lsu/ldq_2_bits_uop_fp_val &&
 	soc1/lsu/ldq_2_bits_uop_is_amo==soc2/lsu/ldq_2_bits_uop_is_amo &&
 	soc1/lsu/ldq_2_bits_uop_is_fence==soc2/lsu/ldq_2_bits_uop_is_fence &&
@@ -10109,7 +10109,6 @@ macro boolean state_equivalence :=
 	soc1/lsu/ldq_3_bits_addr_is_virtual==soc2/lsu/ldq_3_bits_addr_is_virtual &&
 	soc1/lsu/ldq_3_bits_addr_valid==soc2/lsu/ldq_3_bits_addr_valid &&
 	soc1/lsu/ldq_3_bits_executed==soc2/lsu/ldq_3_bits_executed &&
-	soc1/lsu/ldq_3_bits_failure==soc2/lsu/ldq_3_bits_failure &&
 	soc1/lsu/ldq_3_bits_forward_std_val==soc2/lsu/ldq_3_bits_forward_std_val &&
 	soc1/lsu/ldq_3_bits_forward_stq_idx==soc2/lsu/ldq_3_bits_forward_stq_idx &&
 	soc1/lsu/ldq_3_bits_observed==soc2/lsu/ldq_3_bits_observed &&
@@ -10120,6 +10119,7 @@ macro boolean state_equivalence :=
 	soc1/lsu/ldq_3_bits_uop_ctrl_is_load==soc2/lsu/ldq_3_bits_uop_ctrl_is_load &&
 	soc1/lsu/ldq_3_bits_uop_ctrl_is_sta==soc2/lsu/ldq_3_bits_uop_ctrl_is_sta &&
 	soc1/lsu/ldq_3_bits_uop_dst_rtype==soc2/lsu/ldq_3_bits_uop_dst_rtype &&
+	soc1/lsu/ldq_3_bits_uop_exception==soc2/lsu/ldq_3_bits_uop_exception &&
 	soc1/lsu/ldq_3_bits_uop_fp_val==soc2/lsu/ldq_3_bits_uop_fp_val &&
 	soc1/lsu/ldq_3_bits_uop_is_amo==soc2/lsu/ldq_3_bits_uop_is_amo &&
 	soc1/lsu/ldq_3_bits_uop_is_fence==soc2/lsu/ldq_3_bits_uop_is_fence &&
@@ -10140,7 +10140,6 @@ macro boolean state_equivalence :=
 	soc1/lsu/ldq_4_bits_addr_is_virtual==soc2/lsu/ldq_4_bits_addr_is_virtual &&
 	soc1/lsu/ldq_4_bits_addr_valid==soc2/lsu/ldq_4_bits_addr_valid &&
 	soc1/lsu/ldq_4_bits_executed==soc2/lsu/ldq_4_bits_executed &&
-	soc1/lsu/ldq_4_bits_failure==soc2/lsu/ldq_4_bits_failure &&
 	soc1/lsu/ldq_4_bits_forward_std_val==soc2/lsu/ldq_4_bits_forward_std_val &&
 	soc1/lsu/ldq_4_bits_forward_stq_idx==soc2/lsu/ldq_4_bits_forward_stq_idx &&
 	soc1/lsu/ldq_4_bits_observed==soc2/lsu/ldq_4_bits_observed &&
@@ -10151,6 +10150,7 @@ macro boolean state_equivalence :=
 	soc1/lsu/ldq_4_bits_uop_ctrl_is_load==soc2/lsu/ldq_4_bits_uop_ctrl_is_load &&
 	soc1/lsu/ldq_4_bits_uop_ctrl_is_sta==soc2/lsu/ldq_4_bits_uop_ctrl_is_sta &&
 	soc1/lsu/ldq_4_bits_uop_dst_rtype==soc2/lsu/ldq_4_bits_uop_dst_rtype &&
+	soc1/lsu/ldq_4_bits_uop_exception==soc2/lsu/ldq_4_bits_uop_exception &&
 	soc1/lsu/ldq_4_bits_uop_fp_val==soc2/lsu/ldq_4_bits_uop_fp_val &&
 	soc1/lsu/ldq_4_bits_uop_is_amo==soc2/lsu/ldq_4_bits_uop_is_amo &&
 	soc1/lsu/ldq_4_bits_uop_is_fence==soc2/lsu/ldq_4_bits_uop_is_fence &&
@@ -10171,7 +10171,6 @@ macro boolean state_equivalence :=
 	soc1/lsu/ldq_5_bits_addr_is_virtual==soc2/lsu/ldq_5_bits_addr_is_virtual &&
 	soc1/lsu/ldq_5_bits_addr_valid==soc2/lsu/ldq_5_bits_addr_valid &&
 	soc1/lsu/ldq_5_bits_executed==soc2/lsu/ldq_5_bits_executed &&
-	soc1/lsu/ldq_5_bits_failure==soc2/lsu/ldq_5_bits_failure &&
 	soc1/lsu/ldq_5_bits_forward_std_val==soc2/lsu/ldq_5_bits_forward_std_val &&
 	soc1/lsu/ldq_5_bits_forward_stq_idx==soc2/lsu/ldq_5_bits_forward_stq_idx &&
 	soc1/lsu/ldq_5_bits_observed==soc2/lsu/ldq_5_bits_observed &&
@@ -10182,6 +10181,7 @@ macro boolean state_equivalence :=
 	soc1/lsu/ldq_5_bits_uop_ctrl_is_load==soc2/lsu/ldq_5_bits_uop_ctrl_is_load &&
 	soc1/lsu/ldq_5_bits_uop_ctrl_is_sta==soc2/lsu/ldq_5_bits_uop_ctrl_is_sta &&
 	soc1/lsu/ldq_5_bits_uop_dst_rtype==soc2/lsu/ldq_5_bits_uop_dst_rtype &&
+	soc1/lsu/ldq_5_bits_uop_exception==soc2/lsu/ldq_5_bits_uop_exception &&
 	soc1/lsu/ldq_5_bits_uop_fp_val==soc2/lsu/ldq_5_bits_uop_fp_val &&
 	soc1/lsu/ldq_5_bits_uop_is_amo==soc2/lsu/ldq_5_bits_uop_is_amo &&
 	soc1/lsu/ldq_5_bits_uop_is_fence==soc2/lsu/ldq_5_bits_uop_is_fence &&
@@ -10202,7 +10202,6 @@ macro boolean state_equivalence :=
 	soc1/lsu/ldq_6_bits_addr_is_virtual==soc2/lsu/ldq_6_bits_addr_is_virtual &&
 	soc1/lsu/ldq_6_bits_addr_valid==soc2/lsu/ldq_6_bits_addr_valid &&
 	soc1/lsu/ldq_6_bits_executed==soc2/lsu/ldq_6_bits_executed &&
-	soc1/lsu/ldq_6_bits_failure==soc2/lsu/ldq_6_bits_failure &&
 	soc1/lsu/ldq_6_bits_forward_std_val==soc2/lsu/ldq_6_bits_forward_std_val &&
 	soc1/lsu/ldq_6_bits_forward_stq_idx==soc2/lsu/ldq_6_bits_forward_stq_idx &&
 	soc1/lsu/ldq_6_bits_observed==soc2/lsu/ldq_6_bits_observed &&
@@ -10213,6 +10212,7 @@ macro boolean state_equivalence :=
 	soc1/lsu/ldq_6_bits_uop_ctrl_is_load==soc2/lsu/ldq_6_bits_uop_ctrl_is_load &&
 	soc1/lsu/ldq_6_bits_uop_ctrl_is_sta==soc2/lsu/ldq_6_bits_uop_ctrl_is_sta &&
 	soc1/lsu/ldq_6_bits_uop_dst_rtype==soc2/lsu/ldq_6_bits_uop_dst_rtype &&
+	soc1/lsu/ldq_6_bits_uop_exception==soc2/lsu/ldq_6_bits_uop_exception &&
 	soc1/lsu/ldq_6_bits_uop_fp_val==soc2/lsu/ldq_6_bits_uop_fp_val &&
 	soc1/lsu/ldq_6_bits_uop_is_amo==soc2/lsu/ldq_6_bits_uop_is_amo &&
 	soc1/lsu/ldq_6_bits_uop_is_fence==soc2/lsu/ldq_6_bits_uop_is_fence &&
@@ -10233,7 +10233,6 @@ macro boolean state_equivalence :=
 	soc1/lsu/ldq_7_bits_addr_is_virtual==soc2/lsu/ldq_7_bits_addr_is_virtual &&
 	soc1/lsu/ldq_7_bits_addr_valid==soc2/lsu/ldq_7_bits_addr_valid &&
 	soc1/lsu/ldq_7_bits_executed==soc2/lsu/ldq_7_bits_executed &&
-	soc1/lsu/ldq_7_bits_failure==soc2/lsu/ldq_7_bits_failure &&
 	soc1/lsu/ldq_7_bits_forward_std_val==soc2/lsu/ldq_7_bits_forward_std_val &&
 	soc1/lsu/ldq_7_bits_forward_stq_idx==soc2/lsu/ldq_7_bits_forward_stq_idx &&
 	soc1/lsu/ldq_7_bits_observed==soc2/lsu/ldq_7_bits_observed &&
@@ -10244,6 +10243,7 @@ macro boolean state_equivalence :=
 	soc1/lsu/ldq_7_bits_uop_ctrl_is_load==soc2/lsu/ldq_7_bits_uop_ctrl_is_load &&
 	soc1/lsu/ldq_7_bits_uop_ctrl_is_sta==soc2/lsu/ldq_7_bits_uop_ctrl_is_sta &&
 	soc1/lsu/ldq_7_bits_uop_dst_rtype==soc2/lsu/ldq_7_bits_uop_dst_rtype &&
+	soc1/lsu/ldq_7_bits_uop_exception==soc2/lsu/ldq_7_bits_uop_exception &&
 	soc1/lsu/ldq_7_bits_uop_fp_val==soc2/lsu/ldq_7_bits_uop_fp_val &&
 	soc1/lsu/ldq_7_bits_uop_is_amo==soc2/lsu/ldq_7_bits_uop_is_amo &&
 	soc1/lsu/ldq_7_bits_uop_is_fence==soc2/lsu/ldq_7_bits_uop_is_fence &&
@@ -10264,7 +10264,6 @@ macro boolean state_equivalence :=
 	soc1/lsu/ldq_8_bits_addr_is_virtual==soc2/lsu/ldq_8_bits_addr_is_virtual &&
 	soc1/lsu/ldq_8_bits_addr_valid==soc2/lsu/ldq_8_bits_addr_valid &&
 	soc1/lsu/ldq_8_bits_executed==soc2/lsu/ldq_8_bits_executed &&
-	soc1/lsu/ldq_8_bits_failure==soc2/lsu/ldq_8_bits_failure &&
 	soc1/lsu/ldq_8_bits_forward_std_val==soc2/lsu/ldq_8_bits_forward_std_val &&
 	soc1/lsu/ldq_8_bits_forward_stq_idx==soc2/lsu/ldq_8_bits_forward_stq_idx &&
 	soc1/lsu/ldq_8_bits_observed==soc2/lsu/ldq_8_bits_observed &&
@@ -10275,6 +10274,7 @@ macro boolean state_equivalence :=
 	soc1/lsu/ldq_8_bits_uop_ctrl_is_load==soc2/lsu/ldq_8_bits_uop_ctrl_is_load &&
 	soc1/lsu/ldq_8_bits_uop_ctrl_is_sta==soc2/lsu/ldq_8_bits_uop_ctrl_is_sta &&
 	soc1/lsu/ldq_8_bits_uop_dst_rtype==soc2/lsu/ldq_8_bits_uop_dst_rtype &&
+	soc1/lsu/ldq_8_bits_uop_exception==soc2/lsu/ldq_8_bits_uop_exception &&
 	soc1/lsu/ldq_8_bits_uop_fp_val==soc2/lsu/ldq_8_bits_uop_fp_val &&
 	soc1/lsu/ldq_8_bits_uop_is_amo==soc2/lsu/ldq_8_bits_uop_is_amo &&
 	soc1/lsu/ldq_8_bits_uop_is_fence==soc2/lsu/ldq_8_bits_uop_is_fence &&
@@ -10295,7 +10295,6 @@ macro boolean state_equivalence :=
 	soc1/lsu/ldq_9_bits_addr_is_virtual==soc2/lsu/ldq_9_bits_addr_is_virtual &&
 	soc1/lsu/ldq_9_bits_addr_valid==soc2/lsu/ldq_9_bits_addr_valid &&
 	soc1/lsu/ldq_9_bits_executed==soc2/lsu/ldq_9_bits_executed &&
-	soc1/lsu/ldq_9_bits_failure==soc2/lsu/ldq_9_bits_failure &&
 	soc1/lsu/ldq_9_bits_forward_std_val==soc2/lsu/ldq_9_bits_forward_std_val &&
 	soc1/lsu/ldq_9_bits_forward_stq_idx==soc2/lsu/ldq_9_bits_forward_stq_idx &&
 	soc1/lsu/ldq_9_bits_observed==soc2/lsu/ldq_9_bits_observed &&
@@ -10306,6 +10305,7 @@ macro boolean state_equivalence :=
 	soc1/lsu/ldq_9_bits_uop_ctrl_is_load==soc2/lsu/ldq_9_bits_uop_ctrl_is_load &&
 	soc1/lsu/ldq_9_bits_uop_ctrl_is_sta==soc2/lsu/ldq_9_bits_uop_ctrl_is_sta &&
 	soc1/lsu/ldq_9_bits_uop_dst_rtype==soc2/lsu/ldq_9_bits_uop_dst_rtype &&
+	soc1/lsu/ldq_9_bits_uop_exception==soc2/lsu/ldq_9_bits_uop_exception &&
 	soc1/lsu/ldq_9_bits_uop_fp_val==soc2/lsu/ldq_9_bits_uop_fp_val &&
 	soc1/lsu/ldq_9_bits_uop_is_amo==soc2/lsu/ldq_9_bits_uop_is_amo &&
 	soc1/lsu/ldq_9_bits_uop_is_fence==soc2/lsu/ldq_9_bits_uop_is_fence &&
@@ -10368,6 +10368,7 @@ macro boolean state_equivalence :=
 	soc1/lsu/mem_tlb_uncacheable_0==soc2/lsu/mem_tlb_uncacheable_0 &&
 	soc1/lsu/mem_xcpt_causes_0==soc2/lsu/mem_xcpt_causes_0 &&
 	soc1/lsu/mem_xcpt_uops_0_br_mask==soc2/lsu/mem_xcpt_uops_0_br_mask &&
+	soc1/lsu/mem_xcpt_uops_0_ldq_idx==soc2/lsu/mem_xcpt_uops_0_ldq_idx &&
 	soc1/lsu/mem_xcpt_uops_0_rob_idx==soc2/lsu/mem_xcpt_uops_0_rob_idx &&
 	soc1/lsu/mem_xcpt_uops_0_stq_idx==soc2/lsu/mem_xcpt_uops_0_stq_idx &&
 	soc1/lsu/mem_xcpt_uops_0_uses_ldq==soc2/lsu/mem_xcpt_uops_0_uses_ldq &&
@@ -10872,7 +10873,7 @@ macro boolean state_equivalence :=
 	soc1/tlMasterXbar/_T_163==soc2/tlMasterXbar/_T_163 &&
 	soc1/tlMasterXbar/_T_218_0==soc2/tlMasterXbar/_T_218_0 &&
 	soc1/tlMasterXbar/_T_218_1==soc2/tlMasterXbar/_T_218_1;
-
+end macro;
 
 
 macro boolean state_uniqueness := 
@@ -20580,106 +20581,106 @@ macro boolean state_uniqueness :=
 	soc1/intsink/SynchronizerShiftReg_w1_d3/NonSyncResetSynchronizerPrimitiveShiftReg_d3/sync_0==soc2/intsink/SynchronizerShiftReg_w1_d3/NonSyncResetSynchronizerPrimitiveShiftReg_d3/sync_0 &&
 	soc1/intsink/SynchronizerShiftReg_w1_d3/NonSyncResetSynchronizerPrimitiveShiftReg_d3/sync_1==soc2/intsink/SynchronizerShiftReg_w1_d3/NonSyncResetSynchronizerPrimitiveShiftReg_d3/sync_1 &&
 	soc1/intsink/SynchronizerShiftReg_w1_d3/NonSyncResetSynchronizerPrimitiveShiftReg_d3/sync_2==soc2/intsink/SynchronizerShiftReg_w1_d3/NonSyncResetSynchronizerPrimitiveShiftReg_d3/sync_2 &&
-	soc1/lsu/_T_1258==soc2/lsu/_T_1258 &&
-	soc1/lsu/_T_1578==soc2/lsu/_T_1578 &&
-	soc1/lsu/_T_1581==soc2/lsu/_T_1581 &&
-	soc1/lsu/_T_1582==soc2/lsu/_T_1582 &&
-	soc1/lsu/_T_1602==soc2/lsu/_T_1602 &&
-	soc1/lsu/_T_1605==soc2/lsu/_T_1605 &&
-	soc1/lsu/_T_1606==soc2/lsu/_T_1606 &&
+	soc1/lsu/_T_1164==soc2/lsu/_T_1164 &&
+	soc1/lsu/_T_1456==soc2/lsu/_T_1456 &&
+	soc1/lsu/_T_1459==soc2/lsu/_T_1459 &&
+	soc1/lsu/_T_1460==soc2/lsu/_T_1460 &&
+	soc1/lsu/_T_1480==soc2/lsu/_T_1480 &&
+	soc1/lsu/_T_1483==soc2/lsu/_T_1483 &&
+	soc1/lsu/_T_1484==soc2/lsu/_T_1484 &&
+	soc1/lsu/_T_1497==soc2/lsu/_T_1497 &&
+	soc1/lsu/_T_1498==soc2/lsu/_T_1498 &&
+	soc1/lsu/_T_1521==soc2/lsu/_T_1521 &&
+	soc1/lsu/_T_1522==soc2/lsu/_T_1522 &&
+	soc1/lsu/_T_1527==soc2/lsu/_T_1527 &&
 	soc1/lsu/_T_1619==soc2/lsu/_T_1619 &&
-	soc1/lsu/_T_1620==soc2/lsu/_T_1620 &&
-	soc1/lsu/_T_1643==soc2/lsu/_T_1643 &&
-	soc1/lsu/_T_1644==soc2/lsu/_T_1644 &&
-	soc1/lsu/_T_1649==soc2/lsu/_T_1649 &&
-	soc1/lsu/_T_1740==soc2/lsu/_T_1740 &&
-	soc1/lsu/_T_1747==soc2/lsu/_T_1747 &&
-	soc1/lsu/_T_1824==soc2/lsu/_T_1824 &&
-	soc1/lsu/_T_1831==soc2/lsu/_T_1831 &&
-	soc1/lsu/_T_1908==soc2/lsu/_T_1908 &&
-	soc1/lsu/_T_1915==soc2/lsu/_T_1915 &&
-	soc1/lsu/_T_1992==soc2/lsu/_T_1992 &&
-	soc1/lsu/_T_1999==soc2/lsu/_T_1999 &&
-	soc1/lsu/_T_2076==soc2/lsu/_T_2076 &&
-	soc1/lsu/_T_2083==soc2/lsu/_T_2083 &&
-	soc1/lsu/_T_2160==soc2/lsu/_T_2160 &&
-	soc1/lsu/_T_2167==soc2/lsu/_T_2167 &&
-	soc1/lsu/_T_2244==soc2/lsu/_T_2244 &&
-	soc1/lsu/_T_2251==soc2/lsu/_T_2251 &&
-	soc1/lsu/_T_2328==soc2/lsu/_T_2328 &&
-	soc1/lsu/_T_2335==soc2/lsu/_T_2335 &&
-	soc1/lsu/_T_2412==soc2/lsu/_T_2412 &&
-	soc1/lsu/_T_2419==soc2/lsu/_T_2419 &&
-	soc1/lsu/_T_2496==soc2/lsu/_T_2496 &&
-	soc1/lsu/_T_2503==soc2/lsu/_T_2503 &&
-	soc1/lsu/_T_2580==soc2/lsu/_T_2580 &&
-	soc1/lsu/_T_2587==soc2/lsu/_T_2587 &&
-	soc1/lsu/_T_2664==soc2/lsu/_T_2664 &&
-	soc1/lsu/_T_2671==soc2/lsu/_T_2671 &&
-	soc1/lsu/_T_2748==soc2/lsu/_T_2748 &&
-	soc1/lsu/_T_2755==soc2/lsu/_T_2755 &&
-	soc1/lsu/_T_2832==soc2/lsu/_T_2832 &&
-	soc1/lsu/_T_2839==soc2/lsu/_T_2839 &&
-	soc1/lsu/_T_2916==soc2/lsu/_T_2916 &&
-	soc1/lsu/_T_2923==soc2/lsu/_T_2923 &&
-	soc1/lsu/_T_3000==soc2/lsu/_T_3000 &&
-	soc1/lsu/_T_3007==soc2/lsu/_T_3007 &&
-	soc1/lsu/_T_3040==soc2/lsu/_T_3040 &&
-	soc1/lsu/_T_3046==soc2/lsu/_T_3046 &&
-	soc1/lsu/_T_3050==soc2/lsu/_T_3050 &&
-	soc1/lsu/_T_3085==soc2/lsu/_T_3085 &&
-	soc1/lsu/_T_3091==soc2/lsu/_T_3091 &&
-	soc1/lsu/_T_3095==soc2/lsu/_T_3095 &&
-	soc1/lsu/_T_3130==soc2/lsu/_T_3130 &&
-	soc1/lsu/_T_3136==soc2/lsu/_T_3136 &&
-	soc1/lsu/_T_3140==soc2/lsu/_T_3140 &&
-	soc1/lsu/_T_3175==soc2/lsu/_T_3175 &&
-	soc1/lsu/_T_3181==soc2/lsu/_T_3181 &&
-	soc1/lsu/_T_3185==soc2/lsu/_T_3185 &&
-	soc1/lsu/_T_3220==soc2/lsu/_T_3220 &&
-	soc1/lsu/_T_3226==soc2/lsu/_T_3226 &&
-	soc1/lsu/_T_3230==soc2/lsu/_T_3230 &&
-	soc1/lsu/_T_3265==soc2/lsu/_T_3265 &&
-	soc1/lsu/_T_3271==soc2/lsu/_T_3271 &&
-	soc1/lsu/_T_3275==soc2/lsu/_T_3275 &&
-	soc1/lsu/_T_3310==soc2/lsu/_T_3310 &&
-	soc1/lsu/_T_3316==soc2/lsu/_T_3316 &&
-	soc1/lsu/_T_3320==soc2/lsu/_T_3320 &&
-	soc1/lsu/_T_3355==soc2/lsu/_T_3355 &&
-	soc1/lsu/_T_3361==soc2/lsu/_T_3361 &&
-	soc1/lsu/_T_3365==soc2/lsu/_T_3365 &&
-	soc1/lsu/_T_3400==soc2/lsu/_T_3400 &&
-	soc1/lsu/_T_3406==soc2/lsu/_T_3406 &&
-	soc1/lsu/_T_3410==soc2/lsu/_T_3410 &&
-	soc1/lsu/_T_3445==soc2/lsu/_T_3445 &&
-	soc1/lsu/_T_3451==soc2/lsu/_T_3451 &&
-	soc1/lsu/_T_3455==soc2/lsu/_T_3455 &&
-	soc1/lsu/_T_3490==soc2/lsu/_T_3490 &&
-	soc1/lsu/_T_3496==soc2/lsu/_T_3496 &&
-	soc1/lsu/_T_3500==soc2/lsu/_T_3500 &&
-	soc1/lsu/_T_3535==soc2/lsu/_T_3535 &&
-	soc1/lsu/_T_3541==soc2/lsu/_T_3541 &&
-	soc1/lsu/_T_3545==soc2/lsu/_T_3545 &&
-	soc1/lsu/_T_3580==soc2/lsu/_T_3580 &&
-	soc1/lsu/_T_3586==soc2/lsu/_T_3586 &&
-	soc1/lsu/_T_3590==soc2/lsu/_T_3590 &&
-	soc1/lsu/_T_3625==soc2/lsu/_T_3625 &&
-	soc1/lsu/_T_3631==soc2/lsu/_T_3631 &&
-	soc1/lsu/_T_3635==soc2/lsu/_T_3635 &&
-	soc1/lsu/_T_3670==soc2/lsu/_T_3670 &&
-	soc1/lsu/_T_3676==soc2/lsu/_T_3676 &&
-	soc1/lsu/_T_3680==soc2/lsu/_T_3680 &&
-	soc1/lsu/_T_3715==soc2/lsu/_T_3715 &&
-	soc1/lsu/_T_3721==soc2/lsu/_T_3721 &&
-	soc1/lsu/_T_3725==soc2/lsu/_T_3725 &&
-	soc1/lsu/_T_3749==soc2/lsu/_T_3749 &&
-	soc1/lsu/_T_3770==soc2/lsu/_T_3770 &&
-	soc1/lsu/_T_3771==soc2/lsu/_T_3771 &&
-	soc1/lsu/_T_4168==soc2/lsu/_T_4168 &&
-	soc1/lsu/_T_4169==soc2/lsu/_T_4169 &&
-	soc1/lsu/_T_4171==soc2/lsu/_T_4171 &&
-	soc1/lsu/_T_625==soc2/lsu/_T_625 &&
-	soc1/lsu/_T_637==soc2/lsu/_T_637 &&
+	soc1/lsu/_T_1626==soc2/lsu/_T_1626 &&
+	soc1/lsu/_T_1703==soc2/lsu/_T_1703 &&
+	soc1/lsu/_T_1710==soc2/lsu/_T_1710 &&
+	soc1/lsu/_T_1787==soc2/lsu/_T_1787 &&
+	soc1/lsu/_T_1794==soc2/lsu/_T_1794 &&
+	soc1/lsu/_T_1871==soc2/lsu/_T_1871 &&
+	soc1/lsu/_T_1878==soc2/lsu/_T_1878 &&
+	soc1/lsu/_T_1955==soc2/lsu/_T_1955 &&
+	soc1/lsu/_T_1962==soc2/lsu/_T_1962 &&
+	soc1/lsu/_T_2039==soc2/lsu/_T_2039 &&
+	soc1/lsu/_T_2046==soc2/lsu/_T_2046 &&
+	soc1/lsu/_T_2123==soc2/lsu/_T_2123 &&
+	soc1/lsu/_T_2130==soc2/lsu/_T_2130 &&
+	soc1/lsu/_T_2207==soc2/lsu/_T_2207 &&
+	soc1/lsu/_T_2214==soc2/lsu/_T_2214 &&
+	soc1/lsu/_T_2291==soc2/lsu/_T_2291 &&
+	soc1/lsu/_T_2298==soc2/lsu/_T_2298 &&
+	soc1/lsu/_T_2375==soc2/lsu/_T_2375 &&
+	soc1/lsu/_T_2382==soc2/lsu/_T_2382 &&
+	soc1/lsu/_T_2459==soc2/lsu/_T_2459 &&
+	soc1/lsu/_T_2466==soc2/lsu/_T_2466 &&
+	soc1/lsu/_T_2543==soc2/lsu/_T_2543 &&
+	soc1/lsu/_T_2550==soc2/lsu/_T_2550 &&
+	soc1/lsu/_T_2627==soc2/lsu/_T_2627 &&
+	soc1/lsu/_T_2634==soc2/lsu/_T_2634 &&
+	soc1/lsu/_T_2711==soc2/lsu/_T_2711 &&
+	soc1/lsu/_T_2718==soc2/lsu/_T_2718 &&
+	soc1/lsu/_T_2795==soc2/lsu/_T_2795 &&
+	soc1/lsu/_T_2802==soc2/lsu/_T_2802 &&
+	soc1/lsu/_T_2879==soc2/lsu/_T_2879 &&
+	soc1/lsu/_T_2886==soc2/lsu/_T_2886 &&
+	soc1/lsu/_T_2919==soc2/lsu/_T_2919 &&
+	soc1/lsu/_T_2925==soc2/lsu/_T_2925 &&
+	soc1/lsu/_T_2929==soc2/lsu/_T_2929 &&
+	soc1/lsu/_T_2964==soc2/lsu/_T_2964 &&
+	soc1/lsu/_T_2970==soc2/lsu/_T_2970 &&
+	soc1/lsu/_T_2974==soc2/lsu/_T_2974 &&
+	soc1/lsu/_T_3009==soc2/lsu/_T_3009 &&
+	soc1/lsu/_T_3015==soc2/lsu/_T_3015 &&
+	soc1/lsu/_T_3019==soc2/lsu/_T_3019 &&
+	soc1/lsu/_T_3054==soc2/lsu/_T_3054 &&
+	soc1/lsu/_T_3060==soc2/lsu/_T_3060 &&
+	soc1/lsu/_T_3064==soc2/lsu/_T_3064 &&
+	soc1/lsu/_T_3099==soc2/lsu/_T_3099 &&
+	soc1/lsu/_T_3105==soc2/lsu/_T_3105 &&
+	soc1/lsu/_T_3109==soc2/lsu/_T_3109 &&
+	soc1/lsu/_T_3144==soc2/lsu/_T_3144 &&
+	soc1/lsu/_T_3150==soc2/lsu/_T_3150 &&
+	soc1/lsu/_T_3154==soc2/lsu/_T_3154 &&
+	soc1/lsu/_T_3189==soc2/lsu/_T_3189 &&
+	soc1/lsu/_T_3195==soc2/lsu/_T_3195 &&
+	soc1/lsu/_T_3199==soc2/lsu/_T_3199 &&
+	soc1/lsu/_T_3234==soc2/lsu/_T_3234 &&
+	soc1/lsu/_T_3240==soc2/lsu/_T_3240 &&
+	soc1/lsu/_T_3244==soc2/lsu/_T_3244 &&
+	soc1/lsu/_T_3279==soc2/lsu/_T_3279 &&
+	soc1/lsu/_T_3285==soc2/lsu/_T_3285 &&
+	soc1/lsu/_T_3289==soc2/lsu/_T_3289 &&
+	soc1/lsu/_T_3324==soc2/lsu/_T_3324 &&
+	soc1/lsu/_T_3330==soc2/lsu/_T_3330 &&
+	soc1/lsu/_T_3334==soc2/lsu/_T_3334 &&
+	soc1/lsu/_T_3369==soc2/lsu/_T_3369 &&
+	soc1/lsu/_T_3375==soc2/lsu/_T_3375 &&
+	soc1/lsu/_T_3379==soc2/lsu/_T_3379 &&
+	soc1/lsu/_T_3414==soc2/lsu/_T_3414 &&
+	soc1/lsu/_T_3420==soc2/lsu/_T_3420 &&
+	soc1/lsu/_T_3424==soc2/lsu/_T_3424 &&
+	soc1/lsu/_T_3459==soc2/lsu/_T_3459 &&
+	soc1/lsu/_T_3465==soc2/lsu/_T_3465 &&
+	soc1/lsu/_T_3469==soc2/lsu/_T_3469 &&
+	soc1/lsu/_T_3504==soc2/lsu/_T_3504 &&
+	soc1/lsu/_T_3510==soc2/lsu/_T_3510 &&
+	soc1/lsu/_T_3514==soc2/lsu/_T_3514 &&
+	soc1/lsu/_T_3549==soc2/lsu/_T_3549 &&
+	soc1/lsu/_T_3555==soc2/lsu/_T_3555 &&
+	soc1/lsu/_T_3559==soc2/lsu/_T_3559 &&
+	soc1/lsu/_T_3594==soc2/lsu/_T_3594 &&
+	soc1/lsu/_T_3600==soc2/lsu/_T_3600 &&
+	soc1/lsu/_T_3604==soc2/lsu/_T_3604 &&
+	soc1/lsu/_T_3628==soc2/lsu/_T_3628 &&
+	soc1/lsu/_T_3649==soc2/lsu/_T_3649 &&
+	soc1/lsu/_T_3650==soc2/lsu/_T_3650 &&
+	soc1/lsu/_T_4047==soc2/lsu/_T_4047 &&
+	soc1/lsu/_T_4048==soc2/lsu/_T_4048 &&
+	soc1/lsu/_T_4050==soc2/lsu/_T_4050 &&
+	soc1/lsu/_T_623==soc2/lsu/_T_623 &&
+	soc1/lsu/_T_633==soc2/lsu/_T_633 &&
 	soc1/lsu/clr_bsy_brmask_0==soc2/lsu/clr_bsy_brmask_0 &&
 	soc1/lsu/clr_bsy_rob_idx_0==soc2/lsu/clr_bsy_rob_idx_0 &&
 	soc1/lsu/clr_bsy_valid_0==soc2/lsu/clr_bsy_valid_0 &&
@@ -20707,7 +20708,6 @@ macro boolean state_uniqueness :=
 	soc1/lsu/ldq_0_bits_addr_is_virtual==soc2/lsu/ldq_0_bits_addr_is_virtual &&
 	soc1/lsu/ldq_0_bits_addr_valid==soc2/lsu/ldq_0_bits_addr_valid &&
 	soc1/lsu/ldq_0_bits_executed==soc2/lsu/ldq_0_bits_executed &&
-	soc1/lsu/ldq_0_bits_failure==soc2/lsu/ldq_0_bits_failure &&
 	soc1/lsu/ldq_0_bits_forward_std_val==soc2/lsu/ldq_0_bits_forward_std_val &&
 	soc1/lsu/ldq_0_bits_forward_stq_idx==soc2/lsu/ldq_0_bits_forward_stq_idx &&
 	soc1/lsu/ldq_0_bits_observed==soc2/lsu/ldq_0_bits_observed &&
@@ -20718,6 +20718,7 @@ macro boolean state_uniqueness :=
 	soc1/lsu/ldq_0_bits_uop_ctrl_is_load==soc2/lsu/ldq_0_bits_uop_ctrl_is_load &&
 	soc1/lsu/ldq_0_bits_uop_ctrl_is_sta==soc2/lsu/ldq_0_bits_uop_ctrl_is_sta &&
 	soc1/lsu/ldq_0_bits_uop_dst_rtype==soc2/lsu/ldq_0_bits_uop_dst_rtype &&
+	soc1/lsu/ldq_0_bits_uop_exception==soc2/lsu/ldq_0_bits_uop_exception &&
 	soc1/lsu/ldq_0_bits_uop_fp_val==soc2/lsu/ldq_0_bits_uop_fp_val &&
 	soc1/lsu/ldq_0_bits_uop_is_amo==soc2/lsu/ldq_0_bits_uop_is_amo &&
 	soc1/lsu/ldq_0_bits_uop_is_fence==soc2/lsu/ldq_0_bits_uop_is_fence &&
@@ -20738,7 +20739,6 @@ macro boolean state_uniqueness :=
 	soc1/lsu/ldq_10_bits_addr_is_virtual==soc2/lsu/ldq_10_bits_addr_is_virtual &&
 	soc1/lsu/ldq_10_bits_addr_valid==soc2/lsu/ldq_10_bits_addr_valid &&
 	soc1/lsu/ldq_10_bits_executed==soc2/lsu/ldq_10_bits_executed &&
-	soc1/lsu/ldq_10_bits_failure==soc2/lsu/ldq_10_bits_failure &&
 	soc1/lsu/ldq_10_bits_forward_std_val==soc2/lsu/ldq_10_bits_forward_std_val &&
 	soc1/lsu/ldq_10_bits_forward_stq_idx==soc2/lsu/ldq_10_bits_forward_stq_idx &&
 	soc1/lsu/ldq_10_bits_observed==soc2/lsu/ldq_10_bits_observed &&
@@ -20749,6 +20749,7 @@ macro boolean state_uniqueness :=
 	soc1/lsu/ldq_10_bits_uop_ctrl_is_load==soc2/lsu/ldq_10_bits_uop_ctrl_is_load &&
 	soc1/lsu/ldq_10_bits_uop_ctrl_is_sta==soc2/lsu/ldq_10_bits_uop_ctrl_is_sta &&
 	soc1/lsu/ldq_10_bits_uop_dst_rtype==soc2/lsu/ldq_10_bits_uop_dst_rtype &&
+	soc1/lsu/ldq_10_bits_uop_exception==soc2/lsu/ldq_10_bits_uop_exception &&
 	soc1/lsu/ldq_10_bits_uop_fp_val==soc2/lsu/ldq_10_bits_uop_fp_val &&
 	soc1/lsu/ldq_10_bits_uop_is_amo==soc2/lsu/ldq_10_bits_uop_is_amo &&
 	soc1/lsu/ldq_10_bits_uop_is_fence==soc2/lsu/ldq_10_bits_uop_is_fence &&
@@ -20769,7 +20770,6 @@ macro boolean state_uniqueness :=
 	soc1/lsu/ldq_11_bits_addr_is_virtual==soc2/lsu/ldq_11_bits_addr_is_virtual &&
 	soc1/lsu/ldq_11_bits_addr_valid==soc2/lsu/ldq_11_bits_addr_valid &&
 	soc1/lsu/ldq_11_bits_executed==soc2/lsu/ldq_11_bits_executed &&
-	soc1/lsu/ldq_11_bits_failure==soc2/lsu/ldq_11_bits_failure &&
 	soc1/lsu/ldq_11_bits_forward_std_val==soc2/lsu/ldq_11_bits_forward_std_val &&
 	soc1/lsu/ldq_11_bits_forward_stq_idx==soc2/lsu/ldq_11_bits_forward_stq_idx &&
 	soc1/lsu/ldq_11_bits_observed==soc2/lsu/ldq_11_bits_observed &&
@@ -20780,6 +20780,7 @@ macro boolean state_uniqueness :=
 	soc1/lsu/ldq_11_bits_uop_ctrl_is_load==soc2/lsu/ldq_11_bits_uop_ctrl_is_load &&
 	soc1/lsu/ldq_11_bits_uop_ctrl_is_sta==soc2/lsu/ldq_11_bits_uop_ctrl_is_sta &&
 	soc1/lsu/ldq_11_bits_uop_dst_rtype==soc2/lsu/ldq_11_bits_uop_dst_rtype &&
+	soc1/lsu/ldq_11_bits_uop_exception==soc2/lsu/ldq_11_bits_uop_exception &&
 	soc1/lsu/ldq_11_bits_uop_fp_val==soc2/lsu/ldq_11_bits_uop_fp_val &&
 	soc1/lsu/ldq_11_bits_uop_is_amo==soc2/lsu/ldq_11_bits_uop_is_amo &&
 	soc1/lsu/ldq_11_bits_uop_is_fence==soc2/lsu/ldq_11_bits_uop_is_fence &&
@@ -20800,7 +20801,6 @@ macro boolean state_uniqueness :=
 	soc1/lsu/ldq_12_bits_addr_is_virtual==soc2/lsu/ldq_12_bits_addr_is_virtual &&
 	soc1/lsu/ldq_12_bits_addr_valid==soc2/lsu/ldq_12_bits_addr_valid &&
 	soc1/lsu/ldq_12_bits_executed==soc2/lsu/ldq_12_bits_executed &&
-	soc1/lsu/ldq_12_bits_failure==soc2/lsu/ldq_12_bits_failure &&
 	soc1/lsu/ldq_12_bits_forward_std_val==soc2/lsu/ldq_12_bits_forward_std_val &&
 	soc1/lsu/ldq_12_bits_forward_stq_idx==soc2/lsu/ldq_12_bits_forward_stq_idx &&
 	soc1/lsu/ldq_12_bits_observed==soc2/lsu/ldq_12_bits_observed &&
@@ -20811,6 +20811,7 @@ macro boolean state_uniqueness :=
 	soc1/lsu/ldq_12_bits_uop_ctrl_is_load==soc2/lsu/ldq_12_bits_uop_ctrl_is_load &&
 	soc1/lsu/ldq_12_bits_uop_ctrl_is_sta==soc2/lsu/ldq_12_bits_uop_ctrl_is_sta &&
 	soc1/lsu/ldq_12_bits_uop_dst_rtype==soc2/lsu/ldq_12_bits_uop_dst_rtype &&
+	soc1/lsu/ldq_12_bits_uop_exception==soc2/lsu/ldq_12_bits_uop_exception &&
 	soc1/lsu/ldq_12_bits_uop_fp_val==soc2/lsu/ldq_12_bits_uop_fp_val &&
 	soc1/lsu/ldq_12_bits_uop_is_amo==soc2/lsu/ldq_12_bits_uop_is_amo &&
 	soc1/lsu/ldq_12_bits_uop_is_fence==soc2/lsu/ldq_12_bits_uop_is_fence &&
@@ -20831,7 +20832,6 @@ macro boolean state_uniqueness :=
 	soc1/lsu/ldq_13_bits_addr_is_virtual==soc2/lsu/ldq_13_bits_addr_is_virtual &&
 	soc1/lsu/ldq_13_bits_addr_valid==soc2/lsu/ldq_13_bits_addr_valid &&
 	soc1/lsu/ldq_13_bits_executed==soc2/lsu/ldq_13_bits_executed &&
-	soc1/lsu/ldq_13_bits_failure==soc2/lsu/ldq_13_bits_failure &&
 	soc1/lsu/ldq_13_bits_forward_std_val==soc2/lsu/ldq_13_bits_forward_std_val &&
 	soc1/lsu/ldq_13_bits_forward_stq_idx==soc2/lsu/ldq_13_bits_forward_stq_idx &&
 	soc1/lsu/ldq_13_bits_observed==soc2/lsu/ldq_13_bits_observed &&
@@ -20842,6 +20842,7 @@ macro boolean state_uniqueness :=
 	soc1/lsu/ldq_13_bits_uop_ctrl_is_load==soc2/lsu/ldq_13_bits_uop_ctrl_is_load &&
 	soc1/lsu/ldq_13_bits_uop_ctrl_is_sta==soc2/lsu/ldq_13_bits_uop_ctrl_is_sta &&
 	soc1/lsu/ldq_13_bits_uop_dst_rtype==soc2/lsu/ldq_13_bits_uop_dst_rtype &&
+	soc1/lsu/ldq_13_bits_uop_exception==soc2/lsu/ldq_13_bits_uop_exception &&
 	soc1/lsu/ldq_13_bits_uop_fp_val==soc2/lsu/ldq_13_bits_uop_fp_val &&
 	soc1/lsu/ldq_13_bits_uop_is_amo==soc2/lsu/ldq_13_bits_uop_is_amo &&
 	soc1/lsu/ldq_13_bits_uop_is_fence==soc2/lsu/ldq_13_bits_uop_is_fence &&
@@ -20862,7 +20863,6 @@ macro boolean state_uniqueness :=
 	soc1/lsu/ldq_14_bits_addr_is_virtual==soc2/lsu/ldq_14_bits_addr_is_virtual &&
 	soc1/lsu/ldq_14_bits_addr_valid==soc2/lsu/ldq_14_bits_addr_valid &&
 	soc1/lsu/ldq_14_bits_executed==soc2/lsu/ldq_14_bits_executed &&
-	soc1/lsu/ldq_14_bits_failure==soc2/lsu/ldq_14_bits_failure &&
 	soc1/lsu/ldq_14_bits_forward_std_val==soc2/lsu/ldq_14_bits_forward_std_val &&
 	soc1/lsu/ldq_14_bits_forward_stq_idx==soc2/lsu/ldq_14_bits_forward_stq_idx &&
 	soc1/lsu/ldq_14_bits_observed==soc2/lsu/ldq_14_bits_observed &&
@@ -20873,6 +20873,7 @@ macro boolean state_uniqueness :=
 	soc1/lsu/ldq_14_bits_uop_ctrl_is_load==soc2/lsu/ldq_14_bits_uop_ctrl_is_load &&
 	soc1/lsu/ldq_14_bits_uop_ctrl_is_sta==soc2/lsu/ldq_14_bits_uop_ctrl_is_sta &&
 	soc1/lsu/ldq_14_bits_uop_dst_rtype==soc2/lsu/ldq_14_bits_uop_dst_rtype &&
+	soc1/lsu/ldq_14_bits_uop_exception==soc2/lsu/ldq_14_bits_uop_exception &&
 	soc1/lsu/ldq_14_bits_uop_fp_val==soc2/lsu/ldq_14_bits_uop_fp_val &&
 	soc1/lsu/ldq_14_bits_uop_is_amo==soc2/lsu/ldq_14_bits_uop_is_amo &&
 	soc1/lsu/ldq_14_bits_uop_is_fence==soc2/lsu/ldq_14_bits_uop_is_fence &&
@@ -20893,7 +20894,6 @@ macro boolean state_uniqueness :=
 	soc1/lsu/ldq_15_bits_addr_is_virtual==soc2/lsu/ldq_15_bits_addr_is_virtual &&
 	soc1/lsu/ldq_15_bits_addr_valid==soc2/lsu/ldq_15_bits_addr_valid &&
 	soc1/lsu/ldq_15_bits_executed==soc2/lsu/ldq_15_bits_executed &&
-	soc1/lsu/ldq_15_bits_failure==soc2/lsu/ldq_15_bits_failure &&
 	soc1/lsu/ldq_15_bits_forward_std_val==soc2/lsu/ldq_15_bits_forward_std_val &&
 	soc1/lsu/ldq_15_bits_forward_stq_idx==soc2/lsu/ldq_15_bits_forward_stq_idx &&
 	soc1/lsu/ldq_15_bits_observed==soc2/lsu/ldq_15_bits_observed &&
@@ -20904,6 +20904,7 @@ macro boolean state_uniqueness :=
 	soc1/lsu/ldq_15_bits_uop_ctrl_is_load==soc2/lsu/ldq_15_bits_uop_ctrl_is_load &&
 	soc1/lsu/ldq_15_bits_uop_ctrl_is_sta==soc2/lsu/ldq_15_bits_uop_ctrl_is_sta &&
 	soc1/lsu/ldq_15_bits_uop_dst_rtype==soc2/lsu/ldq_15_bits_uop_dst_rtype &&
+	soc1/lsu/ldq_15_bits_uop_exception==soc2/lsu/ldq_15_bits_uop_exception &&
 	soc1/lsu/ldq_15_bits_uop_fp_val==soc2/lsu/ldq_15_bits_uop_fp_val &&
 	soc1/lsu/ldq_15_bits_uop_is_amo==soc2/lsu/ldq_15_bits_uop_is_amo &&
 	soc1/lsu/ldq_15_bits_uop_is_fence==soc2/lsu/ldq_15_bits_uop_is_fence &&
@@ -20924,7 +20925,6 @@ macro boolean state_uniqueness :=
 	soc1/lsu/ldq_1_bits_addr_is_virtual==soc2/lsu/ldq_1_bits_addr_is_virtual &&
 	soc1/lsu/ldq_1_bits_addr_valid==soc2/lsu/ldq_1_bits_addr_valid &&
 	soc1/lsu/ldq_1_bits_executed==soc2/lsu/ldq_1_bits_executed &&
-	soc1/lsu/ldq_1_bits_failure==soc2/lsu/ldq_1_bits_failure &&
 	soc1/lsu/ldq_1_bits_forward_std_val==soc2/lsu/ldq_1_bits_forward_std_val &&
 	soc1/lsu/ldq_1_bits_forward_stq_idx==soc2/lsu/ldq_1_bits_forward_stq_idx &&
 	soc1/lsu/ldq_1_bits_observed==soc2/lsu/ldq_1_bits_observed &&
@@ -20935,6 +20935,7 @@ macro boolean state_uniqueness :=
 	soc1/lsu/ldq_1_bits_uop_ctrl_is_load==soc2/lsu/ldq_1_bits_uop_ctrl_is_load &&
 	soc1/lsu/ldq_1_bits_uop_ctrl_is_sta==soc2/lsu/ldq_1_bits_uop_ctrl_is_sta &&
 	soc1/lsu/ldq_1_bits_uop_dst_rtype==soc2/lsu/ldq_1_bits_uop_dst_rtype &&
+	soc1/lsu/ldq_1_bits_uop_exception==soc2/lsu/ldq_1_bits_uop_exception &&
 	soc1/lsu/ldq_1_bits_uop_fp_val==soc2/lsu/ldq_1_bits_uop_fp_val &&
 	soc1/lsu/ldq_1_bits_uop_is_amo==soc2/lsu/ldq_1_bits_uop_is_amo &&
 	soc1/lsu/ldq_1_bits_uop_is_fence==soc2/lsu/ldq_1_bits_uop_is_fence &&
@@ -20955,7 +20956,6 @@ macro boolean state_uniqueness :=
 	soc1/lsu/ldq_2_bits_addr_is_virtual==soc2/lsu/ldq_2_bits_addr_is_virtual &&
 	soc1/lsu/ldq_2_bits_addr_valid==soc2/lsu/ldq_2_bits_addr_valid &&
 	soc1/lsu/ldq_2_bits_executed==soc2/lsu/ldq_2_bits_executed &&
-	soc1/lsu/ldq_2_bits_failure==soc2/lsu/ldq_2_bits_failure &&
 	soc1/lsu/ldq_2_bits_forward_std_val==soc2/lsu/ldq_2_bits_forward_std_val &&
 	soc1/lsu/ldq_2_bits_forward_stq_idx==soc2/lsu/ldq_2_bits_forward_stq_idx &&
 	soc1/lsu/ldq_2_bits_observed==soc2/lsu/ldq_2_bits_observed &&
@@ -20966,6 +20966,7 @@ macro boolean state_uniqueness :=
 	soc1/lsu/ldq_2_bits_uop_ctrl_is_load==soc2/lsu/ldq_2_bits_uop_ctrl_is_load &&
 	soc1/lsu/ldq_2_bits_uop_ctrl_is_sta==soc2/lsu/ldq_2_bits_uop_ctrl_is_sta &&
 	soc1/lsu/ldq_2_bits_uop_dst_rtype==soc2/lsu/ldq_2_bits_uop_dst_rtype &&
+	soc1/lsu/ldq_2_bits_uop_exception==soc2/lsu/ldq_2_bits_uop_exception &&
 	soc1/lsu/ldq_2_bits_uop_fp_val==soc2/lsu/ldq_2_bits_uop_fp_val &&
 	soc1/lsu/ldq_2_bits_uop_is_amo==soc2/lsu/ldq_2_bits_uop_is_amo &&
 	soc1/lsu/ldq_2_bits_uop_is_fence==soc2/lsu/ldq_2_bits_uop_is_fence &&
@@ -20986,7 +20987,6 @@ macro boolean state_uniqueness :=
 	soc1/lsu/ldq_3_bits_addr_is_virtual==soc2/lsu/ldq_3_bits_addr_is_virtual &&
 	soc1/lsu/ldq_3_bits_addr_valid==soc2/lsu/ldq_3_bits_addr_valid &&
 	soc1/lsu/ldq_3_bits_executed==soc2/lsu/ldq_3_bits_executed &&
-	soc1/lsu/ldq_3_bits_failure==soc2/lsu/ldq_3_bits_failure &&
 	soc1/lsu/ldq_3_bits_forward_std_val==soc2/lsu/ldq_3_bits_forward_std_val &&
 	soc1/lsu/ldq_3_bits_forward_stq_idx==soc2/lsu/ldq_3_bits_forward_stq_idx &&
 	soc1/lsu/ldq_3_bits_observed==soc2/lsu/ldq_3_bits_observed &&
@@ -20997,6 +20997,7 @@ macro boolean state_uniqueness :=
 	soc1/lsu/ldq_3_bits_uop_ctrl_is_load==soc2/lsu/ldq_3_bits_uop_ctrl_is_load &&
 	soc1/lsu/ldq_3_bits_uop_ctrl_is_sta==soc2/lsu/ldq_3_bits_uop_ctrl_is_sta &&
 	soc1/lsu/ldq_3_bits_uop_dst_rtype==soc2/lsu/ldq_3_bits_uop_dst_rtype &&
+	soc1/lsu/ldq_3_bits_uop_exception==soc2/lsu/ldq_3_bits_uop_exception &&
 	soc1/lsu/ldq_3_bits_uop_fp_val==soc2/lsu/ldq_3_bits_uop_fp_val &&
 	soc1/lsu/ldq_3_bits_uop_is_amo==soc2/lsu/ldq_3_bits_uop_is_amo &&
 	soc1/lsu/ldq_3_bits_uop_is_fence==soc2/lsu/ldq_3_bits_uop_is_fence &&
@@ -21017,7 +21018,6 @@ macro boolean state_uniqueness :=
 	soc1/lsu/ldq_4_bits_addr_is_virtual==soc2/lsu/ldq_4_bits_addr_is_virtual &&
 	soc1/lsu/ldq_4_bits_addr_valid==soc2/lsu/ldq_4_bits_addr_valid &&
 	soc1/lsu/ldq_4_bits_executed==soc2/lsu/ldq_4_bits_executed &&
-	soc1/lsu/ldq_4_bits_failure==soc2/lsu/ldq_4_bits_failure &&
 	soc1/lsu/ldq_4_bits_forward_std_val==soc2/lsu/ldq_4_bits_forward_std_val &&
 	soc1/lsu/ldq_4_bits_forward_stq_idx==soc2/lsu/ldq_4_bits_forward_stq_idx &&
 	soc1/lsu/ldq_4_bits_observed==soc2/lsu/ldq_4_bits_observed &&
@@ -21028,6 +21028,7 @@ macro boolean state_uniqueness :=
 	soc1/lsu/ldq_4_bits_uop_ctrl_is_load==soc2/lsu/ldq_4_bits_uop_ctrl_is_load &&
 	soc1/lsu/ldq_4_bits_uop_ctrl_is_sta==soc2/lsu/ldq_4_bits_uop_ctrl_is_sta &&
 	soc1/lsu/ldq_4_bits_uop_dst_rtype==soc2/lsu/ldq_4_bits_uop_dst_rtype &&
+	soc1/lsu/ldq_4_bits_uop_exception==soc2/lsu/ldq_4_bits_uop_exception &&
 	soc1/lsu/ldq_4_bits_uop_fp_val==soc2/lsu/ldq_4_bits_uop_fp_val &&
 	soc1/lsu/ldq_4_bits_uop_is_amo==soc2/lsu/ldq_4_bits_uop_is_amo &&
 	soc1/lsu/ldq_4_bits_uop_is_fence==soc2/lsu/ldq_4_bits_uop_is_fence &&
@@ -21048,7 +21049,6 @@ macro boolean state_uniqueness :=
 	soc1/lsu/ldq_5_bits_addr_is_virtual==soc2/lsu/ldq_5_bits_addr_is_virtual &&
 	soc1/lsu/ldq_5_bits_addr_valid==soc2/lsu/ldq_5_bits_addr_valid &&
 	soc1/lsu/ldq_5_bits_executed==soc2/lsu/ldq_5_bits_executed &&
-	soc1/lsu/ldq_5_bits_failure==soc2/lsu/ldq_5_bits_failure &&
 	soc1/lsu/ldq_5_bits_forward_std_val==soc2/lsu/ldq_5_bits_forward_std_val &&
 	soc1/lsu/ldq_5_bits_forward_stq_idx==soc2/lsu/ldq_5_bits_forward_stq_idx &&
 	soc1/lsu/ldq_5_bits_observed==soc2/lsu/ldq_5_bits_observed &&
@@ -21059,6 +21059,7 @@ macro boolean state_uniqueness :=
 	soc1/lsu/ldq_5_bits_uop_ctrl_is_load==soc2/lsu/ldq_5_bits_uop_ctrl_is_load &&
 	soc1/lsu/ldq_5_bits_uop_ctrl_is_sta==soc2/lsu/ldq_5_bits_uop_ctrl_is_sta &&
 	soc1/lsu/ldq_5_bits_uop_dst_rtype==soc2/lsu/ldq_5_bits_uop_dst_rtype &&
+	soc1/lsu/ldq_5_bits_uop_exception==soc2/lsu/ldq_5_bits_uop_exception &&
 	soc1/lsu/ldq_5_bits_uop_fp_val==soc2/lsu/ldq_5_bits_uop_fp_val &&
 	soc1/lsu/ldq_5_bits_uop_is_amo==soc2/lsu/ldq_5_bits_uop_is_amo &&
 	soc1/lsu/ldq_5_bits_uop_is_fence==soc2/lsu/ldq_5_bits_uop_is_fence &&
@@ -21079,7 +21080,6 @@ macro boolean state_uniqueness :=
 	soc1/lsu/ldq_6_bits_addr_is_virtual==soc2/lsu/ldq_6_bits_addr_is_virtual &&
 	soc1/lsu/ldq_6_bits_addr_valid==soc2/lsu/ldq_6_bits_addr_valid &&
 	soc1/lsu/ldq_6_bits_executed==soc2/lsu/ldq_6_bits_executed &&
-	soc1/lsu/ldq_6_bits_failure==soc2/lsu/ldq_6_bits_failure &&
 	soc1/lsu/ldq_6_bits_forward_std_val==soc2/lsu/ldq_6_bits_forward_std_val &&
 	soc1/lsu/ldq_6_bits_forward_stq_idx==soc2/lsu/ldq_6_bits_forward_stq_idx &&
 	soc1/lsu/ldq_6_bits_observed==soc2/lsu/ldq_6_bits_observed &&
@@ -21090,6 +21090,7 @@ macro boolean state_uniqueness :=
 	soc1/lsu/ldq_6_bits_uop_ctrl_is_load==soc2/lsu/ldq_6_bits_uop_ctrl_is_load &&
 	soc1/lsu/ldq_6_bits_uop_ctrl_is_sta==soc2/lsu/ldq_6_bits_uop_ctrl_is_sta &&
 	soc1/lsu/ldq_6_bits_uop_dst_rtype==soc2/lsu/ldq_6_bits_uop_dst_rtype &&
+	soc1/lsu/ldq_6_bits_uop_exception==soc2/lsu/ldq_6_bits_uop_exception &&
 	soc1/lsu/ldq_6_bits_uop_fp_val==soc2/lsu/ldq_6_bits_uop_fp_val &&
 	soc1/lsu/ldq_6_bits_uop_is_amo==soc2/lsu/ldq_6_bits_uop_is_amo &&
 	soc1/lsu/ldq_6_bits_uop_is_fence==soc2/lsu/ldq_6_bits_uop_is_fence &&
@@ -21110,7 +21111,6 @@ macro boolean state_uniqueness :=
 	soc1/lsu/ldq_7_bits_addr_is_virtual==soc2/lsu/ldq_7_bits_addr_is_virtual &&
 	soc1/lsu/ldq_7_bits_addr_valid==soc2/lsu/ldq_7_bits_addr_valid &&
 	soc1/lsu/ldq_7_bits_executed==soc2/lsu/ldq_7_bits_executed &&
-	soc1/lsu/ldq_7_bits_failure==soc2/lsu/ldq_7_bits_failure &&
 	soc1/lsu/ldq_7_bits_forward_std_val==soc2/lsu/ldq_7_bits_forward_std_val &&
 	soc1/lsu/ldq_7_bits_forward_stq_idx==soc2/lsu/ldq_7_bits_forward_stq_idx &&
 	soc1/lsu/ldq_7_bits_observed==soc2/lsu/ldq_7_bits_observed &&
@@ -21121,6 +21121,7 @@ macro boolean state_uniqueness :=
 	soc1/lsu/ldq_7_bits_uop_ctrl_is_load==soc2/lsu/ldq_7_bits_uop_ctrl_is_load &&
 	soc1/lsu/ldq_7_bits_uop_ctrl_is_sta==soc2/lsu/ldq_7_bits_uop_ctrl_is_sta &&
 	soc1/lsu/ldq_7_bits_uop_dst_rtype==soc2/lsu/ldq_7_bits_uop_dst_rtype &&
+	soc1/lsu/ldq_7_bits_uop_exception==soc2/lsu/ldq_7_bits_uop_exception &&
 	soc1/lsu/ldq_7_bits_uop_fp_val==soc2/lsu/ldq_7_bits_uop_fp_val &&
 	soc1/lsu/ldq_7_bits_uop_is_amo==soc2/lsu/ldq_7_bits_uop_is_amo &&
 	soc1/lsu/ldq_7_bits_uop_is_fence==soc2/lsu/ldq_7_bits_uop_is_fence &&
@@ -21141,7 +21142,6 @@ macro boolean state_uniqueness :=
 	soc1/lsu/ldq_8_bits_addr_is_virtual==soc2/lsu/ldq_8_bits_addr_is_virtual &&
 	soc1/lsu/ldq_8_bits_addr_valid==soc2/lsu/ldq_8_bits_addr_valid &&
 	soc1/lsu/ldq_8_bits_executed==soc2/lsu/ldq_8_bits_executed &&
-	soc1/lsu/ldq_8_bits_failure==soc2/lsu/ldq_8_bits_failure &&
 	soc1/lsu/ldq_8_bits_forward_std_val==soc2/lsu/ldq_8_bits_forward_std_val &&
 	soc1/lsu/ldq_8_bits_forward_stq_idx==soc2/lsu/ldq_8_bits_forward_stq_idx &&
 	soc1/lsu/ldq_8_bits_observed==soc2/lsu/ldq_8_bits_observed &&
@@ -21152,6 +21152,7 @@ macro boolean state_uniqueness :=
 	soc1/lsu/ldq_8_bits_uop_ctrl_is_load==soc2/lsu/ldq_8_bits_uop_ctrl_is_load &&
 	soc1/lsu/ldq_8_bits_uop_ctrl_is_sta==soc2/lsu/ldq_8_bits_uop_ctrl_is_sta &&
 	soc1/lsu/ldq_8_bits_uop_dst_rtype==soc2/lsu/ldq_8_bits_uop_dst_rtype &&
+	soc1/lsu/ldq_8_bits_uop_exception==soc2/lsu/ldq_8_bits_uop_exception &&
 	soc1/lsu/ldq_8_bits_uop_fp_val==soc2/lsu/ldq_8_bits_uop_fp_val &&
 	soc1/lsu/ldq_8_bits_uop_is_amo==soc2/lsu/ldq_8_bits_uop_is_amo &&
 	soc1/lsu/ldq_8_bits_uop_is_fence==soc2/lsu/ldq_8_bits_uop_is_fence &&
@@ -21172,7 +21173,6 @@ macro boolean state_uniqueness :=
 	soc1/lsu/ldq_9_bits_addr_is_virtual==soc2/lsu/ldq_9_bits_addr_is_virtual &&
 	soc1/lsu/ldq_9_bits_addr_valid==soc2/lsu/ldq_9_bits_addr_valid &&
 	soc1/lsu/ldq_9_bits_executed==soc2/lsu/ldq_9_bits_executed &&
-	soc1/lsu/ldq_9_bits_failure==soc2/lsu/ldq_9_bits_failure &&
 	soc1/lsu/ldq_9_bits_forward_std_val==soc2/lsu/ldq_9_bits_forward_std_val &&
 	soc1/lsu/ldq_9_bits_forward_stq_idx==soc2/lsu/ldq_9_bits_forward_stq_idx &&
 	soc1/lsu/ldq_9_bits_observed==soc2/lsu/ldq_9_bits_observed &&
@@ -21183,6 +21183,7 @@ macro boolean state_uniqueness :=
 	soc1/lsu/ldq_9_bits_uop_ctrl_is_load==soc2/lsu/ldq_9_bits_uop_ctrl_is_load &&
 	soc1/lsu/ldq_9_bits_uop_ctrl_is_sta==soc2/lsu/ldq_9_bits_uop_ctrl_is_sta &&
 	soc1/lsu/ldq_9_bits_uop_dst_rtype==soc2/lsu/ldq_9_bits_uop_dst_rtype &&
+	soc1/lsu/ldq_9_bits_uop_exception==soc2/lsu/ldq_9_bits_uop_exception &&
 	soc1/lsu/ldq_9_bits_uop_fp_val==soc2/lsu/ldq_9_bits_uop_fp_val &&
 	soc1/lsu/ldq_9_bits_uop_is_amo==soc2/lsu/ldq_9_bits_uop_is_amo &&
 	soc1/lsu/ldq_9_bits_uop_is_fence==soc2/lsu/ldq_9_bits_uop_is_fence &&
@@ -21245,6 +21246,7 @@ macro boolean state_uniqueness :=
 	soc1/lsu/mem_tlb_uncacheable_0==soc2/lsu/mem_tlb_uncacheable_0 &&
 	soc1/lsu/mem_xcpt_causes_0==soc2/lsu/mem_xcpt_causes_0 &&
 	soc1/lsu/mem_xcpt_uops_0_br_mask==soc2/lsu/mem_xcpt_uops_0_br_mask &&
+	soc1/lsu/mem_xcpt_uops_0_ldq_idx==soc2/lsu/mem_xcpt_uops_0_ldq_idx &&
 	soc1/lsu/mem_xcpt_uops_0_rob_idx==soc2/lsu/mem_xcpt_uops_0_rob_idx &&
 	soc1/lsu/mem_xcpt_uops_0_stq_idx==soc2/lsu/mem_xcpt_uops_0_stq_idx &&
 	soc1/lsu/mem_xcpt_uops_0_uses_ldq==soc2/lsu/mem_xcpt_uops_0_uses_ldq &&
@@ -21749,3 +21751,4 @@ macro boolean state_uniqueness :=
 	soc1/tlMasterXbar/_T_163==soc2/tlMasterXbar/_T_163 &&
 	soc1/tlMasterXbar/_T_218_0==soc2/tlMasterXbar/_T_218_0 &&
 	soc1/tlMasterXbar/_T_218_1==soc2/tlMasterXbar/_T_218_1;
+end macro;

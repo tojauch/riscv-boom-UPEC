@@ -1,0 +1,24 @@
+naming_style onespin
+# Name Radix Color Is_Clock
+PROTECTED_ADDR DEFAULT DEFAULT { false} { false}
+SEPARATOR_Separator NONE DEFAULT { false} { false}
+clock DEFAULT DEFAULT { true} { false}
+reset DEFAULT DEFAULT { false} { false}
+SEPARATOR_Separator NONE DEFAULT { false} { false}
+soc1/dcache/s1_req_0_addr DEFAULT DEFAULT { false} { false}
+soc1/dcache/s1_valid_0 DEFAULT #ff0000 { false} { false}
+soc1/dcache/s1_type DEFAULT #ff0000 { false} { false}
+soc1/lsu/io_dmem_s1_kill_0 DEFAULT #ff0000 { false} { false}
+SEPARATOR_Separator NONE DEFAULT { false} { false}
+soc1/lsu/io_dmem_req_bits_0_bits_addr DEFAULT DEFAULT { false} { false}
+soc1/lsu/io_dmem_req_bits_0_valid DEFAULT DEFAULT { false} { false}
+SEPARATOR_Separator NONE DEFAULT { false} { false}
+soc1/lsu/exe_tlb_paddr_0 DEFAULT DEFAULT { false} { false}
+soc1/lsu/exe_tlb_vaddr_0 DEFAULT DEFAULT { false} { false}
+SEPARATOR_Separator NONE DEFAULT { false} { false}
+soc1/lsu/_T_702 DEFAULT #ffffff { false} { false}
+soc1/lsu/can_fire_load_incoming_0 DEFAULT DEFAULT { false} { false}
+SEPARATOR_Separator NONE DEFAULT { false} { false}
+soc1/lsu/dtlb_io_resp_0_paddr DEFAULT #aa55ff { false} { false}
+soc1/lsu/dtlb_io_resp_0_miss DEFAULT #aa55ff { false} { false}
+soc1/lsu/dtlb_io_resp_0_pf_ld DEFAULT #aa55ff { false} { false}

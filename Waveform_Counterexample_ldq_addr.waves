@@ -1,0 +1,17 @@
+naming_style onespin
+# Name Radix Color Is_Clock
+clock DEFAULT DEFAULT { true} { false}
+reset DEFAULT DEFAULT { false} { false}
+soc1/lsu/ldq_1_bits_addr_bits DEFAULT DEFAULT { false} { false}
+soc1/lsu/ldq_1_bits_addr_is_virtual DEFAULT DEFAULT { false} { false}
+soc1/lsu/ldq_1_bits_addr_valid DEFAULT DEFAULT { false} { false}
+SEPARATOR_Separator NONE DEFAULT { false} { false}
+soc1/lsu/ldq_1_bits_uop_exception DEFAULT DEFAULT { false} { false}
+SEPARATOR_Separator NONE DEFAULT { false} { false}
+soc1/lsu/exe_tlb_paddr_0 DEFAULT DEFAULT { false} { false}
+SEPARATOR_Separator NONE DEFAULT { false} { false}
+soc1/lsu/exe_tlb_vaddr_0 DEFAULT DEFAULT { false} { false}
+SEPARATOR_Separator NONE DEFAULT { false} { false}
+soc1/lsu/dtlb_io_resp_0_paddr DEFAULT DEFAULT { false} { false}
+soc1/lsu/dtlb_io_resp_0_miss DEFAULT DEFAULT { false} { false}
+soc1/lsu/dtlb_io_resp_0_pf_ld DEFAULT DEFAULT { false} { false}
