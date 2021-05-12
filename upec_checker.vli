@@ -3,7 +3,7 @@ include "blackboxing.vli";
 include "no_pending_access.vli";
 include "UPEC_commitment.vli";
 
-macro integer K := 4; end macro;
+macro integer K := 1; end macro;
 
 macro integer USER_MODE := 0; end macro;
 
@@ -72,24 +72,6 @@ assertion stq_bits_committed := //stq entries must only be marked as committed i
   (!soc2/lsu/stq_14_bits_committed || (soc2/lsu/stq_14_bits_addr_valid && !soc2/lsu/stq_14_bits_addr_is_virtual)) &&
   (!soc2/lsu/stq_15_bits_committed || (soc2/lsu/stq_15_bits_addr_valid && !soc2/lsu/stq_15_bits_addr_is_virtual)) ;
 end assertion;
-/*
-  (!soc2/lsu/stq_0_bits_committed || soc2/lsu/stq_0_bits_addr_valid) &&
-  (!soc2/lsu/stq_1_bits_committed || soc2/lsu/stq_1_bits_addr_valid) &&
-  (!soc2/lsu/stq_2_bits_committed || soc2/lsu/stq_2_bits_addr_valid) &&
-  (!soc2/lsu/stq_3_bits_committed || soc2/lsu/stq_3_bits_addr_valid) &&
-  (!soc2/lsu/stq_4_bits_committed || soc2/lsu/stq_4_bits_addr_valid) &&
-  (!soc2/lsu/stq_5_bits_committed || soc2/lsu/stq_5_bits_addr_valid) &&
-  (!soc2/lsu/stq_6_bits_committed || soc2/lsu/stq_6_bits_addr_valid) &&
-  (!soc2/lsu/stq_7_bits_committed || soc2/lsu/stq_7_bits_addr_valid) &&
-  (!soc2/lsu/stq_8_bits_committed || soc2/lsu/stq_8_bits_addr_valid) &&
-  (!soc2/lsu/stq_9_bits_committed || soc2/lsu/stq_9_bits_addr_valid) &&
-  (!soc2/lsu/stq_10_bits_committed || soc2/lsu/stq_10_bits_addr_valid) &&
-  (!soc2/lsu/stq_11_bits_committed || soc2/lsu/stq_11_bits_addr_valid) &&
-  (!soc2/lsu/stq_12_bits_committed || soc2/lsu/stq_12_bits_addr_valid) &&
-  (!soc2/lsu/stq_13_bits_committed || soc2/lsu/stq_13_bits_addr_valid) &&
-  (!soc2/lsu/stq_14_bits_committed || soc2/lsu/stq_14_bits_addr_valid) &&
-  (!soc2/lsu/stq_15_bits_committed || soc2/lsu/stq_15_bits_addr_valid) ;
-*/
 
 assertion valid_frontend_icache :=
   (!soc1/frontend/icache/s1_valid || soc1/frontend/s1_valid) &&
@@ -333,10 +315,10 @@ property UPEC_boom;
 		//at t: no_pending_spec_instr;
 		//during[t, t+K]: uses_stq;
 		//during[t, t+K]: uses_ldq;
-		at t: uses_stq;
-		at t: uses_ldq;
-		at t: ldq_failure_bit;
-		at t: ptw;
+		during [t, t+K]: uses_stq;
+		during [t, t+K]: uses_ldq;
+		//at t: ldq_failure_bit;
+		during [t, t+K]: ptw;
 
 		during[t, t+K]: microequivalence == 1'b1;
 
@@ -345,7 +327,7 @@ property UPEC_boom;
 		//at t+1: soc1/core/iregfile/regfile__T_11_data == soc2/core/iregfile/regfile__T_11_data;
 		//at t+1: soc1/core/iregfile/regfile[0] == soc2/core/iregfile/regfile[0];
 
-		//at t+1: no_pending_secret_access;
+		at t+1: no_pending_secret_access;
 
 		//at t+1: no_pending_access_icache;
 
@@ -355,7 +337,8 @@ property UPEC_boom;
 		//at t+K: state_uniqueness_cycle_1;
 		//at t+K: state_uniqueness_cycle_2;
 		//at t+K: state_uniqueness_cycle_3;
-		at t+K: state_uniqueness_cycle_4;
+		//at t+K: state_uniqueness_cycle_4;
+		//at t+K: state_uniqueness_cycle_5;
 
 end property;
 
