@@ -1,10 +1,5 @@
-// @lang=vli @ts=8
 
-//Notes:
-//mem_xcpt_uops_0_uses_ldq xor mem_xcpt_uops_0_uses_stq
-//
-//exception can either be directly in stq or in mem_xcpt_uops_0_uses_stq
-
+//icache cut out (no invariant developed yet)
 macro boolean no_pending_access_icache :=
   ( soc1/frontend/icache/refill_paddr[31:12] != secret_cache_tag ) &&
   ( soc1/frontend/s2_ppc[31:12] != secret_cache_tag ) &&
@@ -18,7 +13,6 @@ macro boolean no_pending_access_icache :=
   ( soc2/frontend/_T_16[31:12] != secret_cache_tag ) &&
   ( soc2/frontend/tlb/io_resp_paddr[31:12] != secret_cache_tag ) ;
 end macro;
-
 
 /*macro boolean no_pending_access_icache :=
   ( soc1/frontend/icache/refill_paddr[31:12] != secret_cache_tag || ((soc1/frontend/s2_xcpt || soc1/frontend/icache/s2_valid == 1'b0) && soc1/frontend/icache/refill_valid == 1'b0) ) &&
@@ -171,7 +165,6 @@ end macro;
 
 
 macro boolean no_pending_secret_access := 
-
   no_pending_access_dcache &&
   no_pending_access_icache &&
   no_pending_access_ldq &&
