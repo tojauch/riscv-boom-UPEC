@@ -3,7 +3,7 @@ include "blackboxing.vli";
 include "no_pending_access.vli";
 include "UPEC_commitment.vli";
 
-macro integer K := 3; end macro;
+macro integer K := 1; end macro;
 
 macro integer USER_MODE := 0; end macro;
 macro integer SUPERVISOR_MODE := 1; end macro;
@@ -285,7 +285,7 @@ property UPEC_boom;
 
 	assume:
 
-		at t-1: state_equivalence;
+		//at t-1: state_equivalence;
 		at t: state_equivalence;
 		at t: no_pending_secret_access;
 
@@ -294,10 +294,10 @@ property UPEC_boom;
 		during[t, t+K]: secret_data_protected;
 		during[t, t+K]: page_table_protection_icache;
 
-		during[t, t+K]: soc1/core/csr/io_status_dprv == USER_MODE;
-		during[t, t+K]: soc2/core/csr/io_status_dprv == USER_MODE;
-		//during[t, t+K]: soc1/core/csr/io_status_dprv == SUPERVISOR_MODE;
-		//during[t, t+K]: soc2/core/csr/io_status_dprv == SUPERVISOR_MODE;
+		//during[t, t+K]: soc1/core/csr/io_status_dprv == USER_MODE;
+		//during[t, t+K]: soc2/core/csr/io_status_dprv == USER_MODE;
+		during[t, t+K]: soc1/core/csr/io_status_dprv == SUPERVISOR_MODE;
+		during[t, t+K]: soc2/core/csr/io_status_dprv == SUPERVISOR_MODE;
 
 		during[t, t+K]: dcache_replay;
 		during[t, t+K]: dcache_send_resp;
@@ -309,14 +309,14 @@ property UPEC_boom;
 		//during[t, t+K]: microequivalence == 1'b1;
 
 	prove: 
-		//at t+1: no_pending_secret_access;
+		at t+1: no_pending_secret_access;
 
 		//at t+K: (soc1/dcache/meta_0/io_write_valid == soc2/dcache/meta_0/io_write_valid);
 		//at t+K: (soc1/dcache/meta_0/io_write_valid == 1'b0 || ((soc1/dcache/meta_0/io_write_bits_data_tag == soc2/dcache/meta_0/io_write_bits_data_tag) && (soc1/dcache/meta_0/io_write_bits_data_coh_state == soc2/dcache/meta_0/io_write_bits_data_coh_state)));
 
 		//at t+K: state_uniqueness_cycle_1;
 		//at t+K: state_uniqueness_cycle_2;
-		at t+K: state_uniqueness_cycle_3;
+		//at t+K: state_uniqueness_cycle_3;
 		//at t+K: state_uniqueness_cycle_4;
 		//at t+K: state_uniqueness_cycle_5;
 
