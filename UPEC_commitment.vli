@@ -37,10 +37,10 @@ macro boolean state_uniqueness_cycle_3 :=
 	//soc1/dcache/s3_req_data==soc2/dcache/s3_req_data &&
 	//soc1/dcache/s4_req_data==soc2/dcache/s4_req_data &&
 
-	/*soc1/dcache/data/array_0_0/W0_data_0==soc2/dcache/data/array_0_0/W0_data_0 && //--> check for write valid or similar
+	soc1/dcache/data/array_0_0/W0_data_0==soc2/dcache/data/array_0_0/W0_data_0 && //--> check for write valid or similar
 	soc1/dcache/data/array_1_0/W0_data_0==soc2/dcache/data/array_1_0/W0_data_0 &&
 	soc1/dcache/data/array_2_0/W0_data_0==soc2/dcache/data/array_2_0/W0_data_0 &&
-	soc1/dcache/data/array_3_0/W0_data_0==soc2/dcache/data/array_3_0/W0_data_0 &&*/
+	soc1/dcache/data/array_3_0/W0_data_0==soc2/dcache/data/array_3_0/W0_data_0 &&
 
 	soc1/core/fp_pipeline/_T_251_bits_data==soc2/core/fp_pipeline/_T_251_bits_data &&
 
