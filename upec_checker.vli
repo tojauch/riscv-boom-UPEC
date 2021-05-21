@@ -256,11 +256,11 @@ end macro;
 end macro;*/
 
 macro boolean secret_load_speculative :=
-  (( soc1/dcache/s1_req_0_addr[31:12] == secret_cache_tag && soc1/dcache/s1_type != 3'b010 ) ? soc1/dcache/s1_req_0_uop_br_mask != 12'h0 : true ) &&
-  (( soc1/dcache/s2_req_0_addr[31:12] == secret_cache_tag && soc1/dcache/s2_type != 3'b010 ) ? soc1/dcache/s2_req_0_uop_br_mask != 12'h0 : true ) &&
+  ( ( soc1/dcache/s1_req_0_addr[31:12] == secret_cache_tag && soc1/dcache/s1_type != 3'b010 ) ? ( soc1/dcache/s1_req_0_uop_br_mask != 12'h0 ) : ( true ) ) &&
+  ( ( soc1/dcache/s2_req_0_addr[31:12] == secret_cache_tag && soc1/dcache/s2_type != 3'b010 ) ? ( soc1/dcache/s2_req_0_uop_br_mask != 12'h0 ) : ( true ) ) &&
 //-
-  (( soc2/dcache/s1_req_0_addr[31:12] == secret_cache_tag && soc2/dcache/s1_type != 3'b010 ) ? soc2/dcache/s1_req_0_uop_br_mask != 12'h0 : true ) &&
-  (( soc2/dcache/s2_req_0_addr[31:12] == secret_cache_tag && soc2/dcache/s2_type != 3'b010 ) ? soc2/dcache/s2_req_0_uop_br_mask != 12'h0 : true ) ;
+  ( ( soc2/dcache/s1_req_0_addr[31:12] == secret_cache_tag && soc2/dcache/s1_type != 3'b010 ) ? ( soc2/dcache/s1_req_0_uop_br_mask != 12'h0 ) : ( true ) ) &&
+  ( ( soc2/dcache/s2_req_0_addr[31:12] == secret_cache_tag && soc2/dcache/s2_type != 3'b010 ) ? ( soc2/dcache/s2_req_0_uop_br_mask != 12'h0 ) : ( true ) ) ;
 end macro;
 
 macro boolean secret_data_protected := 
@@ -275,9 +275,9 @@ macro boolean ptw :=
 end macro;
 
 macro boolean dcache_replay :=
-  //(soc1/dcache/io_lsu_resp_0_bits_data == soc2/dcache/io_lsu_resp_0_bits_data || (soc1/dcache/s2_req_0_addr[31:12] == secret_cache_tag && soc2/dcache/s2_req_0_addr[31:12] == secret_cache_tag)) ;
-  (soc1/dcache/s2_type != 3'b000 || soc1/dcache/s2_tag_match_way_0 == prev(soc1/dcache/s1_tag_eq_way_0)) &&
-  (soc2/dcache/s2_type != 3'b000 || soc2/dcache/s2_tag_match_way_0 == prev(soc2/dcache/s1_tag_eq_way_0)) ;
+  (soc1/dcache/io_lsu_resp_0_bits_data == soc2/dcache/io_lsu_resp_0_bits_data || (soc1/dcache/s2_req_0_addr[31:12] == secret_cache_tag && soc2/dcache/s2_req_0_addr[31:12] == secret_cache_tag)) ;
+  //(soc1/dcache/s2_type != 3'b000 || soc1/dcache/s2_tag_match_way_0 == prev(soc1/dcache/s1_tag_eq_way_0)) &&
+  //(soc2/dcache/s2_type != 3'b000 || soc2/dcache/s2_tag_match_way_0 == prev(soc2/dcache/s1_tag_eq_way_0)) ;
 end macro;
 
 property UPEC_boom;
@@ -289,15 +289,15 @@ property UPEC_boom;
 		at t: state_equivalence;
 		at t: no_pending_secret_access;
 
-		during[t, t+K]: blackboxing;
-
-		during[t, t+K]: secret_data_protected;
-		during[t, t+K]: page_table_protection_icache;
-
 		//during[t, t+K]: soc1/core/csr/io_status_dprv == USER_MODE;
 		//during[t, t+K]: soc2/core/csr/io_status_dprv == USER_MODE;
 		during[t, t+K]: soc1/core/csr/io_status_dprv == SUPERVISOR_MODE;
 		during[t, t+K]: soc2/core/csr/io_status_dprv == SUPERVISOR_MODE;
+
+		during[t, t+K]: blackboxing;
+
+		during[t, t+K]: secret_data_protected;
+		during[t, t+K]: page_table_protection_icache;
 
 		during[t, t+K]: dcache_replay;
 		during[t, t+K]: dcache_send_resp;
