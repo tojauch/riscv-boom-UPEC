@@ -91,39 +91,39 @@ assertion dcache_send_resp :=
 end assertion;
 
 macro boolean ldq_failure_bit :=
-  (!soc1/lsu/ldq_0_bits_failure || (soc1/lsu/will_fire_load_incoming_0 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'h0) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'h0)) &&
-  (!soc1/lsu/ldq_1_bits_failure || (soc1/lsu/will_fire_load_incoming_0 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'h1) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'h1)) &&
-  (!soc1/lsu/ldq_2_bits_failure || (soc1/lsu/will_fire_load_incoming_0 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'h2) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'h2)) &&
-  (!soc1/lsu/ldq_3_bits_failure || (soc1/lsu/will_fire_load_incoming_0 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'h3) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'h3)) &&
-  (!soc1/lsu/ldq_4_bits_failure || (soc1/lsu/will_fire_load_incoming_0 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'h4) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'h4)) &&
-  (!soc1/lsu/ldq_5_bits_failure || (soc1/lsu/will_fire_load_incoming_0 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'h5) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'h5)) &&
-  (!soc1/lsu/ldq_6_bits_failure || (soc1/lsu/will_fire_load_incoming_0 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'h6) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'h6)) &&
-  (!soc1/lsu/ldq_7_bits_failure || (soc1/lsu/will_fire_load_incoming_0 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'h7) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'h7)) &&
-  (!soc1/lsu/ldq_8_bits_failure || (soc1/lsu/will_fire_load_incoming_0 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'h8) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'h8)) &&
-  (!soc1/lsu/ldq_9_bits_failure || (soc1/lsu/will_fire_load_incoming_0 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'h9) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'h9)) &&
-  (!soc1/lsu/ldq_10_bits_failure || (soc1/lsu/will_fire_load_incoming_0 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'ha) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'ha)) &&
-  (!soc1/lsu/ldq_11_bits_failure || (soc1/lsu/will_fire_load_incoming_0 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'hb) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'hb)) &&
-  (!soc1/lsu/ldq_12_bits_failure || (soc1/lsu/will_fire_load_incoming_0 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'hc) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'hc)) &&
-  (!soc1/lsu/ldq_13_bits_failure || (soc1/lsu/will_fire_load_incoming_0 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'hd) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'hd)) &&
-  (!soc1/lsu/ldq_14_bits_failure || (soc1/lsu/will_fire_load_incoming_0 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'he) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'he)) &&
-  (!soc1/lsu/ldq_15_bits_failure || (soc1/lsu/will_fire_load_incoming_0 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'hf) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'hf)) &&
+  (!soc1/lsu/ldq_0_bits_failure || (soc1/lsu/_T_709 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'h0) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'h0)) &&
+  (!soc1/lsu/ldq_1_bits_failure || (soc1/lsu/_T_709 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'h1) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'h1)) &&
+  (!soc1/lsu/ldq_2_bits_failure || (soc1/lsu/_T_709 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'h2) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'h2)) &&
+  (!soc1/lsu/ldq_3_bits_failure || (soc1/lsu/_T_709 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'h3) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'h3)) &&
+  (!soc1/lsu/ldq_4_bits_failure || (soc1/lsu/_T_709 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'h4) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'h4)) &&
+  (!soc1/lsu/ldq_5_bits_failure || (soc1/lsu/_T_709 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'h5) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'h5)) &&
+  (!soc1/lsu/ldq_6_bits_failure || (soc1/lsu/_T_709 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'h6) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'h6)) &&
+  (!soc1/lsu/ldq_7_bits_failure || (soc1/lsu/_T_709 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'h7) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'h7)) &&
+  (!soc1/lsu/ldq_8_bits_failure || (soc1/lsu/_T_709 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'h8) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'h8)) &&
+  (!soc1/lsu/ldq_9_bits_failure || (soc1/lsu/_T_709 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'h9) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'h9)) &&
+  (!soc1/lsu/ldq_10_bits_failure || (soc1/lsu/_T_709 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'ha) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'ha)) &&
+  (!soc1/lsu/ldq_11_bits_failure || (soc1/lsu/_T_709 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'hb) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'hb)) &&
+  (!soc1/lsu/ldq_12_bits_failure || (soc1/lsu/_T_709 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'hc) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'hc)) &&
+  (!soc1/lsu/ldq_13_bits_failure || (soc1/lsu/_T_709 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'hd) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'hd)) &&
+  (!soc1/lsu/ldq_14_bits_failure || (soc1/lsu/_T_709 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'he) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'he)) &&
+  (!soc1/lsu/ldq_15_bits_failure || (soc1/lsu/_T_709 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'hf) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'hf)) &&
 //-
-  (!soc2/lsu/ldq_0_bits_failure || (soc2/lsu/will_fire_load_incoming_0 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'h0) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'h0)) &&
-  (!soc2/lsu/ldq_1_bits_failure || (soc2/lsu/will_fire_load_incoming_0 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'h1) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'h1)) &&
-  (!soc2/lsu/ldq_2_bits_failure || (soc2/lsu/will_fire_load_incoming_0 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'h2) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'h2)) &&
-  (!soc2/lsu/ldq_3_bits_failure || (soc2/lsu/will_fire_load_incoming_0 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'h3) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'h3)) &&
-  (!soc2/lsu/ldq_4_bits_failure || (soc2/lsu/will_fire_load_incoming_0 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'h4) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'h4)) &&
-  (!soc2/lsu/ldq_5_bits_failure || (soc2/lsu/will_fire_load_incoming_0 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'h5) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'h5)) &&
-  (!soc2/lsu/ldq_6_bits_failure || (soc2/lsu/will_fire_load_incoming_0 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'h6) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'h6)) &&
-  (!soc2/lsu/ldq_7_bits_failure || (soc2/lsu/will_fire_load_incoming_0 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'h7) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'h7)) &&
-  (!soc2/lsu/ldq_8_bits_failure || (soc2/lsu/will_fire_load_incoming_0 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'h8) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'h8)) &&
-  (!soc2/lsu/ldq_9_bits_failure || (soc2/lsu/will_fire_load_incoming_0 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'h9) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'h9)) &&
-  (!soc2/lsu/ldq_10_bits_failure || (soc2/lsu/will_fire_load_incoming_0 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'ha) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'ha)) &&
-  (!soc2/lsu/ldq_11_bits_failure || (soc2/lsu/will_fire_load_incoming_0 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'hb) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'hb)) &&
-  (!soc2/lsu/ldq_12_bits_failure || (soc2/lsu/will_fire_load_incoming_0 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'hc) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'hc)) &&
-  (!soc2/lsu/ldq_13_bits_failure || (soc2/lsu/will_fire_load_incoming_0 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'hd) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'hd)) &&
-  (!soc2/lsu/ldq_14_bits_failure || (soc2/lsu/will_fire_load_incoming_0 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'he) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'he)) &&
-  (!soc2/lsu/ldq_15_bits_failure || (soc2/lsu/will_fire_load_incoming_0 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'hf) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'hf)) ;
+  (!soc2/lsu/ldq_0_bits_failure || (soc2/lsu/_T_709 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'h0) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'h0)) &&
+  (!soc2/lsu/ldq_1_bits_failure || (soc2/lsu/_T_709 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'h1) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'h1)) &&
+  (!soc2/lsu/ldq_2_bits_failure || (soc2/lsu/_T_709 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'h2) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'h2)) &&
+  (!soc2/lsu/ldq_3_bits_failure || (soc2/lsu/_T_709 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'h3) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'h3)) &&
+  (!soc2/lsu/ldq_4_bits_failure || (soc2/lsu/_T_709 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'h4) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'h4)) &&
+  (!soc2/lsu/ldq_5_bits_failure || (soc2/lsu/_T_709 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'h5) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'h5)) &&
+  (!soc2/lsu/ldq_6_bits_failure || (soc2/lsu/_T_709 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'h6) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'h6)) &&
+  (!soc2/lsu/ldq_7_bits_failure || (soc2/lsu/_T_709 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'h7) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'h7)) &&
+  (!soc2/lsu/ldq_8_bits_failure || (soc2/lsu/_T_709 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'h8) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'h8)) &&
+  (!soc2/lsu/ldq_9_bits_failure || (soc2/lsu/_T_709 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'h9) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'h9)) &&
+  (!soc2/lsu/ldq_10_bits_failure || (soc2/lsu/_T_709 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'ha) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'ha)) &&
+  (!soc2/lsu/ldq_11_bits_failure || (soc2/lsu/_T_709 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'hb) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'hb)) &&
+  (!soc2/lsu/ldq_12_bits_failure || (soc2/lsu/_T_709 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'hc) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'hc)) &&
+  (!soc2/lsu/ldq_13_bits_failure || (soc2/lsu/_T_709 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'hd) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'hd)) &&
+  (!soc2/lsu/ldq_14_bits_failure || (soc2/lsu/_T_709 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'he) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'he)) &&
+  (!soc2/lsu/ldq_15_bits_failure || (soc2/lsu/_T_709 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'hf) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'hf)) ;
 end macro;
 
 macro boolean uses_ldq :=
@@ -226,14 +226,14 @@ end macro;
 
 //load (or retry) from secret address without tlb miss -> page fault
 macro boolean page_table_protection :=
-  ( ( ( soc1/lsu/will_fire_load_incoming_0 || soc1/lsu/will_fire_hella_incoming_0 || soc1/lsu/will_fire_load_retry_0 )  && 
+  ( ( ( soc1/lsu/_T_709 || soc1/lsu/will_fire_hella_incoming_0 || soc1/lsu/will_fire_load_retry_0 )  && 
 	  soc1/lsu/dtlb/io_resp_0_paddr[31:12] == secret_cache_tag && !soc1/lsu/dtlb/io_resp_0_miss) 
     ? ( soc1/lsu/dtlb/io_resp_0_pf_ld ) : true ) &&
   ( ( ( soc1/lsu/will_fire_sta_incoming_0 || soc1/lsu/will_fire_sta_retry_0 || soc1/lsu/will_fire_stad_incoming_0 || soc1/lsu/will_fire_sfence_0 )  && 
 	  soc1/lsu/dtlb/io_resp_0_paddr[31:12] == secret_cache_tag && !soc1/lsu/dtlb/io_resp_0_miss) 
     ? ( soc1/lsu/dtlb/io_resp_0_pf_st ) : true ) &&
 //-
-  ( ( ( soc2/lsu/will_fire_load_incoming_0 || soc2/lsu/will_fire_hella_incoming_0 || soc2/lsu/will_fire_load_retry_0  )  && 
+  ( ( ( soc2/lsu/_T_709 || soc2/lsu/will_fire_hella_incoming_0 || soc2/lsu/will_fire_load_retry_0  )  && 
 	  soc2/lsu/dtlb/io_resp_0_paddr[31:12] == secret_cache_tag && !soc2/lsu/dtlb/io_resp_0_miss) 
     ? ( soc2/lsu/dtlb/io_resp_0_pf_ld ) : true ) &&
   ( ( ( soc2/lsu/will_fire_sta_incoming_0 || soc2/lsu/will_fire_sta_retry_0  || soc2/lsu/will_fire_stad_incoming_0 || soc2/lsu/will_fire_sfence_0 )  && 
@@ -285,7 +285,7 @@ property UPEC_boom;
 
 	assume:
 
-		//at t-1: state_equivalence; --> take a look into counterexample without equivalence at t-1 (3 cycles)
+		//at t-1: state_equivalence; //--> take a look into counterexample without equivalence at t-1 (3 cycles)
 		at t: state_equivalence;
 		at t: no_pending_secret_access;
 
