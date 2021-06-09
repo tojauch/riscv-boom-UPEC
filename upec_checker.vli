@@ -285,7 +285,7 @@ property UPEC_boom;
 
 	assume:
 
-		//at t-1: state_equivalence;
+		//at t-1: state_equivalence; --> take a look into counterexample without equivalence at t-1 (3 cycles)
 		at t: state_equivalence;
 		at t: no_pending_secret_access;
 
