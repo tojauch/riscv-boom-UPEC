@@ -288,6 +288,8 @@ property UPEC_boom;
 		//at t-1: state_equivalence; //--> take a look into counterexample without equivalence at t-1 (3 cycles)
 		at t: state_equivalence;
 		at t: no_pending_secret_access;
+		at t: soc1/lsu/will_fire_load_retry_0;
+		at t: !soc1/lsu/will_fire_load_wakeup_0; 
 
 		//during[t, t+K]: soc1/core/csr/io_status_dprv == USER_MODE;
 		//during[t, t+K]: soc2/core/csr/io_status_dprv == USER_MODE;

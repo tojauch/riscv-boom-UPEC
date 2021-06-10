@@ -83,6 +83,42 @@ macro boolean no_pending_access_hella :=
   soc2/lsu/hella_req_addr[31:12] != secret_cache_tag ;
 end macro;
 
+macro boolean speculative_loads_virtual :=
+  ( soc1/lsu/ldq_0_bits_uop_br_mask == 1'b0 || soc1/lsu/ldq_0_bits_addr_is_virtual == 1'b1 ) &&
+  ( soc1/lsu/ldq_1_bits_uop_br_mask == 1'b0 || soc1/lsu/ldq_1_bits_addr_is_virtual == 1'b1 ) &&
+  ( soc1/lsu/ldq_2_bits_uop_br_mask == 1'b0 || soc1/lsu/ldq_2_bits_addr_is_virtual == 1'b1 ) &&
+  ( soc1/lsu/ldq_3_bits_uop_br_mask == 1'b0 || soc1/lsu/ldq_3_bits_addr_is_virtual == 1'b1 ) &&
+  ( soc1/lsu/ldq_4_bits_uop_br_mask == 1'b0 || soc1/lsu/ldq_4_bits_addr_is_virtual == 1'b1 ) &&
+  ( soc1/lsu/ldq_5_bits_uop_br_mask == 1'b0 || soc1/lsu/ldq_5_bits_addr_is_virtual == 1'b1 ) &&
+  ( soc1/lsu/ldq_6_bits_uop_br_mask == 1'b0 || soc1/lsu/ldq_6_bits_addr_is_virtual == 1'b1 ) &&
+  ( soc1/lsu/ldq_7_bits_uop_br_mask == 1'b0 || soc1/lsu/ldq_7_bits_addr_is_virtual == 1'b1 ) &&
+  ( soc1/lsu/ldq_8_bits_uop_br_mask == 1'b0 || soc1/lsu/ldq_8_bits_addr_is_virtual == 1'b1 ) &&
+  ( soc1/lsu/ldq_9_bits_uop_br_mask == 1'b0 || soc1/lsu/ldq_9_bits_addr_is_virtual == 1'b1 ) &&
+  ( soc1/lsu/ldq_10_bits_uop_br_mask == 1'b0 || soc1/lsu/ldq_10_bits_addr_is_virtual == 1'b1 ) &&
+  ( soc1/lsu/ldq_11_bits_uop_br_mask == 1'b0 || soc1/lsu/ldq_11_bits_addr_is_virtual == 1'b1 ) &&
+  ( soc1/lsu/ldq_12_bits_uop_br_mask == 1'b0 || soc1/lsu/ldq_12_bits_addr_is_virtual == 1'b1 ) &&
+  ( soc1/lsu/ldq_13_bits_uop_br_mask == 1'b0 || soc1/lsu/ldq_13_bits_addr_is_virtual == 1'b1 ) &&
+  ( soc1/lsu/ldq_14_bits_uop_br_mask == 1'b0 || soc1/lsu/ldq_14_bits_addr_is_virtual == 1'b1 ) &&
+  ( soc1/lsu/ldq_15_bits_uop_br_mask == 1'b0 || soc1/lsu/ldq_15_bits_addr_is_virtual == 1'b1 ) &&
+//-
+  ( soc2/lsu/ldq_0_bits_uop_br_mask == 1'b0 || soc2/lsu/ldq_0_bits_addr_is_virtual == 1'b1 ) &&
+  ( soc2/lsu/ldq_1_bits_uop_br_mask == 1'b0 || soc2/lsu/ldq_1_bits_addr_is_virtual == 1'b1 ) &&
+  ( soc2/lsu/ldq_2_bits_uop_br_mask == 1'b0 || soc2/lsu/ldq_2_bits_addr_is_virtual == 1'b1 ) &&
+  ( soc2/lsu/ldq_3_bits_uop_br_mask == 1'b0 || soc2/lsu/ldq_3_bits_addr_is_virtual == 1'b1 ) &&
+  ( soc2/lsu/ldq_4_bits_uop_br_mask == 1'b0 || soc2/lsu/ldq_4_bits_addr_is_virtual == 1'b1 ) &&
+  ( soc2/lsu/ldq_5_bits_uop_br_mask == 1'b0 || soc2/lsu/ldq_5_bits_addr_is_virtual == 1'b1 ) &&
+  ( soc2/lsu/ldq_6_bits_uop_br_mask == 1'b0 || soc2/lsu/ldq_6_bits_addr_is_virtual == 1'b1 ) &&
+  ( soc2/lsu/ldq_7_bits_uop_br_mask == 1'b0 || soc2/lsu/ldq_7_bits_addr_is_virtual == 1'b1 ) &&
+  ( soc2/lsu/ldq_8_bits_uop_br_mask == 1'b0 || soc2/lsu/ldq_8_bits_addr_is_virtual == 1'b1 ) &&
+  ( soc2/lsu/ldq_9_bits_uop_br_mask == 1'b0 || soc2/lsu/ldq_9_bits_addr_is_virtual == 1'b1 ) &&
+  ( soc2/lsu/ldq_10_bits_uop_br_mask == 1'b0 || soc2/lsu/ldq_10_bits_addr_is_virtual == 1'b1 ) &&
+  ( soc2/lsu/ldq_11_bits_uop_br_mask == 1'b0 || soc2/lsu/ldq_11_bits_addr_is_virtual == 1'b1 ) &&
+  ( soc2/lsu/ldq_12_bits_uop_br_mask == 1'b0 || soc2/lsu/ldq_12_bits_addr_is_virtual == 1'b1 ) &&
+  ( soc2/lsu/ldq_13_bits_uop_br_mask == 1'b0 || soc2/lsu/ldq_13_bits_addr_is_virtual == 1'b1 ) &&
+  ( soc2/lsu/ldq_14_bits_uop_br_mask == 1'b0 || soc2/lsu/ldq_14_bits_addr_is_virtual == 1'b1 ) &&
+  ( soc2/lsu/ldq_15_bits_uop_br_mask == 1'b0 || soc2/lsu/ldq_15_bits_addr_is_virtual == 1'b1 ) ;
+end macro;
+
 // load address queue
 macro boolean no_pending_access_ldq :=
 
@@ -205,6 +241,7 @@ end macro;
 macro boolean no_pending_secret_access := 
   no_pending_access_dcache &&
   no_pending_access_icache &&
+  speculative_loads_virtual &&
   no_pending_access_ldq &&
   no_pending_access_mshr &&
   no_pending_access_probe &&
