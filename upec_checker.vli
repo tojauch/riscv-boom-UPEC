@@ -252,9 +252,9 @@ end macro;
 
 //loads to the secret in SUPERVISOR_MODE must be speculative 
 macro boolean secret_load_speculative := 
-( ( soc1/lsu/dtlb/io_resp_0_paddr[31:12] == secret_cache_tag || soc1/lsu/io_core_exe_0_req_bits_addr[31:12] == secret_cache_tag ) ? ( soc1/lsu/io_core_exe_0_req_bits_uop_br_mask != 12'h000 ) : ( true ) ) &&
+( ( soc1/lsu/dtlb/io_resp_0_paddr[31:12] == secret_cache_tag ) ? ( soc1/lsu/exe_tlb_uop_0_br_mask != 12'h000 ) : ( true ) ) &&
 //-
-( ( soc2/lsu/dtlb/io_resp_0_paddr[31:12] == secret_cache_tag || soc2/lsu/io_core_exe_0_req_bits_addr[31:12] == secret_cache_tag ) ? ( soc2/lsu/io_core_exe_0_req_bits_uop_br_mask != 12'h000 ) : ( true ) ) ;
+( ( soc2/lsu/dtlb/io_resp_0_paddr[31:12] == secret_cache_tag ) ? ( soc2/lsu/exe_tlb_uop_0_br_mask != 12'h000 ) : ( true ) ) ;
 end macro;
 
 //speculative loads to secret must be a misprediction
