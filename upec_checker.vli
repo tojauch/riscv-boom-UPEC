@@ -2,7 +2,6 @@ include "micro_soc_macro.vli";
 include "blackboxing.vli";
 include "no_pending_access.vli";
 include "UPEC_commitment.vli";
-//include onespin_library.vhi;
 
 macro integer K := 1; end macro;
 
@@ -270,17 +269,9 @@ macro boolean no_speculative_stores :=
   ( ( soc2/lsu/dtlb/io_resp_0_paddr[31:12] == secret_cache_tag ) ? ( soc2/lsu/exe_tlb_uop_0_uses_stq == 1'b0 ) : ( true ) ) ;
 end macro;
 
-/*macro boolean secret_load_speculative :=
-  ( ( soc1/dcache/s1_req_0_addr[31:12] == secret_cache_tag && soc1/dcache/s1_type != 3'b010 ) ? ( soc1/dcache/s1_req_0_uop_br_mask != 12'h0 ) : ( true ) ) &&
-  ( ( soc1/dcache/s2_req_0_addr[31:12] == secret_cache_tag && soc1/dcache/s2_type != 3'b010 ) ? ( soc1/dcache/s2_req_0_uop_br_mask != 12'h0 ) : ( true ) ) &&
-//-
-  ( ( soc2/dcache/s1_req_0_addr[31:12] == secret_cache_tag && soc2/dcache/s1_type != 3'b010 ) ? ( soc2/dcache/s1_req_0_uop_br_mask != 12'h0 ) : ( true ) ) &&
-  ( ( soc2/dcache/s2_req_0_addr[31:12] == secret_cache_tag && soc2/dcache/s2_type != 3'b010 ) ? ( soc2/dcache/s2_req_0_uop_br_mask != 12'h0 ) : ( true ) ) ;
-end macro;*/
-
 macro boolean secret_data_protected := 
   (soc1/core/csr/io_status_dprv == USER_MODE) ? 
-	page_table_protection : (secret_load_speculative && secret_load_mispredicted);
+	page_table_protection : (secret_load_speculative && secret_load_mispredicted && no_speculative_stores);
 end macro;
 
 macro boolean ptw :=
@@ -307,17 +298,9 @@ property UPEC_boom;
 		//from miter.v
 		at t: consistent_br_masks;
 		at t: consistent_buffer_br_masks;
-
 		at t+1: consistent_br_masks;
 		at t+1: consistent_buffer_br_masks;
-
-		//during[t, t+K]: soc1/core/csr/io_status_dprv == USER_MODE;
-		//during[t, t+K]: soc2/core/csr/io_status_dprv == USER_MODE;
-		during[t, t+K]: soc1/core/csr/io_status_dprv == SUPERVISOR_MODE;
-		during[t, t+K]: soc2/core/csr/io_status_dprv == SUPERVISOR_MODE;
-
-		during[t, t+K]: no_speculative_stores; //--> talk about this with Mo
-
+		
 		during[t, t+K]: blackboxing;
 
 		during[t, t+K]: secret_data_protected;
