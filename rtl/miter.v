@@ -4,7 +4,8 @@ module upec_miter (
   input reset,
   input [63:0] data,
   input [63:0] secret1,
-  input [63:0] secret2
+  input [63:0] secret2,
+  input [11:0] root_br_mask
   );
 
   parameter PROTECTED_ADDR = 32'h8abcde00;
@@ -8512,23 +8513,7 @@ assign consistent_buffer_br_masks =
 (soc2.dcache.s2_req_0_uop_uses_stq == 1'b1 ? (stq2_rob_idx[soc2.dcache.s2_req_0_uop_stq_idx][0] == 1'b0 ? soc2.dcache.s2_req_0_uop_br_mask == rob2_br_masks_0[stq2_rob_idx[soc2.dcache.s2_req_0_uop_stq_idx][5:1]] : soc2.dcache.s2_req_0_uop_br_mask == rob2_br_masks_1[stq2_rob_idx[soc2.dcache.s2_req_0_uop_stq_idx][5:1]]) : 1'b1)
 ;
 
-//
-	wire [11:0] root_br_mask;
-	
-	//assign root_br_mask = 12'h800;
 
-	assign root_br_mask =	12'b000000000001 ||
-				12'b000000000010 ||
-				12'b000000000100 ||
-				12'b000000001000 ||
-				12'b000000010000 ||
-				12'b000000100000 ||
-				12'b000001000000 ||
-				12'b000010000000 ||
-				12'b000100000000 ||
-				12'b001000000000 ||
-				12'b010000000000 ||
-				12'b100000000000 ;
 
 
 //*******************************************//

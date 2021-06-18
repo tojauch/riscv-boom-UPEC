@@ -10,6 +10,21 @@ macro integer SUPERVISOR_MODE := 1; end macro;
 
 macro unsigned secret_cache_tag := 20'h8abcd; end macro;
 
+macro boolean root_br_mask_onehot :=
+	( (root_br_mask == 12'b000000000001) ||
+	(root_br_mask == 12'b000000000010) ||
+	(root_br_mask == 12'b000000000100) ||
+	(root_br_mask == 12'b000000001000) ||
+	(root_br_mask == 12'b000000010000) ||
+	(root_br_mask == 12'b000000100000) ||
+	(root_br_mask == 12'b000001000000) ||
+	(root_br_mask == 12'b000010000000) ||
+	(root_br_mask == 12'b000100000000) ||
+	(root_br_mask == 12'b001000000000) ||
+	(root_br_mask == 12'b010000000000) ||
+	(root_br_mask == 12'b100000000000) ) ;
+end macro;
+
 constraint no_reset :=
   !reset;
 end constraint;
@@ -89,42 +104,6 @@ assertion dcache_send_resp :=
   (soc1/dcache/s1_send_resp_or_nack_0 == 1'b0 || soc1/dcache/s1_type == 3'b000 || soc1/dcache/s1_type == 3'b100) &&
   (soc2/dcache/s2_send_resp_0 == 1'b0 || soc2/dcache/s2_type == 3'b000 || soc2/dcache/s2_type == 3'b100) ;
 end assertion;
-
-macro boolean ldq_failure_bit :=
-  (!soc1/lsu/ldq_0_bits_failure || (soc1/lsu/_T_711 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'h0) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'h0)) &&
-  (!soc1/lsu/ldq_1_bits_failure || (soc1/lsu/_T_711 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'h1) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'h1)) &&
-  (!soc1/lsu/ldq_2_bits_failure || (soc1/lsu/_T_711 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'h2) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'h2)) &&
-  (!soc1/lsu/ldq_3_bits_failure || (soc1/lsu/_T_711 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'h3) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'h3)) &&
-  (!soc1/lsu/ldq_4_bits_failure || (soc1/lsu/_T_711 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'h4) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'h4)) &&
-  (!soc1/lsu/ldq_5_bits_failure || (soc1/lsu/_T_711 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'h5) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'h5)) &&
-  (!soc1/lsu/ldq_6_bits_failure || (soc1/lsu/_T_711 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'h6) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'h6)) &&
-  (!soc1/lsu/ldq_7_bits_failure || (soc1/lsu/_T_711 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'h7) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'h7)) &&
-  (!soc1/lsu/ldq_8_bits_failure || (soc1/lsu/_T_711 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'h8) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'h8)) &&
-  (!soc1/lsu/ldq_9_bits_failure || (soc1/lsu/_T_711 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'h9) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'h9)) &&
-  (!soc1/lsu/ldq_10_bits_failure || (soc1/lsu/_T_711 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'ha) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'ha)) &&
-  (!soc1/lsu/ldq_11_bits_failure || (soc1/lsu/_T_711 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'hb) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'hb)) &&
-  (!soc1/lsu/ldq_12_bits_failure || (soc1/lsu/_T_711 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'hc) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'hc)) &&
-  (!soc1/lsu/ldq_13_bits_failure || (soc1/lsu/_T_711 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'hd) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'hd)) &&
-  (!soc1/lsu/ldq_14_bits_failure || (soc1/lsu/_T_711 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'he) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'he)) &&
-  (!soc1/lsu/ldq_15_bits_failure || (soc1/lsu/_T_711 && (soc1/lsu/pf_ld_0 || soc1/lsu/ma_ld_0) && soc1/lsu/ldq_tail == 4'hf) || (soc1/lsu/will_fire_load_retry_0 && soc1/lsu/pf_ld_0 && soc1/lsu/ldq_retry_idx == 4'hf)) &&
-//-
-  (!soc2/lsu/ldq_0_bits_failure || (soc2/lsu/_T_711 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'h0) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'h0)) &&
-  (!soc2/lsu/ldq_1_bits_failure || (soc2/lsu/_T_711 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'h1) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'h1)) &&
-  (!soc2/lsu/ldq_2_bits_failure || (soc2/lsu/_T_711 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'h2) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'h2)) &&
-  (!soc2/lsu/ldq_3_bits_failure || (soc2/lsu/_T_711 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'h3) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'h3)) &&
-  (!soc2/lsu/ldq_4_bits_failure || (soc2/lsu/_T_711 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'h4) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'h4)) &&
-  (!soc2/lsu/ldq_5_bits_failure || (soc2/lsu/_T_711 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'h5) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'h5)) &&
-  (!soc2/lsu/ldq_6_bits_failure || (soc2/lsu/_T_711 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'h6) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'h6)) &&
-  (!soc2/lsu/ldq_7_bits_failure || (soc2/lsu/_T_711 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'h7) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'h7)) &&
-  (!soc2/lsu/ldq_8_bits_failure || (soc2/lsu/_T_711 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'h8) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'h8)) &&
-  (!soc2/lsu/ldq_9_bits_failure || (soc2/lsu/_T_711 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'h9) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'h9)) &&
-  (!soc2/lsu/ldq_10_bits_failure || (soc2/lsu/_T_711 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'ha) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'ha)) &&
-  (!soc2/lsu/ldq_11_bits_failure || (soc2/lsu/_T_711 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'hb) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'hb)) &&
-  (!soc2/lsu/ldq_12_bits_failure || (soc2/lsu/_T_711 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'hc) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'hc)) &&
-  (!soc2/lsu/ldq_13_bits_failure || (soc2/lsu/_T_711 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'hd) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'hd)) &&
-  (!soc2/lsu/ldq_14_bits_failure || (soc2/lsu/_T_711 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'he) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'he)) &&
-  (!soc2/lsu/ldq_15_bits_failure || (soc2/lsu/_T_711 && (soc2/lsu/pf_ld_0 || soc2/lsu/ma_ld_0) && soc2/lsu/ldq_tail == 4'hf) || (soc2/lsu/will_fire_load_retry_0 && soc2/lsu/pf_ld_0 && soc2/lsu/ldq_retry_idx == 4'hf)) ;
-end macro;
 
 macro boolean uses_ldq :=
   (!soc1/core/iregister_read/exe_reg_uops_0_ctrl_is_load || soc1/core/iregister_read/exe_reg_uops_0_uses_ldq) &&
@@ -282,24 +261,23 @@ end macro;
 
 macro boolean dcache_replay :=
   (soc1/dcache/io_lsu_resp_0_bits_data == soc2/dcache/io_lsu_resp_0_bits_data || (soc1/dcache/s2_req_0_addr[31:12] == secret_cache_tag && soc2/dcache/s2_req_0_addr[31:12] == secret_cache_tag)) ;
-  //(soc1/dcache/s2_type != 3'b000 || soc1/dcache/s2_tag_match_way_0 == prev(soc1/dcache/s1_tag_eq_way_0)) &&
-  //(soc2/dcache/s2_type != 3'b000 || soc2/dcache/s2_tag_match_way_0 == prev(soc2/dcache/s1_tag_eq_way_0)) ;
+  //(soc1/dcache/s2_type != 3'b000 || soc1/dcache/s2_tag_match_way_0 == prev(soc1/dcache/s1_tag_eq_way_0)) && // prev(...) == ?
+  //(soc2/dcache/s2_type != 3'b000 || soc2/dcache/s2_tag_match_way_0 == prev(soc2/dcache/s1_tag_eq_way_0)) ;  // prev(...) == ?
 end macro;
 
 property UPEC_boom;
 	dependencies: no_reset, dcache_channel_onehot, tlMaster_one_hot, mshrs_one_hot, stq_bits_committed, valid_frontend_icache, dcache_send_resp;
 
-	assume:
+	freeze:
+		root_br_mask_at_t = root_br_mask@t;
 
+	assume:
 		//at t-1: state_equivalence; //--> take a look into counterexample without equivalence at t-1 (3 cycles)
 		at t: state_equivalence;
 		at t: no_pending_secret_access;
 
-		//from miter.v
-		at t: consistent_br_masks;
-		at t: consistent_buffer_br_masks;
-		at t+1: consistent_br_masks;
-		at t+1: consistent_buffer_br_masks;
+		at t: root_br_mask_onehot;
+		//during[t+1, t+K]: root_br_mask == root_br_mask_at_t;
 		
 		during[t, t+K]: blackboxing;
 
