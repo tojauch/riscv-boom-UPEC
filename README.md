@@ -5,7 +5,7 @@ This repository is outdated! The UPEC Verification Suite and the example on the 
 You will find detailed explanations about our method and framework there.
 
 
-##About UPEC##
+##About UPEC
 
 UPEC (Unique Program Execution Checking) is a formal approach for detecting vulnerabilities to transient execution attacks in out-of-order processors. This technique has been developed by the [Chair of Electronic Design Automation](https://www.eit.uni-kl.de/eis/research/) at RPTU Kaiserslautern, Germany.
 
